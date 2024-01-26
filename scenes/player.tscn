@@ -1,10 +1,50 @@
-[gd_scene load_steps=2 format=3 uid="uid://xge7u5bf81wn"]
+[gd_scene load_steps=7 format=3 uid="uid://xge7u5bf81wn"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_oyjdl"]
+[ext_resource type="Texture2D" uid="uid://dft0kclr7hia2" path="res://art/sprites/character/idle1.svg" id="2_2pyf7"]
+[ext_resource type="Texture2D" uid="uid://bw8pbg78gyijf" path="res://art/sprites/character/idle2.svg" id="3_laytj"]
+[ext_resource type="Texture2D" uid="uid://srx67kptaf2h" path="res://art/sprites/character/idle3.svg" id="4_mw84m"]
+[ext_resource type="Texture2D" uid="uid://be4fg4xb1b5tk" path="res://art/sprites/character/idle4.svg" id="5_lglfq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ngsmw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2pyf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_laytj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mw84m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lglfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mw84m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_laytj")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_oyjdl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(9, 23)
+sprite_frames = SubResource("SpriteFrames_ngsmw")
+animation = &"Idle"
+frame_progress = 0.936563
+speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -8,5 +8,6 @@
 script = ExtResource("1_smj84")
 
 [node name="Player" parent="." instance=ExtResource("2_whd6n")]
+position = Vector2(466, 342)
 
 [node name="HUD" parent="." instance=ExtResource("3_a325v")]
