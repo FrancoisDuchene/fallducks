@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bihsuf8tbrvrk"]
 
-[ext_resource type="Script" path="res://scenes/eddy.gd" id="1_7pnv0"]
+[ext_resource type="Script" path="res://scripts/eddy.gd" id="1_oylo8"]
 [ext_resource type="Texture2D" uid="uid://c1mwpv7m1uw8s" path="res://art/sprites/character/eagle1.svg" id="1_s2two"]
 [ext_resource type="Texture2D" uid="uid://dsxrrs3ki2y45" path="res://art/sprites/character/eagle2.svg" id="2_1myik"]
 
@@ -20,7 +20,7 @@ animations = [{
 
 [node name="eddy" type="RigidBody2D"]
 position = Vector2(-58, 27)
-script = ExtResource("1_7pnv0")
+script = ExtResource("1_oylo8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(60, -17)
