@@ -7,6 +7,11 @@ const fast_scrolling_velocity: float = 600
 const normal_scrolling_velocity: float = 180
 const slow_scrolling_velocity: float = 110
 
+var velocity = Vector2.ZERO
+
+func _on_player_speed_changed(duck_speed):
+	process_speed_update(duck_speed)
+
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
 
@@ -18,6 +23,19 @@ func _ready():
 	# Let's leave to the caller of this object the role of changing its horizontal scale
 	gravity_scale = 0
 	constant_force = Vector2.ZERO
+
+func process_speed_update(duck_speed):
+	var velocity_y = null
+	if duck_speed == DUCK_SPEED.SLOW_THE_FUCK_DOWN:
+		velocity_y = slow_scrolling_velocity
+	elif duck_speed == DUCK_SPEED.THIS_IS_FINE:
+		velocity_y = normal_scrolling_velocity
+	elif duck_speed == DUCK_SPEED.GOTTA_GO_FAST:
+		velocity_y = fast_scrolling_velocity
+	else:
+		print("Fuck you!")
+	self.velocity = Vector2(0, -velocity_y)
+	self.linear_velocity = self.velocity
 
 func scale(x):
 	var ps = $PlatformSprite
@@ -32,12 +50,3 @@ func scale(x):
 		polygon.set(i, polygon[i] * scale_vector)
 	$CollisionPolygon2D.polygon = polygon
 
-func _on_player_speed_changed(duck_speed):
-	if duck_speed == DUCK_SPEED.SLOW_THE_FUCK_DOWN:
-		self.linear_velocity = Vector2(0, -slow_scrolling_velocity)
-	elif duck_speed == DUCK_SPEED.THIS_IS_FINE:
-		self.linear_velocity = Vector2(0, -normal_scrolling_velocity)
-	elif duck_speed == DUCK_SPEED.GOTTA_GO_FAST:
-		self.linear_velocity = Vector2(0, -fast_scrolling_velocity)
-	else:
-		print("Fuck you!")
