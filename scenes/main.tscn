@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://syl0u6sf72n"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_hellx"]
-[ext_resource type="PackedScene" path="res://scenes/rock_platform.tscn" id="2_ovxpo"]
+[ext_resource type="PackedScene" uid="uid://wf8whefloxwv" path="res://scenes/rock_platform.tscn" id="2_ovxpo"]
 [ext_resource type="PackedScene" uid="uid://xge7u5bf81wn" path="res://scenes/player.tscn" id="2_whd6n"]
 [ext_resource type="Script" path="res://scripts/parallax_background.gd" id="3_6etvc"]
 [ext_resource type="PackedScene" uid="uid://dy0lef1kom6ie" path="res://scenes/hud.tscn" id="3_a325v"]
-[ext_resource type="Texture2D" uid="uid://buwosl06wf55c" path="res://art/background-stones.jpg" id="3_rao3p"]
+[ext_resource type="Texture2D" uid="uid://d4hpwiom5g528" path="res://art/background-stones.jpg" id="3_rao3p"]
 
 [sub_resource type="GDScript" id="GDScript_4m0e4"]
 script/source = "extends ParallaxLayer
