@@ -19,7 +19,7 @@ script = ExtResource("1_lckd7")
 [node name="PlatformSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_bjfov")
 
-[node name="CollisionBox" type="CollisionShape2D" parent="."]
+[node name="CollisionBox" type="CollisionShape2D" parent="." groups=["mobs", "rock_platforms"]]
 shape = SubResource("RectangleShape2D_3xjhr")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
