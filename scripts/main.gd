@@ -30,7 +30,6 @@ func _on_player_hit():
 
 func _on_score_timer_timeout():
 	score += score_timer_steps * current_speed # m
-	$Music.pitch_scale += 0.02
 	$HUD.update_score(score)
 	
 func _on_spawn_eagle_timer_timeout():
@@ -87,7 +86,6 @@ func _process(delta):
 func _ready():
 	score_timer_steps = $ScoreTimer.wait_time
 	pass
-	#new_game()
 
 func game_over():
 	$Music.stop()

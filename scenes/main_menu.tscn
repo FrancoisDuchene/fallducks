@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfuxruit6j00y"]
+
+[ext_resource type="FontFile" uid="uid://csrjvx1qph86r" path="res://fonts/xolonium/Xolonium-Regular.ttf" id="1_m0agy"]
+[ext_resource type="Script" path="res://scripts/screens/main_menu.gd" id="1_tu54w"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(3.165, 3.165)
+script = ExtResource("1_tu54w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 1
+offset_right = 228.0
+offset_bottom = 343.0
+
+[node name="Titre" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Fall Ducks
+"
+
+[node name="SinglePlayerButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("1_m0agy")
+theme_override_font_sizes/font_size = 16
+text = "Single Player"
+
+[connection signal="pressed" from="VBoxContainer/SinglePlayerButton" to="." method="_on_single_player_button_pressed"]
