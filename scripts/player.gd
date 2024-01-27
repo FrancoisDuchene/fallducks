@@ -28,9 +28,9 @@ func _on_body_entered(body):
 	$TouchedSound.play()
 	hide()
 	hit.emit()
-	$CollisionShape2D.set_deferred("disabled", true) # Disable to avoid receiving lots of hit signals
+	$CollisionPolygon2D.set_deferred("disabled", true) # Disable to avoid receiving lots of hit signals
 
 func start(pos):
 	position = pos
 	show()
-	$CollisionShape2D.disabled = false
+	$CollisionPolygon2D.disabled = false
