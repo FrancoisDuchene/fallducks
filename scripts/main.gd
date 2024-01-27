@@ -7,6 +7,8 @@ var score: int
 var scrolling_velocity: float = 180
 
 func _on_hud_start_game():
+	$Music.pitch_scale = 0.1
+	$Music.play()
 	new_game()
 
 func _on_player_hit():
@@ -14,6 +16,7 @@ func _on_player_hit():
 
 func _on_score_timer_timeout():
 	score += 1
+	$Music.pitch_scale += 0.02
 	$HUD.update_score(score)
 
 func _on_spawn_rock_platform_timer_timeout():
@@ -45,6 +48,7 @@ func _ready():
 	#new_game()
 
 func game_over():
+	$Music.stop()
 	$ScoreTimer.stop()
 	$SpawnRockPlatformTimer.stop()
 	$HUD.show_game_over()
