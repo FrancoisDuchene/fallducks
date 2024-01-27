@@ -1,5 +1,7 @@
 extends ParallaxBackground
 
+const DUCK_SPEED = preload("res://scripts/enums/duck_speed.gd")
+
 var game_ongoing = false
 var scroll_speed = 150
 
@@ -18,12 +20,12 @@ func _on_main_launch_game():
 func _on__main_stop_game():
 	game_ongoing = false
 	
-func _on_player_gotta_go_fast():
-	scroll_speed = 500
-	
-func _on_player_gotta_go_normal():
-	scroll_speed =  150
-	
-func _on_player_plus_vite_que_l_traiiiinnn():
-	scroll_speed = 75
-	
+func _on_player_speed_changed(duck_speed):
+	if duck_speed == DUCK_SPEED.SLOW_THE_FUCK_DOWN:
+		scroll_speed = 75
+	elif duck_speed == DUCK_SPEED.THIS_IS_FINE:
+		scroll_speed =  150
+	elif duck_speed == DUCK_SPEED.GOTTA_GO_FAST:
+		scroll_speed = 500
+	else:
+		print("Fuck you!")

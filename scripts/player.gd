@@ -1,16 +1,13 @@
 extends Area2D
 
+const DUCK_SPEED = preload("res://scripts/enums/duck_speed.gd")
+
 signal hit
+signal speed_changed
 
 @export var speed = 400
 var screen_size: Vector2
 var default_pos_y = 0
-
-signal gotta_go_fast
-signal gotta_go_normal
-signal plus_vite_que_l_traiiiinnn
-
-
 var last_touch_position = Vector2.ZERO
 
 func _input(event):
@@ -28,13 +25,9 @@ func _input(event):
 
 func _ready():
 	screen_size = get_viewport_rect().size
-	self.gotta_go_fast.connect(get_parent().get_node("ParallaxBackground")._on_player_gotta_go_fast)
-	self.gotta_go_normal.connect(get_parent().get_node("ParallaxBackground")._on_player_gotta_go_normal)
-	self.plus_vite_que_l_traiiiinnn.connect(get_parent().get_node("ParallaxBackground")._on_player_plus_vite_que_l_traiiiinnn)
+	self.speed_changed.connect(get_parent().get_node("ParallaxBackground")._on_player_speed_changed)
 	# music
-	self.gotta_go_fast.connect(get_parent().get_node("Music")._on_player_gotta_go_fast)
-	self.gotta_go_normal.connect(get_parent().get_node("Music")._on_player_gotta_go_normal)
-	self.plus_vite_que_l_traiiiinnn.connect(get_parent().get_node("Music")._on_player_plus_vite_que_l_traiiiinnn)
+	self.speed_changed.connect(get_parent().get_node("Music")._on_player_speed_changed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -44,7 +37,7 @@ func _process(delta):
 	
 	if velocity_y > 0:
 		# Faster speed
-		gotta_go_fast.emit()
+		speed_changed.emit(DUCK_SPEED.GOTTA_GO_FAST)
 		position_y = position_y + 150
 		if abs(velocity_x) > 0:
 			velocity_x *= speed / 1.5
@@ -54,7 +47,7 @@ func _process(delta):
 			#$AnimatedSprite2D.stop() 
 	elif velocity_y < 0:
 		# Slower speed
-		plus_vite_que_l_traiiiinnn.emit()
+		speed_changed.emit(DUCK_SPEED.SLOW_THE_FUCK_DOWN)
 		position_y = position_y - 100
 		if abs(velocity_x) > 0:
 			velocity_x *= speed
@@ -64,7 +57,7 @@ func _process(delta):
 			#$AnimatedSprite2D.stop() 
 	else:
 		# Normal speed
-		gotta_go_normal.emit()
+		speed_changed.emit(DUCK_SPEED.THIS_IS_FINE)
 		if abs(velocity_x) > 0:
 			velocity_x *= speed * 1.2
 			$AnimatedSprite2D.play("TurnNormal")
