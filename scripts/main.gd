@@ -8,6 +8,8 @@ signal stop_game
 @export var mob_scene: PackedScene
 @export var eagle_scene: PackedScene
 
+const Max_Screen_Size = 720 # TODO Déterminer de manière dynamique
+
 const DUCK_SPEED_SLOW = 2.0 # m/s
 const DUCK_SPEED_MEDIUM = 5.0 # m/s
 const DUCK_SPEED_FAST = 10.0 # m/s
@@ -34,7 +36,9 @@ func _on_spawn_eagle_timer_timeout():
 	var eagle_platform = eagle_scene.instantiate()
 	# Choose random x location, along the path
 	var eagle_spawn_location = $EaglePassingBySpawnPath/EagleFollowLocation
-	eagle_spawn_location.progress_ratio = $Player.get_y()
+	var size = get_tree().get_root().size
+	eagle_spawn_location.progress_ratio = 1 - ($Player.get_x()/Max_Screen_Size)
+	print( 1 - $Player.get_x()/Max_Screen_Size)
 	eagle_platform.position = eagle_spawn_location.position
 	# This is a RigidBody, it can move by itself if given an initial velocity
 	eagle_platform.linear_velocity = Vector2(0, scrolling_velocity)
