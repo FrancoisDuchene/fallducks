@@ -2,16 +2,19 @@ extends Area2D
 
 const DUCK_SPEED = preload("res://scripts/enums/duck_speed.gd")
 
-signal hit
+signal dead
 signal speed_changed
+signal hit
 
 @export var speed = 400
 @export var pos_y = 0
 @export var pos_x = 0
+@export var health = 3
 
 var screen_size: Vector2
 var default_pos_y = 0
 var last_touch_position = Vector2.ZERO
+var tempo = 2.0
 
 func _input(event):
 	if event is InputEventScreenTouch:
@@ -40,6 +43,13 @@ func _process(delta):
 	var velocity_x = process_inputs()
 	var velocity_y = Input.get_axis("move_up", "move_down")
 	var position_y = default_pos_y
+	
+	if not $CollisionPolygon2D.call_deferred("disabled"):
+		if tempo < 0:
+			$CollisionPolygon2D.set_deferred("disabled", false)
+			tempo = 2.0
+		else:
+			tempo -= delta
 	
 	if velocity_y > 0:
 		# Faster speed
@@ -87,10 +97,17 @@ func _process(delta):
 	pos_x = position2.x
 
 func _on_body_entered(body):
-	$TouchedSound.play()
-	hide()
 	hit.emit()
+
+func _on_player_hit():
+	health -= 1
+	$TouchedSound.play()
 	$CollisionPolygon2D.set_deferred("disabled", true) # Disable to avoid receiving lots of hit signals
+	if health < 1:
+		hide()
+		dead.emit()
+	
+
 
 func get_velocity_from_screentouch():
 	if last_touch_position == null:

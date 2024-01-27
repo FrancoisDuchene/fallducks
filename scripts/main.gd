@@ -23,7 +23,7 @@ func _on_hud_start_game():
 	$StartSound.pitch_scale = randf_range(0.3, 2.0)
 	$StartSound.play()
 
-func _on_player_hit():
+func _on_player_dead():
 	game_over()
 
 func _on_score_timer_timeout():

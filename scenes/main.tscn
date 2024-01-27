@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://xge7u5bf81wn" path="res://scenes/player.tscn" id="2_whd6n"]
 [ext_resource type="Script" path="res://scripts/parallax_background.gd" id="3_6etvc"]
 [ext_resource type="PackedScene" uid="uid://dy0lef1kom6ie" path="res://scenes/hud.tscn" id="3_a325v"]
-[ext_resource type="PackedScene" path="res://scenes/eddy.tscn" id="3_ku2fx"]
-[ext_resource type="Texture2D" uid="uid://ebmq6kjsx506" path="res://art/sprites/background/background-stones.jpg" id="3_rao3p"]
+[ext_resource type="PackedScene" uid="uid://dke55myu3o51q" path="res://scenes/eddy.tscn" id="3_ku2fx"]
+[ext_resource type="Texture2D" uid="uid://buwosl06wf55c" path="res://art/sprites/background/background-stones.jpg" id="3_rao3p"]
 [ext_resource type="Script" path="res://scripts/music.gd" id="7_7g6hg"]
-[ext_resource type="AudioStream" uid="uid://baapt2oe1weei" path="res://art/audio/music/Zazie.mp3" id="7_pexf5"]
-[ext_resource type="AudioStream" uid="uid://b6ngylfrikqo7" path="res://art/audio/sound/perfect_launch.wav" id="8_ljamj"]
+[ext_resource type="AudioStream" uid="uid://c0ogp0i5qxcob" path="res://art/audio/music/Zazie.mp3" id="7_pexf5"]
+[ext_resource type="AudioStream" uid="uid://b2chxytiipcti" path="res://art/audio/sound/perfect_launch.wav" id="8_ljamj"]
 
 [sub_resource type="GDScript" id="GDScript_4m0e4"]
 script/source = "extends ParallaxLayer
@@ -105,7 +105,8 @@ wait_time = 2.0
 
 [connection signal="launch_game" from="." to="ParallaxBackground" method="_on_main_launch_game"]
 [connection signal="stop_game" from="." to="ParallaxBackground" method="_on__main_stop_game"]
-[connection signal="hit" from="Player" to="." method="_on_player_hit"]
+[connection signal="dead" from="Player" to="." method="_on_player_dead"]
+[connection signal="hit" from="Player" to="Player" method="_on_player_hit"]
 [connection signal="start_game" from="HUD" to="." method="_on_hud_start_game"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="SpawnRockPlatformTimer" to="." method="_on_spawn_rock_platform_timer_timeout"]
