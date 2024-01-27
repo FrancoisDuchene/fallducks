@@ -1,9 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://syl0u6sf72n"]
+[gd_scene load_steps=9 format=3 uid="uid://syl0u6sf72n"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_hellx"]
-[ext_resource type="PackedScene" uid="uid://wf8whefloxwv" path="res://scenes/rock_platform.tscn" id="2_ovxpo"]
+[ext_resource type="PackedScene" path="res://scenes/rock_platform.tscn" id="2_ovxpo"]
 [ext_resource type="PackedScene" uid="uid://xge7u5bf81wn" path="res://scenes/player.tscn" id="2_whd6n"]
+[ext_resource type="Script" path="res://scripts/parallax_background.gd" id="3_6etvc"]
 [ext_resource type="PackedScene" uid="uid://dy0lef1kom6ie" path="res://scenes/hud.tscn" id="3_a325v"]
+[ext_resource type="Texture2D" uid="uid://buwosl06wf55c" path="res://art/background-stones.jpg" id="3_rao3p"]
+
+[sub_resource type="GDScript" id="GDScript_4m0e4"]
+script/source = "extends ParallaxLayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [sub_resource type="Curve2D" id="Curve2D_blw52"]
 _data = {
@@ -15,8 +31,23 @@ point_count = 2
 script = ExtResource("1_hellx")
 mob_scene = ExtResource("2_ovxpo")
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("3_6etvc")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+z_as_relative = false
+texture_repeat = 2
+motion_mirroring = Vector2(0, 2152)
+script = SubResource("GDScript_4m0e4")
+
+[node name="Background-stones" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
+position = Vector2(360, 1084)
+scale = Vector2(0.3125, 0.352865)
+texture = ExtResource("3_rao3p")
+
 [node name="Player" parent="." instance=ExtResource("2_whd6n")]
-position = Vector2(360, 360)
+position = Vector2(355, 250)
 
 [node name="HUD" parent="." instance=ExtResource("3_a325v")]
 
@@ -30,7 +61,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="DuckStartPosition" type="Marker2D" parent="."]
-position = Vector2(360, 360)
+position = Vector2(360, 303)
 
 [node name="BottomRockSpawnPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_blw52")
@@ -39,6 +70,8 @@ curve = SubResource("Curve2D_blw52")
 position = Vector2(640, 1080)
 rotation = 3.14159
 
+[connection signal="launch_game" from="." to="ParallaxBackground" method="_on_main_launch_game"]
+[connection signal="stop_game" from="." to="ParallaxBackground" method="_on__main_stop_game"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="start_game" from="HUD" to="." method="_on_hud_start_game"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
