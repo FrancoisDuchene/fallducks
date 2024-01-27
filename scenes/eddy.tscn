@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dke55myu3o51q"]
+
+[ext_resource type="Script" path="res://scenes/eddy.gd" id="1_7pnv0"]
+[ext_resource type="Texture2D" uid="uid://c5jfy3oufvwc" path="res://art/sprites/character/eagle1.svg" id="1_s2two"]
+[ext_resource type="Texture2D" uid="uid://fwevclvnhovx" path="res://art/sprites/character/eagle2.svg" id="2_1myik"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h5ei6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_s2two")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1myik")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="eddy" type="RigidBody2D"]
+position = Vector2(-58, 27)
+script = ExtResource("1_7pnv0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(60, -17)
+rotation = -0.29147
+scale = Vector2(0.715, 0.715)
+sprite_frames = SubResource("SpriteFrames_h5ei6")
+frame_progress = 0.53064
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-2, 0)
+polygon = PackedVector2Array(-29, 28, -23, 33, -2, 11, 61, -6, 33, 12, 53, 31, 70, 19, 82, -18, 164, -73, 152, -88, -29, -13, -53, 6)
