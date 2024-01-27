@@ -7,13 +7,11 @@ signal stop_game
 
 @export var mob_scene: PackedScene
 
-const DUCK_SPEED_SLOW = 2.0 # m/s
-const DUCK_SPEED_MEDIUM = 5.0 # m/s
-const DUCK_SPEED_FAST = 10.0 # m/s
+const BASE_VELOCITY = 1.0 # m/s
 
 var score: float # m
 var scrolling_velocity: float = 180
-var current_speed = DUCK_SPEED_MEDIUM # m/s
+var current_speed = BASE_VELOCITY * DUCK_SPEED.THIS_IS_FINE # m/s
 var score_timer_steps = 0 # s
 
 func _on_hud_start_game():
@@ -56,14 +54,7 @@ func _on_start_delay_timer_timeout():
 	$ScoreTimer.start()
 	
 func _on_player_speed_changed(duck_speed):
-	if duck_speed == DUCK_SPEED.SLOW_THE_FUCK_DOWN:
-		current_speed = DUCK_SPEED_SLOW
-	elif duck_speed == DUCK_SPEED.THIS_IS_FINE:
-		current_speed = DUCK_SPEED_MEDIUM
-	elif duck_speed == DUCK_SPEED.GOTTA_GO_FAST:
-		current_speed = DUCK_SPEED_FAST
-	else:
-		print("Fuck you!")
+	current_speed = BASE_VELOCITY * duck_speed
 
 func _process(delta):
 	pass
