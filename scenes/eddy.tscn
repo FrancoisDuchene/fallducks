@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bihsuf8tbrvrk"]
 
 [ext_resource type="Script" path="res://scenes/eddy.gd" id="1_7pnv0"]
-[ext_resource type="Texture2D" uid="uid://cm76yqx2iet57" path="res://art/sprites/character/eagle1.svg" id="1_s2two"]
-[ext_resource type="Texture2D" uid="uid://bcrbvqj22nt7x" path="res://art/sprites/character/eagle2.svg" id="2_1myik"]
+[ext_resource type="Texture2D" uid="uid://c1mwpv7m1uw8s" path="res://art/sprites/character/eagle1.svg" id="1_s2two"]
+[ext_resource type="Texture2D" uid="uid://dsxrrs3ki2y45" path="res://art/sprites/character/eagle2.svg" id="2_1myik"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h5ei6"]
 animations = [{

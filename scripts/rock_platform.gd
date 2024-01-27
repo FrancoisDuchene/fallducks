@@ -23,7 +23,7 @@ func scale(x):
 	var collision_polygon = $CollisionPolygon2D
 	var polygon = collision_polygon.polygon
 	var scale_vector = Vector2(x, x)
-	
+
 	ps.scale = scale_vector
 	$VisibleOnScreenNotifier2D.set_scale(scale_vector)
 	# scale each vertex
