@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://xge7u5bf81wn"]
+[gd_scene load_steps=9 format=3 uid="uid://xge7u5bf81wn"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_oyjdl"]
 [ext_resource type="Texture2D" uid="uid://b5w3b1ed145db" path="res://art/sprites/character/idle1.svg" id="2_2pyf7"]
 [ext_resource type="Texture2D" uid="uid://b13npfxa5ee3j" path="res://art/sprites/character/idle2.svg" id="3_laytj"]
 [ext_resource type="Texture2D" uid="uid://ywnpuyw242ki" path="res://art/sprites/character/idle3.svg" id="4_mw84m"]
 [ext_resource type="Texture2D" uid="uid://bjkyhwcq5glr" path="res://art/sprites/character/idle4.svg" id="5_lglfq"]
+[ext_resource type="AudioStream" uid="uid://djyrjbjgu74m1" path="res://art/audio/sound/oisillon.wav" id="6_rht7s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ngsmw"]
 animations = [{
@@ -55,5 +56,8 @@ speed_scale = 2.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
 shape = SubResource("CircleShape2D_aucp3")
+
+[node name="TouchedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_rht7s")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

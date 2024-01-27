@@ -25,6 +25,7 @@ func _process(delta):
 
 
 func _on_body_entered(body):
+	$TouchedSound.play()
 	hide()
 	hit.emit()
 	$CollisionShape2D.set_deferred("disabled", true) # Disable to avoid receiving lots of hit signals

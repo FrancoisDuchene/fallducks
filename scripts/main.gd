@@ -52,4 +52,4 @@ func new_game():
 	$Player.start($DuckStartPosition.position)
 	$StartDelayTimer.start()
 	$HUD.update_score(score)
-	$HUD.show_message("Get Ready")
+	$HUD.show_message("Get Ready", true)

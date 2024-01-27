@@ -12,20 +12,22 @@ func _ready():
 func _process(delta):
 	pass
 
-func show_message(text):
+func show_message(text, use_message_timer: bool):
 	$Message.text = text
 	$Message.show()
-	$MessageTimer.start()
+	if use_message_timer:
+		$MessageTimer.start()
 
 func show_game_over():
-	show_message("Game Over")
+	show_message("Game Over", true)
 	# Wait until the MessageTimer has counted down
 	await $MessageTimer.timeout
 
-	$Message.text = "FLY BABY"
+	$Message.text = "He has fallen :("
 	$Message.show()
 
 	await get_tree().create_timer(1.0).timeout
+	
 	$StartButton.show()
 
 
