@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="86.216942mm"
+   height="32.352016mm"
+   viewBox="0 0 86.216942 32.352016"
+   version="1.1"
+   id="svg53894"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="eagle2.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview53896"
+     pagecolor="#ffffff"
+     bordercolor="#111111"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.69664703"
+     inkscape:cx="363.88586"
+     inkscape:cy="112.6826"
+     inkscape:window-width="1850"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs53891" />
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-8.9234964,-118.65136)">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 17.533513,126.84038 v 0"
+       id="path14032"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#e3dbdb;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 17.533513,126.84038 c 0,0 -2.672114,1.15377 0.561922,4.53828 2.741783,2.86932 7.033483,5.47997 7.033483,5.47997 l 4.739935,2.07955 c 8.591312,2.5301 13.890356,-4.08986 19.372134,-5.65282 4.567955,-1.30239 5.07601,-1.3224 8.875689,-3.37498 8.359483,-4.51579 18.468485,-4.65011 6.919423,-6.48098 -11.549061,-1.83088 -47.502586,3.41098 -47.502586,3.41098"
+       id="path23702"
+       sodipodi:nodetypes="csccsszc"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:0.649177;stroke:#000000;stroke-width:0.805129;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path15331"
+       cx="22.847725"
+       cy="130.08292"
+       rx="2.5650392"
+       ry="1.8527766"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.023;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect16395"
+       width="8.5206995"
+       height="2.0543118"
+       x="-28.023643"
+       y="127.28477"
+       transform="matrix(0.96638089,-0.25711471,0.35131195,0.93625846,0,0)"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#ffcc00;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 17.533513,126.84038 c -8.734759,2.28586 -8.937979,4.56519 -7.926495,7.07161 1.59772,3.95908 10.453058,4.67604 5.611388,0.51571 -2.887437,-2.4811 6.265325,0.94967 9.910516,2.43093 -4.104856,-3.99912 -11.482246,-7.85106 -7.595409,-10.01825 z"
+       id="path14034"
+       sodipodi:nodetypes="csscc"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#ffcc00;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 25.050063,137.207 -7.914006,3.74497 -1.640417,-0.13777 2.164214,2.24022 c 0,0 7.836004,-4.02756 8.184934,-4.17614 0.886392,-0.37741 1.772785,-0.75482 2.659178,-1.13223 l -3.453909,-0.53904 z"
+       id="path29120"
+       sodipodi:nodetypes="ccccsccc"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       inkscape:transform-center-x="4.4127789"
+       inkscape:transform-center-y="2.7983884" />
+    <path
+       style="fill:#808000;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 57.020318,134.9512 -6.524982,5.20079 2.51392,2.36422 15.788271,-12.77587"
+       id="path41646"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#ffff00;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 51.709773,141.35465 -2.547822,2.42687 -1.851967,-2.31682 6.385353,-5.40251 15.10219,-6.32185 -15.788271,12.77587 -2.51392,-2.36422 2.51392,2.36422"
+       id="path41681"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 50.495336,140.15199 6.524982,-5.20079 v 0"
+       id="path41716"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#ffff00;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 47.309984,141.4647 1.851967,2.31682 -0.279259,4.03979 -2.279764,1.71378 -1.311552,-1.69739 2.115141,-1.5124 -1.20467,-2.08639 -1.88702,2.03353 -1.899949,-1.99303 1.404925,-1.0139 -1.398315,-1.29948 -1.067627,1.02626 -1.387393,-1.72326 2.187536,-1.45922 z"
+       id="path41718"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#ffff00;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 50.495336,140.15199 2.51392,2.36422 -0.503647,4.90344 -1.75831,1.6569 -1.400396,-1.23193 1.563264,-1.41377 -1.141823,-1.16997 -1.470067,1.43319 -1.258864,-1.48105 1.427653,-1.32356 -0.849878,-1.17933 -1.583557,1.25667 -1.279224,-1.151 1.790306,-1.5634 3.950623,-1.10041 v 0"
+       id="path41753"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 39.966468,141.26903 -1.66953,2.56764 3.056923,-0.84438 z"
+       id="path41901"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 42.414878,144.27941 1.899949,1.99303 -2.239828,0.8444 0.339879,-2.83743"
+       id="path41969"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 45.291376,147.8377 1.311552,1.69739 -2.326886,0.89323 z"
+       id="path41971"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 44.754407,142.8158 1.279224,1.151"
+       id="path41973"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 50.747299,149.07655 -2.630561,1.39688 0.765954,-2.65212 z"
+       id="path41975"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 48.298277,146.69407 -1.258864,-1.48105 -0.797555,1.69431 2.056419,-0.21326"
+       id="path42010"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 44.754407,142.8158 1.279224,1.151 -1.830204,0.89858 0.55098,-2.04958"
+       id="path42078"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <ellipse
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.599608;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path16841"
+       cx="-52.568977"
+       cy="127.51148"
+       rx="1.0314494"
+       ry="0.57180488"
+       transform="matrix(0.89645645,-0.44313185,0.53921241,0.8421698,0,0)"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 65.073358,134.79989 c 0,0 10.335937,0.2125 9.429659,-0.656 -0.906277,-0.86849 -5.790333,-1.0365 -5.790333,-1.0365 z"
+       id="path45187"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 68.712684,133.10739 c 0,0 9.788429,0.86402 6.644399,-0.25211 -3.144035,-1.11615 -2.880741,-0.97575 -2.880741,-0.97575 z"
+       id="path45191"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 72.476342,131.87953 3.652526,1.02167 c 0,0 2.837473,0.29985 0.983069,-1.1133 -1.854401,-1.41314 -4.635595,0.0916 -4.635595,0.0916 z"
+       id="path45193"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 75.06982,131.00983 5.129369,0.30228 c 0,0 1.551494,-0.76753 -0.06978,-1.36916 -1.621277,-0.60165 -1.621277,-0.60165 -1.621277,-0.60165 z"
+       id="path45209"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 77.644308,132.64186 c 0,0 3.797481,1.02888 2.651178,-0.15317 -1.146306,-1.18195 -1.146306,-1.18195 -1.146306,-1.18195 l -2.549902,-0.27427 z"
+       id="path45213"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#483737;fill-opacity:0.649177;stroke:#000000;stroke-width:0.039313;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
+       d="m 66.748578,134.3854 c 0.243135,-0.0873 0.932565,-0.33556 1.532062,-0.5516 l 1.089995,-0.3928 0.223201,0.0177 c 0.12276,0.01 0.504041,0.0368 0.847291,0.0603 1.293838,0.0882 2.469884,0.2728 3.172479,0.49799 0.286426,0.0918 0.461878,0.16979 0.43696,0.19421 -0.049,0.0481 -0.849752,0.15398 -1.542128,0.20407 -1.110397,0.0803 -3.077027,0.132 -4.953741,0.13016 l -1.248186,-0.001 z"
+       id="path45318"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#483737;fill-opacity:0.649177;stroke:#000000;stroke-width:0.039313;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
+       d="m 66.47178,134.50301 c 0.01938,-0.008 0.680036,-0.24682 1.468112,-0.53135 l 1.432857,-0.51731 0.729218,0.0528 c 1.932957,0.14001 3.02464,0.32373 3.844749,0.64702 0.04021,0.0158 0.06671,0.0391 0.05893,0.0517 -0.01432,0.0232 -0.380987,0.083 -0.808105,0.13188 -1.063937,0.12166 -2.858972,0.18422 -5.20078,0.18126 -0.858129,-0.001 -1.544369,-0.008 -1.524984,-0.016 z"
+       id="path45357"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#483737;fill-opacity:0.649177;stroke:#000000;stroke-width:0.039313;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
+       d="m 73.353562,133.12537 c -0.840975,-0.0341 -1.938969,-0.0961 -2.249334,-0.12691 -0.207379,-0.0206 -0.388758,-0.0378 -0.403057,-0.0383 -0.02141,-5.3e-4 0.52055,-0.21115 1.774281,-0.68891 l 0.162036,-0.0618 0.748097,0.25575 c 1.277914,0.43689 1.824501,0.63511 1.811091,0.65681 -0.01166,0.0188 -1.398581,0.0214 -1.843114,0.003 z"
+       id="path45396"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#483737;fill-opacity:0.649177;stroke:#000000;stroke-width:0.039313;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
+       d="m 72.755477,133.08839 c -0.595258,-0.0298 -1.691164,-0.10224 -1.859054,-0.1229 l -0.1428,-0.0176 0.93968,-0.36062 0.939674,-0.36062 0.295283,0.0978 c 0.722332,0.23933 2.177977,0.75516 2.203732,0.78092 0.01922,0.0192 -1.931503,0.005 -2.376515,-0.017 z"
+       id="path45435"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#483737;fill-opacity:0.649177;stroke:#000000;stroke-width:0.039313;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
+       d="m 76.252997,132.63337 c -0.132261,-0.0245 -2.730257,-0.75208 -2.730294,-0.76461 -2.6e-5,-0.007 0.184239,-0.0849 0.40948,-0.17287 0.476326,-0.18595 0.692902,-0.22589 1.228652,-0.22662 0.385589,-5.2e-4 0.6307,0.0325 0.953148,0.1285 0.197404,0.0588 0.621838,0.2553 0.71142,0.32945 0.02162,0.0179 0.130419,0.1722 0.24175,0.34288 0.175351,0.26883 0.196637,0.31357 0.159166,0.33455 -0.04543,0.0254 -0.861255,0.0495 -0.973322,0.0287 z"
+       id="path45474"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#483737;fill-opacity:0.649177;stroke:#000000;stroke-width:0.039313;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
+       d="m 79.47748,132.73677 c -0.269006,-0.0362 -1.194557,-0.21729 -1.384708,-0.27089 -0.06355,-0.0179 -0.0976,-0.0429 -0.09776,-0.0718 -5.33e-4,-0.13221 -0.278673,-0.48445 -0.557052,-0.70596 -0.09045,-0.072 -0.184857,-0.162 -0.209802,-0.20008 l -0.04537,-0.0692 0.373723,0.0182 c 0.205547,0.01 0.617833,0.0446 0.916194,0.0768 l 0.542476,0.0586 0.56789,0.58368 c 0.312335,0.32103 0.568475,0.59245 0.569189,0.60318 0.0021,0.0305 -0.373825,0.0179 -0.674796,-0.0226 z"
+       id="path45513"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#483737;fill-opacity:0.649177;stroke:#000000;stroke-width:0.039313;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
+       d="m 79.061418,130.96871 c -0.550635,-0.0338 -1.381459,-0.10263 -1.846277,-0.15286 -0.464818,-0.0502 -0.85683,-0.0917 -0.871129,-0.0921 -0.04564,-0.002 0.05331,-0.0487 0.617913,-0.2959 0.303745,-0.13298 0.799909,-0.35561 1.10259,-0.49474 l 0.550331,-0.25296 0.749865,0.2786 c 0.776999,0.28868 0.951513,0.36377 1.094063,0.47074 0.137853,0.10345 0.151881,0.15361 0.07427,0.2656 -0.08875,0.12807 -0.381515,0.34854 -0.449267,0.33833 -0.01166,-0.002 -0.471731,-0.0309 -1.02236,-0.0647 z"
+       id="path45552"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#483737;fill-opacity:0.649177;stroke:#000000;stroke-width:0.039313;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
+       d="m 79.035413,130.95629 c -0.713054,-0.05 -1.495549,-0.11878 -2.233794,-0.19634 l -0.426522,-0.0448 0.179489,-0.0862 c 0.399382,-0.19177 1.927865,-0.87344 2.012755,-0.89765 0.08293,-0.0237 0.153388,-0.002 0.79312,0.23983 0.386159,0.14619 0.77645,0.30087 0.86731,0.34374 0.17428,0.0822 0.341872,0.21181 0.341872,0.26432 0,0.0588 -0.128022,0.20486 -0.278598,0.31791 -0.14949,0.11224 -0.151812,0.11295 -0.358498,0.11023 -0.114415,-0.002 -0.518127,-0.0245 -0.897134,-0.0511 z"
+       id="path45591"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#483737;fill-opacity:0.649177;stroke:#000000;stroke-width:0.039313;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
+       d="m 79.360461,130.96658 c -0.987946,-0.0658 -2.89943,-0.24228 -2.89943,-0.26763 0,-0.0328 2.087447,-0.96174 2.162304,-0.96223 0.08928,-5.3e-4 1.400786,0.49144 1.653245,0.62023 0.14368,0.0733 0.267058,0.18155 0.267058,0.23432 0,0.0445 -0.218339,0.27138 -0.337334,0.35057 -0.05219,0.0348 -0.125508,0.0419 -0.390057,0.0381 -0.179175,-0.003 -0.384274,-0.009 -0.455786,-0.0134 z"
+       id="path45630"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#483737;fill-opacity:0.649177;stroke:#000000;stroke-width:0.039313;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
+       d="m 79.126428,130.94101 c -0.05721,-0.005 -0.39656,-0.0327 -0.754115,-0.062 -0.750084,-0.0613 -1.85899,-0.17149 -1.87372,-0.18623 -0.01763,-0.0176 1.915414,-0.88121 2.094492,-0.93572 0.06177,-0.0188 0.546864,0.14671 1.237418,0.42221 0.422219,0.16844 0.552595,0.23596 0.646304,0.33464 l 0.07619,0.0802 -0.182221,0.18223 -0.18222,0.18222 -0.479059,-0.004 c -0.263478,-0.003 -0.52586,-0.008 -0.583067,-0.0133 z"
+       id="path45669"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#483737;fill-opacity:0.649177;stroke:#000000;stroke-width:0.039313;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
+       d="m 75.771926,132.49136 c -1.058079,-0.29097 -2.159545,-0.60507 -2.177721,-0.621 -0.02764,-0.0242 0.569061,-0.25366 0.821446,-0.31583 0.431411,-0.10626 1.119696,-0.0934 1.58944,0.0296 0.213029,0.0558 0.714626,0.27862 0.803057,0.35674 0.06714,0.0593 0.406993,0.57364 0.406993,0.61594 0,0.047 -0.181544,0.0663 -0.608221,0.0647 -0.357427,-0.002 -0.379038,-0.005 -0.834994,-0.13012 z"
+       id="path45784"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#483737;fill-opacity:0.649177;stroke:#000000;stroke-width:0.039313;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
+       d="m 79.399466,132.71 c -0.439485,-0.0672 -1.285631,-0.24502 -1.342503,-0.28211 -0.03041,-0.0199 -0.0635,-0.0689 -0.0735,-0.10907 -0.0335,-0.13451 -0.256326,-0.39655 -0.597798,-0.70299 -0.09923,-0.089 -0.175159,-0.16716 -0.168731,-0.17359 0.01747,-0.0175 0.724521,0.0318 1.284576,0.0895 l 0.493246,0.0508 0.152387,0.1496 c 0.08381,0.0823 0.340055,0.3456 0.569439,0.58516 l 0.417053,0.43556 -0.243566,-0.003 c -0.133955,-0.002 -0.354728,-0.0195 -0.490599,-0.0403 z"
+       id="path45823"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#483737;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 63.296971,123.47802 c 2.638075,0.26099 12.924335,-1.34054 15.367645,-1.68453 4.389395,-0.61797 4.267184,-0.0674 5.423475,0.40202 7.23377,4.91908 -8.363237,9.30965 -5.579964,7.14579"
+       id="path45928"
+       sodipodi:nodetypes="cscc"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#483737;fill-opacity:0.649177;stroke:#000000;stroke-width:0.00982823;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
+       d="m 69.641511,124.11842 c -0.261764,-0.0986 -0.755388,-0.23637 -1.233211,-0.34435 -0.07579,-0.0172 -0.136692,-0.0322 -0.13534,-0.0336 0.0032,-0.003 3.538981,0.20037 3.559378,0.20509 0.0089,0.002 -0.10223,0.0148 -0.247038,0.0283 -0.559007,0.0521 -1.211493,0.11663 -1.605524,0.15887 -0.116087,0.0125 -0.218477,0.0223 -0.227536,0.0219 -0.0091,-4e-4 -0.05888,-0.0167 -0.110729,-0.0362 z"
+       id="path46099"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#483737;fill-opacity:0.649177;stroke:#000000;stroke-width:0.00982823;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
+       d="m 69.641511,124.11842 c -0.261764,-0.0986 -0.755388,-0.23637 -1.233211,-0.34435 -0.07579,-0.0172 -0.136692,-0.0322 -0.13534,-0.0336 0.0032,-0.003 3.538981,0.20037 3.559378,0.20509 0.0089,0.002 -0.10223,0.0148 -0.247038,0.0283 -0.559007,0.0521 -1.211493,0.11663 -1.605524,0.15887 -0.116087,0.0125 -0.218477,0.0223 -0.227536,0.0219 -0.0091,-4e-4 -0.05888,-0.0167 -0.110729,-0.0362 z"
+       id="path46138"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#483737;fill-opacity:0.649177;stroke:#000000;stroke-width:0.00982823;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
+       d="m 69.540745,124.08119 c -0.107263,-0.0365 -0.275477,-0.0893 -0.373804,-0.1173 -0.178109,-0.0507 -0.61125,-0.16097 -0.768611,-0.19574 -0.04553,-0.0101 -0.08173,-0.0193 -0.08047,-0.0206 0.0032,-0.003 0.860648,0.045 2.406061,0.13489 0.368281,0.0215 0.747122,0.0434 0.841875,0.0488 0.16471,0.009 0.229182,0.0157 0.208034,0.0202 -0.0054,10e-4 -0.195519,0.0198 -0.422565,0.0415 -0.487952,0.0465 -0.967884,0.0942 -1.309494,0.12999 -0.135627,0.0142 -0.259959,0.0256 -0.276292,0.0252 -0.01933,-4e-4 -0.09762,-0.0238 -0.224735,-0.067 z"
+       id="path46140"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#483737;fill-opacity:0.649177;stroke:#000000;stroke-width:0.00982823;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
+       d="m 69.729276,124.13902 c -0.02152,-0.008 -0.384827,-0.1237 -0.455072,-0.14535 -0.128363,-0.0396 -0.350333,-0.0987 -0.62409,-0.16626 -0.135872,-0.0336 -0.258739,-0.0641 -0.273044,-0.0679 -0.02892,-0.008 0.06768,-0.005 0.260039,0.006 0.05721,0.003 0.159602,0.009 0.227536,0.0129 0.160417,0.009 0.482078,0.0271 0.975143,0.0554 0.21811,0.0125 0.474084,0.0272 0.568837,0.0325 0.776328,0.0443 1.295622,0.0756 1.322612,0.0796 0.02514,0.004 -0.03808,0.0117 -0.289297,0.0362 -0.176799,0.0173 -0.377042,0.0369 -0.444975,0.0436 -0.06794,0.007 -0.215671,0.0213 -0.328302,0.0324 -0.223222,0.0219 -0.673932,0.0672 -0.77547,0.0778 -0.06093,0.006 -0.15023,0.008 -0.163917,0.003 z"
+       id="path46179"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#483737;fill-opacity:0.649177;stroke:#000000;stroke-width:0.00982823;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
+       d="m 69.709769,124.13256 c -0.477142,-0.15605 -0.590838,-0.18874 -1.127919,-0.32421 l -0.191774,-0.0484 0.06249,-5.3e-4 c 0.06639,-5.3e-4 0.08288,2.7e-4 1.660265,0.0907 0.90549,0.0519 1.334147,0.077 1.501722,0.0879 0.06535,0.004 0.109217,0.01 0.105926,0.0129 -0.0021,0.002 -0.27365,0.0298 -0.830782,0.0845 -0.09117,0.009 -0.326672,0.0325 -0.52333,0.0523 -0.592558,0.0597 -0.608109,0.0608 -0.656598,0.0449 z"
+       id="path46218"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#916f6f;stroke:#000000;stroke-width:0.602706px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 27.971103,129.19416 c 2.9591,3.5758 3.945146,9.28598 11.067006,9.18848 9.797702,2.46247 16.685956,-0.60834 22.010539,-2.38119 56.528202,-18.82135 -9.177207,-11.30018 -14.167379,-5.99296 -10.606474,-1.82692 -5.528127,-2.16445 -7.814684,-4.50894 z"
+       id="path34719"
+       sodipodi:nodetypes="ccsccc"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#483737;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 80.259272,120.97754 c 3.828817,1.21797 12.092669,-1.9939 12.092669,-1.9939 l 1.07222,1.92781 -9.336072,1.28406 z"
+       id="path48361"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#483737;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 93.424161,120.91145 0.53911,1.57864 -8.259286,1.09927 -1.615896,-1.39385 9.336072,-1.28406"
+       id="path48462"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#483737;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 93.963271,122.49009 0.43617,1.51127 -8.311896,1.06697 c 0,0 -0.38356,-1.47897 -0.38356,-1.47897 z"
+       id="path48497"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#483737;stroke:#000000;stroke-width:0.532559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 94.399441,124.00136 0.4187,2.06203 -9.467642,0.51521 0.737046,-1.51027 8.311896,-1.06697"
+       id="path48499"
+       inkscape:export-filename="/home/guillaume/Documents/Perso/fallducks/art/sprites/character/eagle1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+  </g>
+</svg>
