@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://syl0u6sf72n"]
+[gd_scene load_steps=14 format=3 uid="uid://syl0u6sf72n"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_hellx"]
 [ext_resource type="PackedScene" uid="uid://wf8whefloxwv" path="res://scenes/rock_platform.tscn" id="2_ovxpo"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b6k1ytkyn1ata" path="res://art/sprites/background/background-stones.jpg" id="3_rao3p"]
 [ext_resource type="Script" path="res://scripts/music.gd" id="7_7g6hg"]
 [ext_resource type="AudioStream" uid="uid://c7y8whyny7t8b" path="res://art/audio/music/Zazie.mp3" id="7_pexf5"]
+[ext_resource type="AudioStream" uid="uid://c4stoemrq78ut" path="res://art/audio/sound/perfect_launch.wav" id="8_ljamj"]
 
 [sub_resource type="GDScript" id="GDScript_4m0e4"]
 script/source = "extends ParallaxLayer
@@ -62,6 +63,7 @@ position = Vector2(355, 250)
 [node name="HUD" parent="." instance=ExtResource("3_a325v")]
 
 [node name="ScoreTimer" type="Timer" parent="."]
+wait_time = 0.01
 
 [node name="SpawnRockPlatformTimer" type="Timer" parent="."]
 wait_time = 3.0
@@ -83,6 +85,11 @@ rotation = 3.14159
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_pexf5")
 script = ExtResource("7_7g6hg")
+
+[node name="StartSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ljamj")
+volume_db = 24.0
+pitch_scale = 0.99
 
 [node name="EaglePassingBySpawnPath" type="Path2D" parent="."]
 position = Vector2(0, 701.056)

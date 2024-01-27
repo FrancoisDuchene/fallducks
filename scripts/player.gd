@@ -25,9 +25,12 @@ func _input(event):
 
 func _ready():
 	screen_size = get_viewport_rect().size
+	# background
 	self.speed_changed.connect(get_parent().get_node("ParallaxBackground")._on_player_speed_changed)
 	# music
 	self.speed_changed.connect(get_parent().get_node("Music")._on_player_speed_changed)
+	# score counter
+	self.speed_changed.connect(get_parent()._on_player_speed_changed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
