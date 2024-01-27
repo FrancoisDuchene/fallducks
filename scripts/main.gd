@@ -1,4 +1,6 @@
 extends Node
+signal launch_game
+signal stop_game
 
 @export var mob_scene: PackedScene
 var score: int
@@ -46,6 +48,7 @@ func game_over():
 	$ScoreTimer.stop()
 	$SpawnRockPlatformTimer.stop()
 	$HUD.show_game_over()
+	stop_game.emit()
 
 func new_game():
 	score = 0
@@ -53,3 +56,6 @@ func new_game():
 	$StartDelayTimer.start()
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready", true)
+	launch_game.emit()
+	
+	
