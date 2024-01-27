@@ -14,7 +14,7 @@ func _ready():
 
 func scale(x):
 	var ps = $PlatformSprite
-	var cp = $CollisionPill
+	var cb = $CollisionBox
 	# The icon is 64x64 pixels, we scale it up to 320 x 64 pixels
 	ps.scale = Vector2(x, 1)
-	cp.get_shape().set_height(x * 64)
+	cb.shape.size[0] = x * 128

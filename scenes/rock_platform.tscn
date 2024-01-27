@@ -5,9 +5,9 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3fhys"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o3fl7"]
-radius = 32.0
-height = 64.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xjhr"]
+resource_local_to_scene = true
+size = Vector2(128, 128)
 
 [node name="RockPlatform" type="RigidBody2D"]
 collision_mask = 0
@@ -17,12 +17,10 @@ gravity_scale = 0.0
 script = ExtResource("1_lckd7")
 
 [node name="PlatformSprite" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_bjfov")
 
-[node name="CollisionPill" type="CollisionShape2D" parent="."]
-rotation = -1.5708
-shape = SubResource("CapsuleShape2D_o3fl7")
+[node name="CollisionBox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3xjhr")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
