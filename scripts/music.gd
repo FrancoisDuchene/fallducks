@@ -17,6 +17,6 @@ func _on_player_speed_changed(duck_speed):
 	elif duck_speed == DUCK_SPEED.THIS_IS_FINE:
 		pitch_scale = 1
 	elif duck_speed == DUCK_SPEED.GOTTA_GO_FAST:
-		pitch_scale = 15
+		pitch_scale = 1.5
 	else:
 		print("Fuck you!")
