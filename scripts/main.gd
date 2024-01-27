@@ -68,3 +68,7 @@ func new_game():
 	launch_game.emit()
 	
 	
+
+
+func _on_music_finished():
+	$Music.play()

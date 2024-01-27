@@ -83,3 +83,4 @@ script = ExtResource("7_7g6hg")
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="SpawnRockPlatformTimer" to="." method="_on_spawn_rock_platform_timer_timeout"]
 [connection signal="timeout" from="StartDelayTimer" to="." method="_on_start_delay_timer_timeout"]
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]
