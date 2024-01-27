@@ -38,7 +38,6 @@ func _on_spawn_eagle_timer_timeout():
 	var eagle_spawn_location = $EaglePassingBySpawnPath/EagleFollowLocation
 	var size = get_tree().get_root().size
 	eagle_spawn_location.progress_ratio = 1 - ($Player.get_x()/Max_Screen_Size)
-	print( 1 - $Player.get_x()/Max_Screen_Size)
 	eagle_platform.position = eagle_spawn_location.position
 	# This is a RigidBody, it can move by itself if given an initial velocity
 	eagle_platform.linear_velocity = Vector2(0, scrolling_velocity)
