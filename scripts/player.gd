@@ -31,6 +31,10 @@ func _ready():
 	self.gotta_go_fast.connect(get_parent().get_node("ParallaxBackground")._on_player_gotta_go_fast)
 	self.gotta_go_normal.connect(get_parent().get_node("ParallaxBackground")._on_player_gotta_go_normal)
 	self.plus_vite_que_l_traiiiinnn.connect(get_parent().get_node("ParallaxBackground")._on_player_plus_vite_que_l_traiiiinnn)
+	# music
+	self.gotta_go_fast.connect(get_parent().get_node("Music")._on_player_gotta_go_fast)
+	self.gotta_go_normal.connect(get_parent().get_node("Music")._on_player_gotta_go_normal)
+	self.plus_vite_que_l_traiiiinnn.connect(get_parent().get_node("Music")._on_player_plus_vite_que_l_traiiiinnn)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
