@@ -8,11 +8,14 @@ signal stop_game
 @export var mob_scene: PackedScene
 @export var eagle_scene: PackedScene
 
+
 const BASE_VELOCITY = 1.0 # m/s
+var current_speed = BASE_VELOCITY * DUCK_SPEED.THIS_IS_FINE # m/s
+const Max_Screen_Size = 720 # TODO Déterminer de manière dynamique
 
 var score: float # m
 var scrolling_velocity: float = 180
-var current_speed = BASE_VELOCITY * DUCK_SPEED.THIS_IS_FINE # m/s
+var stats = Stats.new()
 var score_timer_steps = 0 # s
 
 func _on_hud_start_game():
@@ -25,18 +28,20 @@ func _on_player_hit():
 
 func _on_score_timer_timeout():
 	score += score_timer_steps * current_speed # m
-	$Music.pitch_scale += 0.02
 	$HUD.update_score(score)
 	
-func _on_spawn_eagle_timer_timeout():
-	var eagle_platform = eagle_scene.instantiate()
-	# Choose random x location, along the path
-	var eagle_spawn_location = $EaglePassingBySpawnPath/EagleFollowLocation
-	eagle_spawn_location.progress_ratio = randf()
-	eagle_platform.position = eagle_spawn_location.position
-	# This is a RigidBody, it can move by itself if given an initial velocity
-	eagle_platform.linear_velocity = Vector2(0, scrolling_velocity)
-	add_child(eagle_platform)
+func _on_game_event_timer_timeout():
+	var eagle_lotto = randi_range(0,3)
+	if eagle_lotto == 0:
+		var eagle_platform = eagle_scene.instantiate()
+		# Choose random x location, along the path
+		var eagle_spawn_location = $EaglePassingBySpawnPath/EagleFollowLocation
+		var size = get_tree().get_root().size
+		eagle_spawn_location.progress_ratio = 1 - ($Player.get_x()/Max_Screen_Size)
+		eagle_platform.position = eagle_spawn_location.position
+		# This is a RigidBody, it can move by itself if given an initial velocity
+		eagle_platform.linear_velocity = Vector2(0, scrolling_velocity)
+		add_child(eagle_platform)
 
 func _on_spawn_rock_platform_timer_timeout():
 	var rock_platform = mob_scene.instantiate()
@@ -62,7 +67,7 @@ func _on_start_delay_timer_timeout():
 	$Music.pitch_scale = 0.1
 	$Music.play()
 	$SpawnRockPlatformTimer.start()
-	$EagleSpawnTimer.start()
+	$GameEventTimer.start()
 	$ScoreTimer.start()
 	
 func _on_player_speed_changed(duck_speed):
@@ -74,14 +79,15 @@ func _process(delta):
 func _ready():
 	score_timer_steps = $ScoreTimer.wait_time
 	pass
-	#new_game()
 
 func game_over():
 	$Music.stop()
 	$ScoreTimer.stop()
 	$SpawnRockPlatformTimer.stop()
-	$EagleSpawnTimer.stop()
+	$GameEventTimer.stop()
 	$HUD.show_game_over()
+	if stats.update_high_score(score):
+		print("New high score of %d !!" % score)
 	stop_game.emit()
 
 func new_game():
