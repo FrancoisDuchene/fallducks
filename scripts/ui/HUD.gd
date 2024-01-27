@@ -44,5 +44,5 @@ func start_the_game():
 		start_game.emit()
 
 func update_score(score):
-	$ScoreLabel.text = str(score)
+	$ScoreLabel.text = "%.1f m" % score
 

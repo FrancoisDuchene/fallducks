@@ -1,13 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://syl0u6sf72n"]
+[gd_scene load_steps=14 format=3 uid="uid://syl0u6sf72n"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_hellx"]
 [ext_resource type="PackedScene" uid="uid://wf8whefloxwv" path="res://scenes/rock_platform.tscn" id="2_ovxpo"]
 [ext_resource type="PackedScene" uid="uid://xge7u5bf81wn" path="res://scenes/player.tscn" id="2_whd6n"]
 [ext_resource type="Script" path="res://scripts/parallax_background.gd" id="3_6etvc"]
 [ext_resource type="PackedScene" uid="uid://dy0lef1kom6ie" path="res://scenes/hud.tscn" id="3_a325v"]
-[ext_resource type="Texture2D" uid="uid://buwosl06wf55c" path="res://art/sprites/background/background-stones.jpg" id="3_rao3p"]
+[ext_resource type="PackedScene" uid="uid://dke55myu3o51q" path="res://scenes/eddy.tscn" id="3_ku2fx"]
+[ext_resource type="Texture2D" uid="uid://b6k1ytkyn1ata" path="res://art/sprites/background/background-stones.jpg" id="3_rao3p"]
 [ext_resource type="Script" path="res://scripts/music.gd" id="7_7g6hg"]
-[ext_resource type="AudioStream" uid="uid://c0ogp0i5qxcob" path="res://art/audio/music/Zazie.mp3" id="7_pexf5"]
+[ext_resource type="AudioStream" uid="uid://c7y8whyny7t8b" path="res://art/audio/music/Zazie.mp3" id="7_pexf5"]
+[ext_resource type="AudioStream" uid="uid://c4stoemrq78ut" path="res://art/audio/sound/perfect_launch.wav" id="8_ljamj"]
 
 [sub_resource type="GDScript" id="GDScript_4m0e4"]
 script/source = "extends ParallaxLayer
@@ -29,9 +31,16 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="Curve2D" id="Curve2D_hcd0y"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 720, 3, 0, 0, 0, 0, 0, 0)
+}
+point_count = 2
+
 [node name="Main" type="Node"]
 script = ExtResource("1_hellx")
 mob_scene = ExtResource("2_ovxpo")
+eagle_scene = ExtResource("3_ku2fx")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("3_6etvc")
@@ -54,6 +63,7 @@ position = Vector2(355, 250)
 [node name="HUD" parent="." instance=ExtResource("3_a325v")]
 
 [node name="ScoreTimer" type="Timer" parent="."]
+wait_time = 0.01
 
 [node name="SpawnRockPlatformTimer" type="Timer" parent="."]
 wait_time = 3.0
@@ -76,6 +86,23 @@ rotation = 3.14159
 stream = ExtResource("7_pexf5")
 script = ExtResource("7_7g6hg")
 
+[node name="StartSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ljamj")
+volume_db = 24.0
+pitch_scale = 0.99
+
+[node name="EaglePassingBySpawnPath" type="Path2D" parent="."]
+position = Vector2(0, -1.00012)
+scale = Vector2(1, 0.00142665)
+curve = SubResource("Curve2D_hcd0y")
+
+[node name="EagleFollowLocation" type="PathFollow2D" parent="EaglePassingBySpawnPath"]
+position = Vector2(720, 3)
+rotation = -3.13743
+
+[node name="EagleSpawnTimer" type="Timer" parent="."]
+wait_time = 2.15
+
 [connection signal="launch_game" from="." to="ParallaxBackground" method="_on_main_launch_game"]
 [connection signal="stop_game" from="." to="ParallaxBackground" method="_on__main_stop_game"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
@@ -84,3 +111,4 @@ script = ExtResource("7_7g6hg")
 [connection signal="timeout" from="SpawnRockPlatformTimer" to="." method="_on_spawn_rock_platform_timer_timeout"]
 [connection signal="timeout" from="StartDelayTimer" to="." method="_on_start_delay_timer_timeout"]
 [connection signal="finished" from="Music" to="." method="_on_music_finished"]
+[connection signal="timeout" from="EagleSpawnTimer" to="." method="_on_spawn_eagle_timer_timeout"]

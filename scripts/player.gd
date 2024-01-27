@@ -6,6 +6,9 @@ signal hit
 signal speed_changed
 
 @export var speed = 400
+@export var pos_y = 0
+@export var pos_x = 0
+
 var screen_size: Vector2
 var default_pos_y = 0
 var last_touch_position = Vector2.ZERO
@@ -25,9 +28,12 @@ func _input(event):
 
 func _ready():
 	screen_size = get_viewport_rect().size
+	# background
 	self.speed_changed.connect(get_parent().get_node("ParallaxBackground")._on_player_speed_changed)
 	# music
 	self.speed_changed.connect(get_parent().get_node("Music")._on_player_speed_changed)
+	# score counter
+	self.speed_changed.connect(get_parent()._on_player_speed_changed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -78,6 +84,7 @@ func _process(delta):
 	
 	position = position.lerp(position2, delta*5)
 	position = position.clamp(Vector2.ZERO, screen_size)
+	pos_x = position2.x
 
 func _on_body_entered(body):
 	$TouchedSound.play()
@@ -107,3 +114,6 @@ func start(pos):
 	default_pos_y = pos.y
 	show()
 	$CollisionPolygon2D.disabled = false
+	
+func get_x():
+	return pos_x

@@ -2,9 +2,9 @@ extends RigidBody2D
 
 const DUCK_SPEED = preload("res://scripts/enums/duck_speed.gd")
 
-var fast_scrolling_velocity: float = 600
-var normal_scrolling_velocity: float = 180
-var slow_scrolling_velocity: float = 110
+const fast_scrolling_velocity: float = 600
+const normal_scrolling_velocity: float = 180
+const slow_scrolling_velocity: float = 110
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
