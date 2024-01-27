@@ -44,6 +44,11 @@ move_right={
 ]
 }
 
+[physics]
+
+3d/default_gravity=9.8
+2d/default_linear_damp=0.0
+
 [rendering]
 
 renderer/rendering_method="mobile"

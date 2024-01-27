@@ -1,11 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://syl0u6sf72n"]
+[gd_scene load_steps=6 format=3 uid="uid://syl0u6sf72n"]
 
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_hellx"]
+[ext_resource type="PackedScene" uid="uid://wf8whefloxwv" path="res://scenes/rock_platform.tscn" id="2_ovxpo"]
 [ext_resource type="PackedScene" uid="uid://xge7u5bf81wn" path="res://scenes/player.tscn" id="2_whd6n"]
 [ext_resource type="PackedScene" uid="uid://dy0lef1kom6ie" path="res://scenes/hud.tscn" id="3_a325v"]
 
+[sub_resource type="Curve2D" id="Curve2D_blw52"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 640, 1080, 0, 0, 0, 0, 64, 1080)
+}
+point_count = 2
+
 [node name="Main" type="Node"]
+script = ExtResource("1_hellx")
+mob_scene = ExtResource("2_ovxpo")
 
 [node name="Player" parent="." instance=ExtResource("2_whd6n")]
-position = Vector2(466, 342)
+position = Vector2(360, 360)
 
 [node name="HUD" parent="." instance=ExtResource("3_a325v")]
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="SpawnRockPlatformTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="StartDelayTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="DuckStartPosition" type="Marker2D" parent="."]
+position = Vector2(360, 360)
+
+[node name="BottomRockSpawnPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_blw52")
+
+[node name="RockFollowLocation" type="PathFollow2D" parent="BottomRockSpawnPath"]
+position = Vector2(640, 1080)
+rotation = 3.14159
+
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]
+[connection signal="start_game" from="HUD" to="." method="_on_hud_start_game"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="timeout" from="SpawnRockPlatformTimer" to="." method="_on_spawn_rock_platform_timer_timeout"]
+[connection signal="timeout" from="StartDelayTimer" to="." method="_on_start_delay_timer_timeout"]

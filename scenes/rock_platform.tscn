@@ -1,12 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://wf8whefloxwv"]
+[gd_scene load_steps=5 format=3 uid="uid://wf8whefloxwv"]
+
+[ext_resource type="Texture2D" uid="uid://ddt3rpkdvxh64" path="res://icon.svg" id="1_bjfov"]
+[ext_resource type="Script" path="res://scripts/rock_platform.gd" id="1_lckd7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3fhys"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o3fl7"]
+radius = 32.0
+height = 64.0
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="RockPlatform" type="RigidBody2D"]
+collision_mask = 0
+mass = 0.01
+physics_material_override = SubResource("PhysicsMaterial_3fhys")
+gravity_scale = 0.0
+script = ExtResource("1_lckd7")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="PlatformSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_bjfov")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionPill" type="CollisionShape2D" parent="."]
+rotation = -1.5708
 shape = SubResource("CapsuleShape2D_o3fl7")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
