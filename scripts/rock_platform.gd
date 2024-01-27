@@ -1,8 +1,10 @@
 extends RigidBody2D
 
-var fast_scrolling_velocity: float = 300
+const DUCK_SPEED = preload("res://scripts/enums/duck_speed.gd")
+
+var fast_scrolling_velocity: float = 600
 var normal_scrolling_velocity: float = 180
-var slow_scrolling_velocity: float = 100
+var slow_scrolling_velocity: float = 110
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
@@ -29,11 +31,12 @@ func scale(x):
 		polygon.set(i, polygon[i] * scale_vector)
 	$CollisionPolygon2D.polygon = polygon
 
-func _on_player_gotta_go_fast():
-	self.linear_velocity = Vector2(0, -fast_scrolling_velocity)
-	
-func _on_player_gotta_go_normal():
-	linear_velocity = Vector2(0, -normal_scrolling_velocity)
-	
-func _on_player_plus_vite_que_l_traiiiinnn():
-	linear_velocity = Vector2(0, -slow_scrolling_velocity)
+func _on_player_speed_changed(duck_speed):
+	if duck_speed == DUCK_SPEED.SLOW_THE_FUCK_DOWN:
+		self.linear_velocity = Vector2(0, -slow_scrolling_velocity)
+	elif duck_speed == DUCK_SPEED.THIS_IS_FINE:
+		self.linear_velocity = Vector2(0, -normal_scrolling_velocity)
+	elif duck_speed == DUCK_SPEED.GOTTA_GO_FAST:
+		self.linear_velocity = Vector2(0, -fast_scrolling_velocity)
+	else:
+		print("Fuck you!")

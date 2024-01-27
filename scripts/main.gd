@@ -3,6 +3,7 @@ signal launch_game
 signal stop_game
 
 @export var mob_scene: PackedScene
+
 var score: int
 var scrolling_velocity: float = 180
 
@@ -35,6 +36,9 @@ func _on_spawn_rock_platform_timer_timeout():
 	rock_platform.linear_velocity = Vector2(0, -scrolling_velocity)
 
 	add_child(rock_platform)
+	
+	# Listen to speed changes	
+	$Player.speed_changed.connect(rock_platform._on_player_speed_changed)
 
 func _on_start_delay_timer_timeout():
 	$SpawnRockPlatformTimer.start()
