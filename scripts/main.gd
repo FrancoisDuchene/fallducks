@@ -34,7 +34,7 @@ func _on_spawn_eagle_timer_timeout():
 	var eagle_platform = eagle_scene.instantiate()
 	# Choose random x location, along the path
 	var eagle_spawn_location = $EaglePassingBySpawnPath/EagleFollowLocation
-	eagle_spawn_location.progress_ratio = randf()
+	eagle_spawn_location.progress_ratio = $Player.get_y()
 	eagle_platform.position = eagle_spawn_location.position
 	# This is a RigidBody, it can move by itself if given an initial velocity
 	eagle_platform.linear_velocity = Vector2(0, scrolling_velocity)

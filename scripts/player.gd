@@ -6,6 +6,8 @@ signal hit
 signal speed_changed
 
 @export var speed = 400
+@export var pos_y = 0
+
 var screen_size: Vector2
 var default_pos_y = 0
 var last_touch_position = Vector2.ZERO
@@ -81,6 +83,7 @@ func _process(delta):
 	
 	position = position.lerp(position2, delta*5)
 	position = position.clamp(Vector2.ZERO, screen_size)
+	pos_y = position_y
 
 func _on_body_entered(body):
 	$TouchedSound.play()
@@ -110,3 +113,6 @@ func start(pos):
 	default_pos_y = pos.y
 	show()
 	$CollisionPolygon2D.disabled = false
+	
+func get_y():
+	return pos_y
