@@ -66,9 +66,6 @@ func new_game():
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready", true)
 	launch_game.emit()
-	
-	
-
 
 func _on_music_finished():
 	$Music.play()
