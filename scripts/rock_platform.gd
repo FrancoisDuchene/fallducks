@@ -2,6 +2,7 @@ extends RigidBody2D
 
 const DUCK_SPEED = preload("res://scripts/enums/duck_speed.gd")
 
+# TODO move this to some global context
 const fast_scrolling_velocity: float = 600
 const normal_scrolling_velocity: float = 180
 const slow_scrolling_velocity: float = 110

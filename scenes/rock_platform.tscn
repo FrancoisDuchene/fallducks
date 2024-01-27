@@ -3,13 +3,12 @@
 [ext_resource type="Script" path="res://scripts/rock_platform.gd" id="1_lckd7"]
 [ext_resource type="Texture2D" uid="uid://5jt674evxkw" path="res://art/sprites/other/rock1.png" id="2_knmqa"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3fhys"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k6efp"]
+rough = true
 
 [node name="RockPlatform" type="RigidBody2D" groups=["mobs", "rock_platforms"]]
 collision_mask = 0
-mass = 0.01
-physics_material_override = SubResource("PhysicsMaterial_3fhys")
-gravity_scale = 0.0
+physics_material_override = SubResource("PhysicsMaterial_k6efp")
 script = ExtResource("1_lckd7")
 
 [node name="PlatformSprite" type="Sprite2D" parent="."]
