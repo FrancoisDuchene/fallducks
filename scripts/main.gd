@@ -6,6 +6,7 @@ signal launch_game
 signal stop_game
 
 @export var mob_scene: PackedScene
+@export var eagle_scene: PackedScene
 
 const BASE_VELOCITY = 1.0 # m/s
 
@@ -26,6 +27,16 @@ func _on_score_timer_timeout():
 	score += score_timer_steps * current_speed # m
 	$Music.pitch_scale += 0.02
 	$HUD.update_score(score)
+	
+func _on_spawn_eagle_timer_timeout():
+	var eagle_platform = eagle_scene.instantiate()
+	# Choose random x location, along the path
+	var eagle_spawn_location = $EaglePassingBySpawnPath/EagleFollowLocation
+	eagle_spawn_location.progress_ratio = randf()
+	eagle_platform.position = eagle_spawn_location.position
+	# This is a RigidBody, it can move by itself if given an initial velocity
+	eagle_platform.linear_velocity = Vector2(0, scrolling_velocity)
+	add_child(eagle_platform)
 
 func _on_spawn_rock_platform_timer_timeout():
 	var rock_platform = mob_scene.instantiate()
@@ -51,6 +62,7 @@ func _on_start_delay_timer_timeout():
 	$Music.pitch_scale = 0.1
 	$Music.play()
 	$SpawnRockPlatformTimer.start()
+	$EagleSpawnTimer.start()
 	$ScoreTimer.start()
 	
 func _on_player_speed_changed(duck_speed):
@@ -68,6 +80,7 @@ func game_over():
 	$Music.stop()
 	$ScoreTimer.stop()
 	$SpawnRockPlatformTimer.stop()
+	$EagleSpawnTimer.stop()
 	$HUD.show_game_over()
 	stop_game.emit()
 
