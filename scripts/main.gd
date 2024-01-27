@@ -52,6 +52,7 @@ func game_over():
 
 func new_game():
 	score = 0
+	get_tree().call_group("mobs", "queue_free")
 	$Player.start($DuckStartPosition.position)
 	$StartDelayTimer.start()
 	$HUD.update_score(score)

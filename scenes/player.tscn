@@ -33,16 +33,10 @@ animations = [{
 "name": &"IdleSlow",
 "speed": 5.0
 }, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_2pyf7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_laytj")
-}],
+"frames": [],
 "loop": true,
 "name": &"TurnFast",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -69,22 +63,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_2pyf7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_laytj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_mw84m")
-}, {
-"duration": 1.0,
 "texture": ExtResource("5_lglfq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_mw84m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_laytj")
 }],
 "loop": true,
 "name": &"TurnSlow",
