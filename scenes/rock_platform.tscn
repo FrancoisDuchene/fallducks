@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://cafjtreyv5g0o"]
 
 [ext_resource type="Script" path="res://scripts/rock_platform.gd" id="1_lckd7"]
-[ext_resource type="Texture2D" uid="uid://b7r6mqhuo1l7v" path="res://art/sprites/other/rock1.png" id="2_knmqa"]
+[ext_resource type="Texture2D" uid="uid://5jt674evxkw" path="res://art/sprites/other/rock1.png" id="2_knmqa"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3fhys"]
 
-[node name="RockPlatform" type="RigidBody2D"]
+[node name="RockPlatform" type="RigidBody2D" groups=["mobs", "rock_platforms"]]
 collision_mask = 0
 mass = 0.01
 physics_material_override = SubResource("PhysicsMaterial_3fhys")
