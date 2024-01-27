@@ -1,14 +1,49 @@
 [gd_scene load_steps=8 format=3 uid="uid://xge7u5bf81wn"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_oyjdl"]
-[ext_resource type="Texture2D" uid="uid://b5w3b1ed145db" path="res://art/sprites/character/idle1.svg" id="2_2pyf7"]
-[ext_resource type="Texture2D" uid="uid://b13npfxa5ee3j" path="res://art/sprites/character/idle2.svg" id="3_laytj"]
-[ext_resource type="Texture2D" uid="uid://ywnpuyw242ki" path="res://art/sprites/character/idle3.svg" id="4_mw84m"]
-[ext_resource type="Texture2D" uid="uid://bjkyhwcq5glr" path="res://art/sprites/character/idle4.svg" id="5_lglfq"]
-[ext_resource type="AudioStream" uid="uid://djyrjbjgu74m1" path="res://art/audio/sound/oisillon.wav" id="6_rht7s"]
+[ext_resource type="Texture2D" uid="uid://c4d7fn3c3ti55" path="res://art/sprites/character/idle1.svg" id="2_2pyf7"]
+[ext_resource type="Texture2D" uid="uid://uu1nv8l0b3wy" path="res://art/sprites/character/idle2.svg" id="3_laytj"]
+[ext_resource type="Texture2D" uid="uid://pt88ug4wyra7" path="res://art/sprites/character/idle3.svg" id="4_mw84m"]
+[ext_resource type="Texture2D" uid="uid://c1skwce860w8r" path="res://art/sprites/character/idle4.svg" id="5_lglfq"]
+[ext_resource type="AudioStream" uid="uid://ckpoqgej173bh" path="res://art/audio/sound/oisillon.wav" id="6_rht7s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ngsmw"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2pyf7")
+}],
+"loop": true,
+"name": &"IdleFast",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_laytj")
+}],
+"loop": true,
+"name": &"IdleNormal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_mw84m")
+}],
+"loop": true,
+"name": &"IdleSlow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2pyf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_laytj")
+}],
+"loop": true,
+"name": &"TurnFast",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_2pyf7")
@@ -29,7 +64,30 @@ animations = [{
 "texture": ExtResource("3_laytj")
 }],
 "loop": true,
-"name": &"Idle",
+"name": &"TurnNormal",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2pyf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_laytj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mw84m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lglfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mw84m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_laytj")
+}],
+"loop": true,
+"name": &"TurnSlow",
 "speed": 5.0
 }, {
 "frames": [],
@@ -46,8 +104,7 @@ metadata/_edit_group_ = true
 position = Vector2(0, 14)
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_ngsmw")
-animation = &"Idle"
-frame_progress = 0.936563
+animation = &"IdleSlow"
 speed_scale = 2.0
 
 [node name="TouchedSound" type="AudioStreamPlayer" parent="."]
