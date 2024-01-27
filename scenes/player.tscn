@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://xge7u5bf81wn"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_oyjdl"]
-[ext_resource type="Texture2D" uid="uid://4k5bwknpr373" path="res://art/sprites/character/idle1.svg" id="2_2pyf7"]
-[ext_resource type="Texture2D" uid="uid://cq61rpekeh1pl" path="res://art/sprites/character/idle2.svg" id="3_laytj"]
-[ext_resource type="Texture2D" uid="uid://dkn5pd726vc5w" path="res://art/sprites/character/idle3.svg" id="4_mw84m"]
-[ext_resource type="Texture2D" uid="uid://dso310jtchwwd" path="res://art/sprites/character/idle4.svg" id="5_lglfq"]
-[ext_resource type="AudioStream" uid="uid://ct1iti1ll6ufp" path="res://art/audio/sound/oisillon.wav" id="6_rht7s"]
+[ext_resource type="Texture2D" uid="uid://c4d7fn3c3ti55" path="res://art/sprites/character/idle1.svg" id="2_2pyf7"]
+[ext_resource type="Texture2D" uid="uid://uu1nv8l0b3wy" path="res://art/sprites/character/idle2.svg" id="3_laytj"]
+[ext_resource type="Texture2D" uid="uid://pt88ug4wyra7" path="res://art/sprites/character/idle3.svg" id="4_mw84m"]
+[ext_resource type="Texture2D" uid="uid://c1skwce860w8r" path="res://art/sprites/character/idle4.svg" id="5_lglfq"]
+[ext_resource type="AudioStream" uid="uid://ckpoqgej173bh" path="res://art/audio/sound/oisillon.wav" id="6_rht7s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ngsmw"]
 animations = [{
@@ -33,16 +33,10 @@ animations = [{
 "name": &"IdleSlow",
 "speed": 5.0
 }, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_2pyf7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_laytj")
-}],
+"frames": [],
 "loop": true,
 "name": &"TurnFast",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -69,22 +63,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_2pyf7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_laytj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_mw84m")
-}, {
-"duration": 1.0,
 "texture": ExtResource("5_lglfq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_mw84m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_laytj")
 }],
 "loop": true,
 "name": &"TurnSlow",
