@@ -1,15 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://wf8whefloxwv"]
+[gd_scene load_steps=4 format=3 uid="uid://wf8whefloxwv"]
 
-[ext_resource type="Texture2D" uid="uid://ddt3rpkdvxh64" path="res://icon.svg" id="1_bjfov"]
 [ext_resource type="Script" path="res://scripts/rock_platform.gd" id="1_lckd7"]
+[ext_resource type="Texture2D" uid="uid://d0mpr18530xf1" path="res://art/sprites/other/rock1.png" id="2_knmqa"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3fhys"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xjhr"]
-resource_local_to_scene = true
-size = Vector2(128, 128)
-
-[node name="RockPlatform" type="RigidBody2D"]
+[node name="RockPlatform" type="RigidBody2D" groups=["mobs", "rock_platforms"]]
 collision_mask = 0
 mass = 0.01
 physics_material_override = SubResource("PhysicsMaterial_3fhys")
@@ -17,11 +13,12 @@ gravity_scale = 0.0
 script = ExtResource("1_lckd7")
 
 [node name="PlatformSprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_bjfov")
-
-[node name="CollisionBox" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_3xjhr")
+texture = ExtResource("2_knmqa")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-350, -350, 700, 700)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(194, -259, 275, -83, 318, 70, 284, 214, 35, 266, -247, 245, -316, 183, -228, 2, -246, -24, -212, -111, -155, -161, -125, -225, -75, -240, 92, -256, 94, -266, 164, -272)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
