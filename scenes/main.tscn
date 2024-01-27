@@ -33,9 +33,9 @@ point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_hcd0y"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 720, 3, 0, 0, 0, 0, 677, 701, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 720, 3, 0, 0, 0, 0, 0, 0)
 }
-point_count = 3
+point_count = 2
 
 [node name="Main" type="Node"]
 script = ExtResource("1_hellx")
@@ -92,13 +92,13 @@ volume_db = 24.0
 pitch_scale = 0.99
 
 [node name="EaglePassingBySpawnPath" type="Path2D" parent="."]
-position = Vector2(0, 701.056)
-scale = Vector2(1, -7.93649e-05)
+position = Vector2(0, -1.00012)
+scale = Vector2(1, 0.00142665)
 curve = SubResource("Curve2D_hcd0y")
 
 [node name="EagleFollowLocation" type="PathFollow2D" parent="EaglePassingBySpawnPath"]
 position = Vector2(720, 3)
-rotation = 1.63232
+rotation = -3.13743
 
 [node name="EagleSpawnTimer" type="Timer" parent="."]
 wait_time = 2.15
