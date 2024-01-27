@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://xge7u5bf81wn" path="res://scenes/player.tscn" id="2_whd6n"]
 [ext_resource type="Script" path="res://scripts/parallax_background.gd" id="3_6etvc"]
 [ext_resource type="PackedScene" uid="uid://dy0lef1kom6ie" path="res://scenes/hud.tscn" id="3_a325v"]
-[ext_resource type="Texture2D" uid="uid://d2te78vc5jyua" path="res://art/sprites/background/background-stones.jpg" id="3_rao3p"]
+[ext_resource type="Texture2D" uid="uid://buwosl06wf55c" path="res://art/sprites/background/background-stones.jpg" id="3_rao3p"]
 [ext_resource type="Script" path="res://scripts/music.gd" id="7_7g6hg"]
-[ext_resource type="AudioStream" uid="uid://dcbavyak14uul" path="res://art/audio/music/Zazie.mp3" id="7_pexf5"]
+[ext_resource type="AudioStream" uid="uid://c0ogp0i5qxcob" path="res://art/audio/music/Zazie.mp3" id="7_pexf5"]
 
 [sub_resource type="GDScript" id="GDScript_4m0e4"]
 script/source = "extends ParallaxLayer

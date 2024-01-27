@@ -6,6 +6,7 @@ signal stop_game
 
 var score: int
 var scrolling_velocity: float = 180
+var stats = Stats.new()
 
 func _on_hud_start_game():
 	$Music.pitch_scale = 0.1
@@ -56,6 +57,8 @@ func game_over():
 	$ScoreTimer.stop()
 	$SpawnRockPlatformTimer.stop()
 	$HUD.show_game_over()
+	if stats.update_high_score(score):
+		print("New high score of %d !!" % score)
 	stop_game.emit()
 
 func new_game():
