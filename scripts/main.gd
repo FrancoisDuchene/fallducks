@@ -1,22 +1,31 @@
 extends Node
+
+const DUCK_SPEED = preload("res://scripts/enums/duck_speed.gd")
+
 signal launch_game
 signal stop_game
 
 @export var mob_scene: PackedScene
 
-var score: int
+const DUCK_SPEED_SLOW = 2.0 # m/s
+const DUCK_SPEED_MEDIUM = 5.0 # m/s
+const DUCK_SPEED_FAST = 10.0 # m/s
+
+var score: float # m
 var scrolling_velocity: float = 180
+var current_speed = DUCK_SPEED_MEDIUM # m/s
+var score_timer_steps = 0 # s
 
 func _on_hud_start_game():
-	$Music.pitch_scale = 0.1
-	$Music.play()
 	new_game()
+	$StartSound.pitch_scale = randf_range(0.3, 2.0)
+	$StartSound.play()
 
 func _on_player_hit():
 	game_over()
 
 func _on_score_timer_timeout():
-	score += 1
+	score += score_timer_steps * current_speed # m
 	$Music.pitch_scale += 0.02
 	$HUD.update_score(score)
 
@@ -41,13 +50,26 @@ func _on_spawn_rock_platform_timer_timeout():
 	$Player.speed_changed.connect(rock_platform._on_player_speed_changed)
 
 func _on_start_delay_timer_timeout():
+	$Music.pitch_scale = 0.1
+	$Music.play()
 	$SpawnRockPlatformTimer.start()
 	$ScoreTimer.start()
+	
+func _on_player_speed_changed(duck_speed):
+	if duck_speed == DUCK_SPEED.SLOW_THE_FUCK_DOWN:
+		current_speed = DUCK_SPEED_SLOW
+	elif duck_speed == DUCK_SPEED.THIS_IS_FINE:
+		current_speed = DUCK_SPEED_MEDIUM
+	elif duck_speed == DUCK_SPEED.GOTTA_GO_FAST:
+		current_speed = DUCK_SPEED_FAST
+	else:
+		print("Fuck you!")
 
 func _process(delta):
 	pass
 
 func _ready():
+	score_timer_steps = $ScoreTimer.wait_time
 	pass
 	#new_game()
 
