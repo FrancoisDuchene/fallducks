@@ -14,7 +14,13 @@ func _ready():
 
 func scale(x):
 	var ps = $PlatformSprite
-	var cb = $CollisionBox
-	# The icon is 64x64 pixels, we scale it up to 320 x 64 pixels
-	ps.scale = Vector2(x, 1)
-	cb.shape.size[0] = x * 128
+	var collision_polygon = $CollisionPolygon2D
+	var polygon = collision_polygon.polygon
+	var scale_vector = Vector2(x, x)
+	
+	ps.scale = scale_vector
+	$VisibleOnScreenNotifier2D.set_scale(scale_vector)
+	# scale each vertex
+	for i in polygon.size():
+		polygon.set(i, polygon[i] * scale_vector)
+	$CollisionPolygon2D.polygon = polygon

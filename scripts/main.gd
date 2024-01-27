@@ -20,7 +20,7 @@ func _on_spawn_rock_platform_timer_timeout():
 	var rock_platform = mob_scene.instantiate()
 
 	# Use a random length for the platform, within bounds, 2-5
-	var scale_multiplier = (randf() * 3) + 2
+	var scale_multiplier = (randf() * 0.2) + 0.2
 	rock_platform.scale(scale_multiplier)
 
 	# Choose random x location, along the path
