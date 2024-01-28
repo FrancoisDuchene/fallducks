@@ -7,7 +7,8 @@ signal stop_game
 
 @export var mob_scene: PackedScene
 @export var eagle_scene: PackedScene
-@export var tree_scene: PackedScene
+@export var left_tree_scene: PackedScene
+@export var right_tree_scene: PackedScene
 
 @onready var joystick = $joystick
 
@@ -83,14 +84,23 @@ func _on_eagle_spawn_timer_timeout():
 	add_child(eagle_platform)
 
 func spawn_tree():
-	var tree_platform = tree_scene.instantiate()
-	# First flip a coin to see if we generate a tree on left side
 	var tree_spawn_location = $TreeSpawn/TreeFollow
-	tree_spawn_location.progress_ratio = 1.0
-	tree_platform.position = tree_spawn_location.position
-	# This is a RigidBody, it can move by itself if given an initial velocity
-	tree_platform.linear_velocity = Vector2(0, -scrolling_velocity)
-	add_child(tree_platform)
+	# First flip a coin to see if we generate a tree on left side
+	if (randi_range(0,2) >= 1):
+		var tree_platform = left_tree_scene.instantiate()
+		tree_spawn_location.progress_ratio = 1.0
+		tree_platform.position = tree_spawn_location.position
+		# This is a RigidBody, it can move by itself if given an initial velocity
+		tree_platform.linear_velocity = Vector2(0, -4*scrolling_velocity)
+		add_child(tree_platform)
+	# Second flip a coin to see if we generate a tree on right side
+	if (randi_range(0,2) >= 1):
+		var tree_platform = right_tree_scene.instantiate()
+		tree_spawn_location.progress_ratio = 0.0
+		tree_platform.position = tree_spawn_location.position
+		# This is a RigidBody, it can move by itself if given an initial velocity
+		tree_platform.linear_velocity = Vector2(0, -4*scrolling_velocity)
+		add_child(tree_platform)
 
 func spawn_rock():
 	var rock_platform = mob_scene.instantiate()
