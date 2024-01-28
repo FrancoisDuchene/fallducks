@@ -19,17 +19,18 @@ var current_speed = BASE_VELOCITY * DUCK_SPEED.THIS_IS_FINE # m/seconds
 var current_duck_speed_state = DUCK_SPEED.THIS_IS_FINE
 const Max_Screen_Size = 720 # TODO Déterminer de manière dynamique
 
+var nbr_of_death_count = 0
 var score: float # m
 var scrolling_velocity: float = 180
 var stats = Stats.new()
 var score_timer_steps = 0 # seconds
 var current_difficulty = 1
+var is_goose_shown = false
 
 func _on_hud_start_game():
 	new_game()
-	if GlobalProperties.audio_on:
-		$StartSound.pitch_scale = randf_range(0.3, 2.0)
-		$StartSound.play()
+	$StartSound.pitch_scale = randf_range(0.3, 2.0)
+	$StartSound.play()
 
 func _on_player_dead():
 	game_over()
@@ -126,6 +127,9 @@ func game_over():
 	$SpawnRockPlatformTimer.stop()
 	$GameEventTimer.stop()
 	$HUD.show_game_over()
+	nbr_of_death_count += 1
+	if (nbr_of_death_count > 5 or score <= 100) and true: #randi_range(0,2) == 0:
+		make_judging_goose_appears()
 	if stats.update_high_score(score):
 		print("New high score of %d !!" % score)
 	stop_game.emit()
@@ -137,8 +141,15 @@ func new_game():
 	$StartDelayTimer.start()
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready", true)
+	if is_goose_shown:
+		$AnimationPlayerGoose.play("goose_dissapear")
+		is_goose_shown = false
 	launch_game.emit()
 
 func _on_music_finished():
 	if GlobalProperties.audio_on:
 		$Music.play()
+		
+func make_judging_goose_appears():
+	$AnimationPlayerGoose.play("goose_appear")
+	is_goose_shown = true
