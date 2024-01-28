@@ -7,6 +7,7 @@ signal stop_game
 
 @export var mob_scene: PackedScene
 @export var eagle_scene: PackedScene
+@onready var joystick = $joystick
 
 
 const BASE_VELOCITY = 1.0 # m/s
@@ -47,7 +48,7 @@ func _on_eagle_spawn_timer_timeout():
 	# Choose random x location, along the path
 	var eagle_spawn_location = $EaglePassingBySpawnPath/EagleFollowLocation
 	var size = get_tree().get_root().size
-	eagle_spawn_location.progress_ratio = 1 - ($Player.get_x()/Max_Screen_Size)
+	eagle_spawn_location.progress_ratio = 1 - ($Player.pos_x/Max_Screen_Size)
 	eagle_platform.position = eagle_spawn_location.position
 	# This is a RigidBody, it can move by itself if given an initial velocity
 	eagle_platform.linear_velocity = Vector2(0, scrolling_velocity)
