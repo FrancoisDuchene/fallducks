@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/ui/HUD.gd" id="1_6kagt"]
 [ext_resource type="FontFile" uid="uid://csrjvx1qph86r" path="res://fonts/xolonium/Xolonium-Regular.ttf" id="2_3nsej"]
-[ext_resource type="Texture2D" uid="uid://cm76yqx2iet57" path="res://art/sprites/character/eagle1.svg" id="3_ktay7"]
+[ext_resource type="Texture2D" uid="uid://bk5qvq6agm3my" path="res://art/sprites/character/eagle1.svg" id="3_ktay7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bgp1q"]
 animations = [{

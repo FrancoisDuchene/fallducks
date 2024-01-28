@@ -11,3 +11,15 @@ func _process(delta):
 
 func _on_single_player_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
+
+
+func _on_option_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/options.tscn")
+	
+
+func _on_credit_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/credits.tscn")
+
+
+func _on_quit_button_pressed():
+	get_tree().quit()
