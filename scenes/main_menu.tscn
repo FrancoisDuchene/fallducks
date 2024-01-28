@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/screens/main_menu.gd" id="1_tu54w"]
 [ext_resource type="PackedScene" uid="uid://78r8aayx75rh" path="res://scenes/ui/main_menu_button.tscn" id="2_ve7e8"]
-[ext_resource type="FontFile" uid="uid://h4edjg3lt2ha" path="res://fonts/cambriab.ttf" id="3_k0f8f"]
+[ext_resource type="FontFile" uid="uid://bgt0uecru401d" path="res://fonts/BluebirdLi.otf" id="3_qqr8d"]
 
 [sub_resource type="Gradient" id="Gradient_2mbhc"]
 colors = PackedColorArray(0.901961, 0.392157, 0.486275, 1, 1, 1, 1, 1)
@@ -99,7 +99,7 @@ offset_bottom = 152.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("3_k0f8f")
+theme_override_fonts/font = ExtResource("3_qqr8d")
 theme_override_font_sizes/font_size = 128
 text = "Fall Ducks
 "
