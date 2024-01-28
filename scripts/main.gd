@@ -96,8 +96,7 @@ func spawn_rock():
 
 # Lowest difficult = 1, 2 = twice the difficulty, etc.
 func update_current_difficulty(score: float):
-	current_difficulty = (score / 500) + 1
-	current_difficulty = min(1, current_difficulty)
+	current_difficulty = log(score/400+1)+1
 
 func _on_start_delay_timer_timeout():
 	if GlobalProperties.audio_on:
@@ -142,6 +141,17 @@ func new_game():
 		$AnimationPlayerGoose.play("goose_dissapear")
 		is_goose_shown = false
 	launch_game.emit()
+	handle_hearts()
+
+func _on_player_health_update():
+	handle_hearts()
+
+func handle_hearts():
+	$Heartfilled.visible = $Player.health >= 1
+	$Heartfilled2.visible = $Player.health >= 2
+	$Heartfilled3.visible = $Player.health >= 3
+	$Heartfilled4.visible = $Player.health >= 4
+		
 
 func _on_music_finished():
 	if GlobalProperties.audio_on:

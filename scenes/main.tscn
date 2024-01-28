@@ -10,7 +10,9 @@
 [ext_resource type="Script" path="res://scripts/music.gd" id="7_7g6hg"]
 [ext_resource type="AudioStream" uid="uid://w5xnsfkcq1q3" path="res://art/audio/music/Zazie.mp3" id="7_pexf5"]
 [ext_resource type="AudioStream" uid="uid://b1bbqlixdxmln" path="res://art/audio/sound/perfect_launch.wav" id="8_ljamj"]
-[ext_resource type="PackedScene" path="res://scenes/joystick.tscn" id="11_w8bmd"]
+[ext_resource type="PackedScene" uid="uid://t0r5d21tf6g8" path="res://scenes/joystick.tscn" id="11_w8bmd"]
+[ext_resource type="Texture2D" uid="uid://b0w6a3mf67804" path="res://art/sprites/ui/heart-filled.svg" id="12_mrdme"]
+[ext_resource type="Texture2D" uid="uid://ver2ebe2oipl" path="res://art/sprites/ui/heart-empty.svg" id="13_fg8xt"]
 [ext_resource type="Texture2D" uid="uid://bcomupb8v8k6s" path="res://art/sprites/other/oie_qui_te_juge.png" id="12_upwb6"]
 
 [sub_resource type="GDScript" id="GDScript_4m0e4"]
@@ -248,9 +250,50 @@ visible = false
 position = Vector2(339, 1422)
 texture = ExtResource("12_upwb6")
 
+[node name="Heartfilled" type="Sprite2D" parent="."]
+position = Vector2(680, 45)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("12_mrdme")
+
+[node name="Heartfilled2" type="Sprite2D" parent="."]
+position = Vector2(680, 90)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("12_mrdme")
+
+[node name="Heartfilled3" type="Sprite2D" parent="."]
+position = Vector2(680, 135)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("12_mrdme")
+
+[node name="Heartfilled4" type="Sprite2D" parent="."]
+position = Vector2(680, 180)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("12_mrdme")
+
+[node name="Heart-empty" type="Sprite2D" parent="."]
+position = Vector2(680, 45)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("13_fg8xt")
+
+[node name="Heart-empty2" type="Sprite2D" parent="."]
+position = Vector2(680, 90)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("13_fg8xt")
+
+[node name="Heart-empty3" type="Sprite2D" parent="."]
+position = Vector2(680, 135)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("13_fg8xt")
+
+[node name="Heart-empty4" type="Sprite2D" parent="."]
+position = Vector2(680, 180)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("13_fg8xt")
+
 [connection signal="launch_game" from="." to="ParallaxBackground" method="_on_main_launch_game"]
 [connection signal="stop_game" from="." to="ParallaxBackground" method="_on__main_stop_game"]
 [connection signal="dead" from="Player" to="." method="_on_player_dead"]
+[connection signal="health_update" from="Player" to="." method="_on_player_health_update"]
 [connection signal="hit" from="Player" to="Player" method="_on_player_hit"]
 [connection signal="start_game" from="HUD" to="." method="_on_hud_start_game"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

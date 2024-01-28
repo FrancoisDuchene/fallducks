@@ -5,6 +5,7 @@ const DUCK_SPEED = preload("res://scripts/enums/duck_speed.gd")
 signal dead
 signal speed_changed
 signal hit
+signal health_update
 
 const MAX_HEALTH = 4
 const MAX_TEMPO = 3.0
@@ -87,7 +88,9 @@ func _on_body_entered(body):
 
 func _on_player_hit():
 	health -= 1
-	$TouchedSound.play()
+	health_update.emit()
+	if GlobalProperties.audio_on:
+		$TouchedSound.play()
 	$CollisionPolygon2D.set_deferred("disabled", true) # Disable to avoid receiving lots of hit signals
 	if health < 1:
 		hide()
@@ -128,6 +131,7 @@ func start(pos):
 	default_pos_y = pos.y
 	show()
 	$CollisionPolygon2D.disabled = false
+
 
 func choose_sprite(speed, turn, health):
 	match speed:
