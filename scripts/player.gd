@@ -20,7 +20,13 @@ const SPEED = 400
 var screen_size: Vector2
 var default_pos_y = 0
 var last_touch_position = Vector2.ZERO
+var player_speed_mode = DUCK_SPEED.THIS_IS_FINE
+var previous_speed_mode = DUCK_SPEED.THIS_IS_FINE
 
+
+func _on_player_speed_changed(duck_speed):
+	print("Received signal of speed change: ", duck_speed)
+	self.player_speed_mode = duck_speed
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -32,46 +38,49 @@ func _ready():
 	self.speed_changed.connect(get_parent()._on_player_speed_changed)
 		
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var velocity = process_inputs()
-	var position_y = default_pos_y
-	
+	var velocity_x = process_inputs()
+	var moving = abs(velocity_x) > 0
+
 	if not $CollisionPolygon2D.call_deferred("disabled"):
 		if tempo < 0:
 			$CollisionPolygon2D.set_deferred("disabled", false)
 			tempo = MAX_TEMPO
 		else:
 			tempo -= delta
-	
-	if velocity.y > 0:
-		# Faster speed
-		speed_changed.emit(DUCK_SPEED.GOTTA_GO_FAST)
-		position_y = position_y + 150
-		if abs(velocity.x) > 0:
-			velocity.x *= SPEED / 1.5
-		choose_sprite("fast", abs(velocity.x) > 0, health)
-	elif velocity.y < 0:
-		# Slower speed
-		speed_changed.emit(DUCK_SPEED.SLOW_THE_FUCK_DOWN)
-		position_y = position_y - 100
-		if abs(velocity.x) > 0:
-			velocity.x *= SPEED
-		choose_sprite("slow", abs(velocity.x) > 0, health)
-	else:
-		# Normal speed
-		speed_changed.emit(DUCK_SPEED.THIS_IS_FINE)
-		if abs(velocity.x) > 0:
-			velocity.x *= SPEED * 1.2
-		choose_sprite("normal", abs(velocity.x) > 0, health)
-	
-	position += Vector2(velocity.x, 0) * delta
+
+	var stable_position_y = default_pos_y
+	# will contain the stable position's height (up when slow, down when fast, middle when normal)
+	# when not accelerating towards its stable position
+	match player_speed_mode:
+		DUCK_SPEED.GOTTA_GO_FAST:
+			stable_position_y = stable_position_y + 150
+			if moving:
+				velocity_x *= SPEED / 1.5
+			choose_sprite("fast", moving, health)
+		DUCK_SPEED.SLOW_THE_FUCK_DOWN:
+			stable_position_y = stable_position_y - 100
+			if moving:
+				velocity_x *= SPEED
+			choose_sprite("slow", moving, health)
+		DUCK_SPEED.THIS_IS_FINE:
+			if moving:
+				velocity_x *= SPEED * 1.2
+			choose_sprite("normal", moving, health)
+
+	var velocity = Vector2(velocity_x, 0)
+	 # This is the actual position before we try to accelerate it to its stable position;
+	# it may be offset from the stable position and needs to be brought back progressively
+	position += velocity * delta
+
+	# Copy the position and change it to reflect the stable position
 	var position2 = position
-	position2.y = position_y
+	position2.y = stable_position_y
+
+	# Interpolate; it takes 0.2s to reach the stable position
 	position = position.lerp(position2, delta*5)
 	position = position.clamp(Vector2.ZERO, screen_size)
 	pos_x = position2.x
-
 
 func _on_body_entered(body):
 	hit.emit()
@@ -84,13 +93,34 @@ func _on_player_hit():
 		hide()
 		dead.emit()
 
-func process_inputs():
+func get_inputs() -> Vector2:
 	var velocity: Vector2 = joystick.posVector
 	if velocity.length() > 0:
 		return velocity
 	var velocity_x = Input.get_axis("move_left", "move_right")
 	var velocity_y = Input.get_axis("move_up", "move_down")
 	return Vector2(velocity_x, velocity_y)
+
+func process_inputs():
+	# Get inputs
+	var velocity_vector = get_inputs()
+
+	# Post-process input y
+	var mode = null
+	if velocity_vector.y < 0:
+		# Slow down
+		mode = DUCK_SPEED.SLOW_THE_FUCK_DOWN
+	elif velocity_vector.y > 0:
+		# Speed up
+		mode = DUCK_SPEED.GOTTA_GO_FAST
+	else:
+		# Normal speed
+		mode = DUCK_SPEED.THIS_IS_FINE
+	if previous_speed_mode != mode:
+		speed_changed.emit(mode)
+	previous_speed_mode = mode
+	self.player_speed_mode = mode
+	return velocity_vector.x
 
 func start(pos):
 	health = MAX_HEALTH
