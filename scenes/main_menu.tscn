@@ -1,47 +1,110 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfuxruit6j00y"]
+[gd_scene load_steps=13 format=3 uid="uid://bfuxruit6j00y"]
 
-[ext_resource type="FontFile" uid="uid://csrjvx1qph86r" path="res://fonts/xolonium/Xolonium-Regular.ttf" id="1_m0agy"]
 [ext_resource type="Script" path="res://scripts/screens/main_menu.gd" id="1_tu54w"]
+[ext_resource type="PackedScene" uid="uid://78r8aayx75rh" path="res://scenes/ui/main_menu_button.tscn" id="2_ve7e8"]
+[ext_resource type="FontFile" uid="uid://h4edjg3lt2ha" path="res://fonts/cambriab.ttf" id="3_k0f8f"]
+
+[sub_resource type="Gradient" id="Gradient_2mbhc"]
+colors = PackedColorArray(0.901961, 0.392157, 0.486275, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tkgch"]
+gradient = SubResource("Gradient_2mbhc")
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_7wcny"]
+colors = PackedColorArray(0.901961, 0.392157, 0.486275, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iunv5"]
+gradient = SubResource("Gradient_7wcny")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_akjpu"]
+colors = PackedColorArray(0.901961, 0.392157, 0.486275, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fkanv"]
+gradient = SubResource("Gradient_akjpu")
+fill_from = Vector2(1, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_1vlkq"]
+colors = PackedColorArray(0.901961, 0.392157, 0.486275, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_12vti"]
+gradient = SubResource("Gradient_1vlkq")
+fill_from = Vector2(0, 1)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_26pas"]
+frames = 4
+frame_0/texture = SubResource("GradientTexture2D_tkgch")
+frame_0/duration = 0.1
+frame_1/texture = SubResource("GradientTexture2D_iunv5")
+frame_1/duration = 0.1
+frame_2/texture = SubResource("GradientTexture2D_fkanv")
+frame_2/duration = 0.1
+frame_3/texture = SubResource("GradientTexture2D_12vti")
+frame_3/duration = 0.1
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-scale = Vector2(3.165, 3.165)
 script = ExtResource("1_tu54w")
 
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(401, 537)
+scale = Vector2(15, 20)
+texture = SubResource("AnimatedTexture_26pas")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(100, 200)
 layout_mode = 1
-offset_right = 228.0
-offset_bottom = 343.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 143.0
+offset_top = 387.0
+offset_right = 593.0
+offset_bottom = 759.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Titre" type="Label" parent="VBoxContainer"]
+[node name="SinglePlayerButton" parent="VBoxContainer" instance=ExtResource("2_ve7e8")]
 layout_mode = 2
-size_flags_horizontal = 4
-text = "Fall Ducks
-"
-
-[node name="SinglePlayerButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_fonts/font = ExtResource("1_m0agy")
-theme_override_font_sizes/font_size = 16
 text = "Single Player"
 
-[node name="CreditButton" type="Button" parent="VBoxContainer"]
+[node name="CreditButton" parent="VBoxContainer" instance=ExtResource("2_ve7e8")]
 layout_mode = 2
 text = "Credits"
 
-[node name="OptionButton" type="Button" parent="VBoxContainer"]
+[node name="SettingsButton" parent="VBoxContainer" instance=ExtResource("2_ve7e8")]
 layout_mode = 2
 text = "Settings"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
+[node name="QuitButton" parent="VBoxContainer" instance=ExtResource("2_ve7e8")]
 layout_mode = 2
-text = "Quitter"
+text = "Quit"
+
+[node name="Titre" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = 1.0
+offset_right = 661.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_k0f8f")
+theme_override_font_sizes/font_size = 128
+text = "Fall Ducks
+"
 
 [connection signal="pressed" from="VBoxContainer/SinglePlayerButton" to="." method="_on_single_player_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/CreditButton" to="." method="_on_credit_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

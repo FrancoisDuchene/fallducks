@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://78r8aayx75rh"]
+
+[ext_resource type="FontFile" uid="uid://csrjvx1qph86r" path="res://fonts/xolonium/Xolonium-Regular.ttf" id="1_jpwhl"]
+
+[node name="MainMenuButton" type="Button"]
+custom_minimum_size = Vector2(450, 90)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_jpwhl")
+theme_override_font_sizes/font_size = 64
