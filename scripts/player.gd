@@ -9,12 +9,12 @@ signal hit
 @export var speed = 400
 @export var pos_y = 0
 @export var pos_x = 0
-@export var health = 3
+@export var health = 4
 
 var screen_size: Vector2
 var default_pos_y = 0
 var last_touch_position = Vector2.ZERO
-var tempo = 2.0
+var tempo = 4.0
 
 func _input(event):
 	if event is InputEventScreenTouch:
@@ -47,7 +47,7 @@ func _process(delta):
 	if not $CollisionPolygon2D.call_deferred("disabled"):
 		if tempo < 0:
 			$CollisionPolygon2D.set_deferred("disabled", false)
-			tempo = 2.0
+			tempo = 4.0
 		else:
 			tempo -= delta
 	
@@ -57,36 +57,21 @@ func _process(delta):
 		position_y = position_y + 150
 		if abs(velocity_x) > 0:
 			velocity_x *= speed / 1.5
-			$AnimatedSprite2D.play("TurnFast")
-		else:
-			$AnimatedSprite2D.play("IdleFast")
-			#$AnimatedSprite2D.stop() 
+		choose_sprite("fast", abs(velocity_x) > 0, health)
 	elif velocity_y < 0:
 		# Slower speed
 		speed_changed.emit(DUCK_SPEED.SLOW_THE_FUCK_DOWN)
 		position_y = position_y - 100
 		if abs(velocity_x) > 0:
 			velocity_x *= speed
-			$AnimatedSprite2D.play("TurnSlow")
-		else:
-			$AnimatedSprite2D.play("IdleSlow")
-			#$AnimatedSprite2D.stop() 
+		choose_sprite("slow", abs(velocity_x) > 0, health)
 	else:
 		# Normal speed
 		speed_changed.emit(DUCK_SPEED.THIS_IS_FINE)
 		if abs(velocity_x) > 0:
 			velocity_x *= speed * 1.2
-			$AnimatedSprite2D.play("TurnNormal")
-		else:
-			$AnimatedSprite2D.play("IdleNormal")
-			#$AnimatedSprite2D.stop() 
+		choose_sprite("normal", abs(velocity_x) > 0, health)
 	
-	# If the player presses both buttons, he doesn't move I guess?
-	#if abs(velocity_x) > 0:
-		#velocity_x *= speed
-		#$AnimatedSprite2D.play("TurnNormal")
-	#else:
-		#$AnimatedSprite2D.stop()
 	var velocity = Vector2(velocity_x, 0)
 	position += velocity * delta
 	var position2 = position
@@ -95,6 +80,76 @@ func _process(delta):
 	position = position.lerp(position2, delta*5)
 	position = position.clamp(Vector2.ZERO, screen_size)
 	pos_x = position2.x
+
+func choose_sprite(speed, turn, health):
+	match speed:
+		"slow":
+			match health:
+				4:
+					if turn:
+						$AnimatedSprite2D.play("TurnSlowHurt0")
+					else:
+						$AnimatedSprite2D.play("IdleSlowHurt0")
+				3:
+					if turn:
+						$AnimatedSprite2D.play("TurnSlowHurt1")
+					else:
+						$AnimatedSprite2D.play("IdleSlowHurt1")
+				2:
+					if turn:
+						$AnimatedSprite2D.play("TurnSlowHurt2")
+					else:
+						$AnimatedSprite2D.play("IdleSlowHurt2")
+				1:
+					if turn:
+						$AnimatedSprite2D.play("TurnSlowHurt3")
+					else:
+						$AnimatedSprite2D.play("IdleSlowHurt3")
+		"normal":
+			match health:
+				4:
+					if turn:
+						$AnimatedSprite2D.play("TurnNormalHurt0")
+					else:
+						$AnimatedSprite2D.play("IdleNormalHurt0")
+				3:
+					if turn:
+						$AnimatedSprite2D.play("TurnNormalHurt1")
+					else:
+						$AnimatedSprite2D.play("IdleNormalHurt1")
+				2:
+					if turn:
+						$AnimatedSprite2D.play("TurnNormalHurt2")
+					else:
+						$AnimatedSprite2D.play("IdleNormalHurt2")
+				1:
+					if turn:
+						$AnimatedSprite2D.play("TurnNormalHurt3")
+					else:
+						$AnimatedSprite2D.play("IdleNormalHurt3")
+		"fast":
+			match health:
+				4:
+					if turn:
+						$AnimatedSprite2D.play("TurnFastHurt0")
+					else:
+						$AnimatedSprite2D.play("IdleFastHurt0")
+				3:
+					if turn:
+						$AnimatedSprite2D.play("TurnFastHurt1")
+					else:
+						$AnimatedSprite2D.play("IdleFastHurt1")
+				2:
+					if turn:
+						$AnimatedSprite2D.play("TurnFastHurt2")
+					else:
+						$AnimatedSprite2D.play("IdleFastHurt2")
+				1:
+					if turn:
+						$AnimatedSprite2D.play("TurnFastHurt3")
+					else:
+						$AnimatedSprite2D.play("IdleFastHurt3")
+	
 
 func _on_body_entered(body):
 	hit.emit()
