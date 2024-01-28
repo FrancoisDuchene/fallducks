@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://scripts/music.gd" id="7_7g6hg"]
 [ext_resource type="AudioStream" uid="uid://w5xnsfkcq1q3" path="res://art/audio/music/Zazie.mp3" id="7_pexf5"]
 [ext_resource type="AudioStream" uid="uid://b1bbqlixdxmln" path="res://art/audio/sound/perfect_launch.wav" id="8_ljamj"]
-[ext_resource type="PackedScene" uid="uid://t0r5d21tf6g8" path="res://scenes/joystick.tscn" id="11_w8bmd"]
+[ext_resource type="PackedScene" path="res://scenes/joystick.tscn" id="11_w8bmd"]
 
 [sub_resource type="GDScript" id="GDScript_4m0e4"]
 script/source = "extends ParallaxLayer
@@ -102,7 +102,7 @@ position = Vector2(720, 3)
 rotation = -3.13743
 
 [node name="GameEventTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.01
 
 [node name="EagleSpawnTimer" type="Timer" parent="."]
 wait_time = 0.9
