@@ -25,6 +25,7 @@ GlobalProperties="*res://scripts/global_properties.gd"
 window/size/viewport_width=720
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
+window/handheld/orientation=1
 
 [editor]
 
@@ -75,3 +76,4 @@ move_down={
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
