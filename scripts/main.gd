@@ -89,9 +89,6 @@ func spawn_rock():
 	rock_platform_spawn_location.progress_ratio = randf()
 	rock_platform.position = rock_platform_spawn_location.position
 
-	# This is a RigidBody, it can move by itself if given an initial velocity
-	rock_platform.linear_velocity = Vector2(0, -scrolling_velocity)
-
 	add_child(rock_platform)
 
 	# Listen to speed changes	
