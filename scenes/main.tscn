@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/music.gd" id="7_7g6hg"]
 [ext_resource type="AudioStream" uid="uid://dcbavyak14uul" path="res://art/audio/music/Zazie.mp3" id="7_pexf5"]
 [ext_resource type="AudioStream" uid="uid://bor8xb3x3sd08" path="res://art/audio/sound/perfect_launch.wav" id="8_ljamj"]
+
 [sub_resource type="GDScript" id="GDScript_4m0e4"]
 script/source = "extends ParallaxLayer
 

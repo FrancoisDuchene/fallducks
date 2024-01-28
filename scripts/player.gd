@@ -6,15 +6,18 @@ signal dead
 signal speed_changed
 signal hit
 
-@export var speed = 400
+const MAX_HEALTH = 4
+const MAX_TEMPO = 3.0
+const SPEED = 400
+
 @export var pos_y = 0
 @export var pos_x = 0
-@export var health = 4
+@export var health = MAX_HEALTH
+@export var tempo = MAX_TEMPO
 
 var screen_size: Vector2
 var default_pos_y = 0
 var last_touch_position = Vector2.ZERO
-var tempo = 4.0
 
 func _input(event):
 	if event is InputEventScreenTouch:
@@ -47,7 +50,7 @@ func _process(delta):
 	if not $CollisionPolygon2D.call_deferred("disabled"):
 		if tempo < 0:
 			$CollisionPolygon2D.set_deferred("disabled", false)
-			tempo = 4.0
+			tempo = MAX_TEMPO
 		else:
 			tempo -= delta
 	
@@ -56,20 +59,20 @@ func _process(delta):
 		speed_changed.emit(DUCK_SPEED.GOTTA_GO_FAST)
 		position_y = position_y + 150
 		if abs(velocity_x) > 0:
-			velocity_x *= speed / 1.5
+			velocity_x *= SPEED / 1.5
 		choose_sprite("fast", abs(velocity_x) > 0, health)
 	elif velocity_y < 0:
 		# Slower speed
 		speed_changed.emit(DUCK_SPEED.SLOW_THE_FUCK_DOWN)
 		position_y = position_y - 100
 		if abs(velocity_x) > 0:
-			velocity_x *= speed
+			velocity_x *= SPEED
 		choose_sprite("slow", abs(velocity_x) > 0, health)
 	else:
 		# Normal speed
 		speed_changed.emit(DUCK_SPEED.THIS_IS_FINE)
 		if abs(velocity_x) > 0:
-			velocity_x *= speed * 1.2
+			velocity_x *= SPEED * 1.2
 		choose_sprite("normal", abs(velocity_x) > 0, health)
 	
 	var velocity = Vector2(velocity_x, 0)
@@ -182,6 +185,7 @@ func process_inputs():
 		return velocity_x_from_axis
 
 func start(pos):
+	health = MAX_HEALTH
 	position = pos
 	default_pos_y = pos.y
 	show()
@@ -189,3 +193,4 @@ func start(pos):
 	
 func get_x():
 	return pos_x
+

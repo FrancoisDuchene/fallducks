@@ -73,7 +73,6 @@ func _on_spawn_rock_platform_timer_timeout():
 	$Player.speed_changed.connect(rock_platform._on_player_speed_changed)
 
 func _on_start_delay_timer_timeout():
-	$Music.pitch_scale = 0.1
 	$Music.play()
 	$SpawnRockPlatformTimer.start()
 	$GameEventTimer.start()
@@ -87,8 +86,8 @@ func _process(delta):
 
 func _ready():
 	score_timer_steps = $ScoreTimer.wait_time
-	pass
-
+	$HUD.start_the_game()
+	
 func game_over():
 	$Music.stop()
 	$ScoreTimer.stop()
