@@ -7,10 +7,13 @@ signal stop_game
 
 @export var mob_scene: PackedScene
 @export var eagle_scene: PackedScene
+@export var tree_scene: PackedScene
+
 @onready var joystick = $joystick
 
 
 const EAGLE_BASE_COOLDOWN: float = 2 # seconds
+const TREE_BASE_COOLDOWN: float = 3 # seconds
 const ROCK_BASE_COOLDOWN: float = 1.5 # seconds
 var event_timer_timeout_id = 0
 
@@ -48,6 +51,7 @@ func _on_game_event_timer_timeout():
 	var game_event_timer_step = $GameEventTimer.wait_time # seconds
 	var required_eagle_cooldown_steps = (EAGLE_BASE_COOLDOWN / game_event_timer_step) as int
 	var required_rock_cooldown_steps = (rock_cooldown / game_event_timer_step) as int
+	var required_tree_cooldown_steps = (TREE_BASE_COOLDOWN / game_event_timer_step) as int
 	# Spawn eagles
 	if event_timer_timeout_id % required_eagle_cooldown_steps == 0:
 		var eagle_lotto = randi_range(0,3)
@@ -59,6 +63,8 @@ func _on_game_event_timer_timeout():
 	# Spawn rocks
 	if event_timer_timeout_id % required_rock_cooldown_steps == 0:
 		spawn_rock()
+	#if event_timer_timeout_id % required_rock_cooldown_steps == 0:
+	#	spawn_tree()
 	
 	event_timer_timeout_id += 1
 	
@@ -75,6 +81,16 @@ func _on_eagle_spawn_timer_timeout():
 	# This is a RigidBody, it can move by itself if given an initial velocity
 	eagle_platform.linear_velocity = Vector2(0, scrolling_velocity)
 	add_child(eagle_platform)
+
+func spawn_tree():
+	var tree_platform = tree_scene.instantiate()
+	# First flip a coin to see if we generate a tree on left side
+	var tree_spawn_location = $TreeSpawn/TreeFollow
+	tree_spawn_location.progress_ratio = 1.0
+	tree_platform.position = tree_spawn_location.position
+	# This is a RigidBody, it can move by itself if given an initial velocity
+	tree_platform.linear_velocity = Vector2(0, -scrolling_velocity)
+	add_child(tree_platform)
 
 func spawn_rock():
 	var rock_platform = mob_scene.instantiate()
@@ -107,6 +123,7 @@ func _on_start_delay_timer_timeout():
 	$SpawnRockPlatformTimer.start()
 	$GameEventTimer.start()
 	$ScoreTimer.start()
+	$TreeSpawnTimer.start()
 	
 func _on_player_speed_changed(duck_speed):
 	current_speed = BASE_VELOCITY * duck_speed
@@ -125,6 +142,7 @@ func game_over():
 	$ScoreTimer.stop()
 	$SpawnRockPlatformTimer.stop()
 	$GameEventTimer.stop()
+	$TreeSpawnTimer.stop()
 	$HUD.show_game_over()
 	if stats.update_high_score(score):
 		print("New high score of %d !!" % score)

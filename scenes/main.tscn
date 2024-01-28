@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://syl0u6sf72n"]
+[gd_scene load_steps=17 format=3 uid="uid://syl0u6sf72n"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_hellx"]
 [ext_resource type="PackedScene" uid="uid://wf8whefloxwv" path="res://scenes/rock_platform.tscn" id="2_ovxpo"]
@@ -7,10 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://dy0lef1kom6ie" path="res://scenes/hud.tscn" id="3_a325v"]
 [ext_resource type="PackedScene" uid="uid://bihsuf8tbrvrk" path="res://scenes/eddy.tscn" id="3_ku2fx"]
 [ext_resource type="Texture2D" uid="uid://bjjybratv2h86" path="res://art/sprites/background/background-stones.jpg" id="3_rao3p"]
+[ext_resource type="PackedScene" uid="uid://c0kbpb4k1v7be" path="res://scenes/tree.tscn" id="4_wvigj"]
 [ext_resource type="Script" path="res://scripts/music.gd" id="7_7g6hg"]
 [ext_resource type="AudioStream" uid="uid://w5xnsfkcq1q3" path="res://art/audio/music/Zazie.mp3" id="7_pexf5"]
 [ext_resource type="AudioStream" uid="uid://b1bbqlixdxmln" path="res://art/audio/sound/perfect_launch.wav" id="8_ljamj"]
-[ext_resource type="PackedScene" path="res://scenes/joystick.tscn" id="11_w8bmd"]
+[ext_resource type="PackedScene" uid="uid://t0r5d21tf6g8" path="res://scenes/joystick.tscn" id="11_w8bmd"]
 
 [sub_resource type="GDScript" id="GDScript_4m0e4"]
 script/source = "extends ParallaxLayer
@@ -34,7 +35,13 @@ point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_hcd0y"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 720, 3, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 720, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_xghna"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 720, 1080, 0, 0, 0, 0, 0, 1080)
 }
 point_count = 2
 
@@ -42,6 +49,7 @@ point_count = 2
 script = ExtResource("1_hellx")
 mob_scene = ExtResource("2_ovxpo")
 eagle_scene = ExtResource("3_ku2fx")
+tree_scene = ExtResource("4_wvigj")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("3_6etvc")
@@ -98,8 +106,8 @@ scale = Vector2(1, 0.00142665)
 curve = SubResource("Curve2D_hcd0y")
 
 [node name="EagleFollowLocation" type="PathFollow2D" parent="EaglePassingBySpawnPath"]
-position = Vector2(720, 3)
-rotation = -3.13743
+position = Vector2(720, 0)
+rotation = 3.14159
 
 [node name="GameEventTimer" type="Timer" parent="."]
 wait_time = 0.01
@@ -110,6 +118,16 @@ one_shot = true
 
 [node name="joystick" parent="." instance=ExtResource("11_w8bmd")]
 position = Vector2(366, 886)
+
+[node name="TreeSpawn" type="Path2D" parent="."]
+curve = SubResource("Curve2D_xghna")
+
+[node name="TreeFollow" type="PathFollow2D" parent="TreeSpawn"]
+position = Vector2(720, 1080)
+rotation = 3.14159
+
+[node name="TreeSpawnTimer" type="Timer" parent="."]
+wait_time = 3.0
 
 [connection signal="launch_game" from="." to="ParallaxBackground" method="_on_main_launch_game"]
 [connection signal="stop_game" from="." to="ParallaxBackground" method="_on__main_stop_game"]
@@ -122,3 +140,4 @@ position = Vector2(366, 886)
 [connection signal="finished" from="Music" to="." method="_on_music_finished"]
 [connection signal="timeout" from="GameEventTimer" to="." method="_on_game_event_timer_timeout"]
 [connection signal="timeout" from="EagleSpawnTimer" to="." method="_on_eagle_spawn_timer_timeout"]
+[connection signal="timeout" from="TreeSpawnTimer" to="." method="spawn_tree"]
