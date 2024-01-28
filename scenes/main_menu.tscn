@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bfuxruit6j00y"]
+[gd_scene load_steps=14 format=3 uid="uid://bfuxruit6j00y"]
 
 [ext_resource type="Script" path="res://scripts/screens/main_menu.gd" id="1_tu54w"]
 [ext_resource type="PackedScene" uid="uid://78r8aayx75rh" path="res://scenes/ui/main_menu_button.tscn" id="2_ve7e8"]
 [ext_resource type="FontFile" uid="uid://bgt0uecru401d" path="res://fonts/BluebirdLi.otf" id="3_qqr8d"]
+[ext_resource type="Texture2D" uid="uid://bigs78rcpiuux" path="res://art/sprites/ui/icone_son_plein.svg" id="4_1c5t4"]
 
 [sub_resource type="Gradient" id="Gradient_2mbhc"]
 colors = PackedColorArray(0.901961, 0.392157, 0.486275, 1, 1, 1, 1, 1)
@@ -68,6 +69,8 @@ offset_right = 593.0
 offset_bottom = 759.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
 
 [node name="SinglePlayerButton" parent="VBoxContainer" instance=ExtResource("2_ve7e8")]
 layout_mode = 2
@@ -92,19 +95,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 60.0
+offset_left = 85.0
 offset_top = 1.0
-offset_right = 661.0
+offset_right = 686.0
 offset_bottom = 152.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_qqr8d")
 theme_override_font_sizes/font_size = 128
-text = "Fall Ducks
-"
+text = "Fall Ducks"
+
+[node name="SoundButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 556.0
+offset_top = 944.0
+offset_right = 1317.0
+offset_bottom = 1581.0
+scale = Vector2(0.15, 0.15)
+texture_normal = ExtResource("4_1c5t4")
 
 [connection signal="pressed" from="VBoxContainer/SinglePlayerButton" to="." method="_on_single_player_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/CreditButton" to="." method="_on_credit_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="SoundButton" to="." method="_on_sound_button_pressed"]

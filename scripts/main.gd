@@ -22,8 +22,9 @@ var score_timer_steps = 0 # s
 
 func _on_hud_start_game():
 	new_game()
-	$StartSound.pitch_scale = randf_range(0.3, 2.0)
-	$StartSound.play()
+	if GlobalProperties.audio_on:
+		$StartSound.pitch_scale = randf_range(0.3, 2.0)
+		$StartSound.play()
 
 func _on_player_dead():
 	game_over()
@@ -75,7 +76,8 @@ func _on_spawn_rock_platform_timer_timeout():
 	$Player.speed_changed.connect(rock_platform._on_player_speed_changed)
 
 func _on_start_delay_timer_timeout():
-	$Music.play()
+	if GlobalProperties.audio_on:
+		$Music.play()
 	$SpawnRockPlatformTimer.start()
 	$GameEventTimer.start()
 	$ScoreTimer.start()
@@ -92,7 +94,8 @@ func _ready():
 	$HUD.start_the_game()
 	
 func game_over():
-	$Music.stop()
+	if GlobalProperties.audio_on:
+		$Music.stop()
 	$ScoreTimer.stop()
 	$SpawnRockPlatformTimer.stop()
 	$GameEventTimer.stop()
@@ -111,4 +114,5 @@ func new_game():
 	launch_game.emit()
 
 func _on_music_finished():
-	$Music.play()
+	if GlobalProperties.audio_on:
+		$Music.play()
