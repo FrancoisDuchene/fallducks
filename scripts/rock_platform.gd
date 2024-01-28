@@ -24,6 +24,10 @@ func _ready():
 	gravity_scale = 0
 	constant_force = Vector2.ZERO
 
+func init(scale_factor: float, initial_duck_speed):
+	process_speed_update(initial_duck_speed)
+	scale_objects(scale_factor)
+
 func process_speed_update(duck_speed):
 	var velocity_y = null
 	if duck_speed == DUCK_SPEED.SLOW_THE_FUCK_DOWN:
@@ -37,7 +41,7 @@ func process_speed_update(duck_speed):
 	self.velocity = Vector2(0, -velocity_y)
 	self.linear_velocity = self.velocity
 
-func scale(x):
+func scale_objects(x):
 	var ps = $PlatformSprite
 	var collision_polygon = $CollisionPolygon2D
 	var polygon = collision_polygon.polygon

@@ -11,6 +11,7 @@ signal stop_game
 
 const BASE_VELOCITY = 1.0 # m/s
 var current_speed = BASE_VELOCITY * DUCK_SPEED.THIS_IS_FINE # m/s
+var current_duck_speed_state = DUCK_SPEED.THIS_IS_FINE
 const Max_Screen_Size = 720 # TODO Déterminer de manière dynamique
 
 var score: float # m
@@ -53,15 +54,11 @@ func _on_eagle_spawn_timer_timeout():
 	add_child(eagle_platform)
 
 func _on_spawn_rock_platform_timer_timeout():
-	print("Calling instantiate")
 	var rock_platform = mob_scene.instantiate()
-	print("instantiate called")
 
 	# Use a random length for the platform, within bounds, 2-5
 	var scale_multiplier = (randf() * 0.2) + 0.2
-	print("Calling scale")
-	rock_platform.scale(scale_multiplier)
-	print("scale called")
+	rock_platform.init(scale_multiplier, current_duck_speed_state)
 
 	# Choose random x location, along the path
 	var rock_platform_spawn_location = $BottomRockSpawnPath/RockFollowLocation
@@ -71,9 +68,7 @@ func _on_spawn_rock_platform_timer_timeout():
 	# This is a RigidBody, it can move by itself if given an initial velocity
 	rock_platform.linear_velocity = Vector2(0, -scrolling_velocity)
 
-	print("Calling add_child")
 	add_child(rock_platform)
-	print("add_child called")
 
 	# Listen to speed changes	
 	$Player.speed_changed.connect(rock_platform._on_player_speed_changed)
@@ -86,6 +81,7 @@ func _on_start_delay_timer_timeout():
 	
 func _on_player_speed_changed(duck_speed):
 	current_speed = BASE_VELOCITY * duck_speed
+	current_duck_speed_state = duck_speed
 
 func _process(delta):
 	pass
