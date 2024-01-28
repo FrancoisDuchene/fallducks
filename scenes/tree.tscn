@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0kbpb4k1v7be"]
+
+[ext_resource type="Texture2D" uid="uid://qagdrxal4id7" path="res://art/sprites/other/leftTree.svg" id="1_qevq2"]
+
+[node name="Tree" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(332, -355)
+texture = ExtResource("1_qevq2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(6, 9, 317, -146, 470, -253, 584, -238, 639, -338, 653, -638, 529, -716, 277, -490, 270, -369, 353, -319, 258, -229, -1, -198)
