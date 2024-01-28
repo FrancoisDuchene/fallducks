@@ -103,6 +103,10 @@ rotation = -3.13743
 [node name="GameEventTimer" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="EagleSpawnTimer" type="Timer" parent="."]
+wait_time = 0.9
+one_shot = true
+
 [connection signal="launch_game" from="." to="ParallaxBackground" method="_on_main_launch_game"]
 [connection signal="stop_game" from="." to="ParallaxBackground" method="_on__main_stop_game"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
@@ -112,3 +116,4 @@ wait_time = 2.0
 [connection signal="timeout" from="StartDelayTimer" to="." method="_on_start_delay_timer_timeout"]
 [connection signal="finished" from="Music" to="." method="_on_music_finished"]
 [connection signal="timeout" from="GameEventTimer" to="." method="_on_game_event_timer_timeout"]
+[connection signal="timeout" from="EagleSpawnTimer" to="." method="_on_eagle_spawn_timer_timeout"]
