@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://t0r5d21tf6g8"]
+
+[ext_resource type="Script" path="res://scripts/joystick.gd" id="1_yrerf"]
+[ext_resource type="Texture2D" uid="uid://ctenkyqmb00xw" path="res://art/sprites/other/circle.svg" id="2_egrd0"]
+[ext_resource type="Texture2D" uid="uid://btcime6q45wpa" path="res://art/sprites/other/disk.svg" id="3_vf8t4"]
+[ext_resource type="Script" path="res://scripts/pouce.gd" id="4_lvxyo"]
+
+[node name="joystick" type="Node2D"]
+script = ExtResource("1_yrerf")
+
+[node name="Circle" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_egrd0")
+
+[node name="Disk" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_vf8t4")
+script = ExtResource("4_lvxyo")
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -85.0
+offset_top = -85.0
+offset_right = 85.0
+offset_bottom = 85.0
+
+[connection signal="button_down" from="Button" to="Disk" method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="Disk" method="_on_button_button_up"]
