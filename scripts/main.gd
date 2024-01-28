@@ -128,7 +128,7 @@ func game_over():
 	$GameEventTimer.stop()
 	$HUD.show_game_over()
 	nbr_of_death_count += 1
-	if (nbr_of_death_count > 5 or score <= 100) and true: #randi_range(0,2) == 0:
+	if (nbr_of_death_count > 5 or score <= 100) and randi_range(0,2) == 0:
 		make_judging_goose_appears()
 	if stats.update_high_score(score):
 		print("New high score of %d !!" % score)
