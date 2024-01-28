@@ -45,4 +45,12 @@ func start_the_game():
 
 func update_score(score):
 	$ScoreLabel.text = "%.1f m" % score
+	
+func display_eagle_alert():
+	$EagleAlert.play("default")
+	
+func hide_eagle_alert():
+	$EagleAlert.stop()
+	
+
 

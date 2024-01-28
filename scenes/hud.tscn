@@ -1,8 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://dy0lef1kom6ie"]
+[gd_scene load_steps=5 format=3 uid="uid://dy0lef1kom6ie"]
 
 [ext_resource type="Script" path="res://scripts/ui/HUD.gd" id="1_6kagt"]
 [ext_resource type="FontFile" uid="uid://csrjvx1qph86r" path="res://fonts/xolonium/Xolonium-Regular.ttf" id="2_3nsej"]
 [ext_resource type="Texture2D" uid="uid://cm76yqx2iet57" path="res://art/sprites/character/eagle1.svg" id="3_ktay7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bgp1q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ktay7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_6kagt")
@@ -56,12 +70,11 @@ text = "Start"
 wait_time = 2.0
 one_shot = true
 
-[node name="EagleAlert" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, 50)
-rotation = 4.71239
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_ktay7")
+[node name="EagleAlert" type="AnimatedSprite2D" parent="."]
+top_level = true
+position = Vector2(358, 217)
+sprite_frames = SubResource("SpriteFrames_bgp1q")
+frame_progress = 0.244805
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]

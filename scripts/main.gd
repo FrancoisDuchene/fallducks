@@ -23,7 +23,7 @@ func _on_hud_start_game():
 	$StartSound.pitch_scale = randf_range(0.3, 2.0)
 	$StartSound.play()
 
-func _on_player_hit():
+func _on_player_dead():
 	game_over()
 
 func _on_score_timer_timeout():
@@ -33,15 +33,24 @@ func _on_score_timer_timeout():
 func _on_game_event_timer_timeout():
 	var eagle_lotto = randi_range(0,3)
 	if eagle_lotto == 0:
-		var eagle_platform = eagle_scene.instantiate()
-		# Choose random x location, along the path
-		var eagle_spawn_location = $EaglePassingBySpawnPath/EagleFollowLocation
-		var size = get_tree().get_root().size
-		eagle_spawn_location.progress_ratio = 1 - ($Player.get_x()/Max_Screen_Size)
-		eagle_platform.position = eagle_spawn_location.position
-		# This is a RigidBody, it can move by itself if given an initial velocity
-		eagle_platform.linear_velocity = Vector2(0, scrolling_velocity)
-		add_child(eagle_platform)
+		# display eagle alert in HUD
+		$HUD.display_eagle_alert()
+		# Eagle will spawn after timeout
+		$EagleSpawnTimer.start()
+		
+func _on_eagle_spawn_timer_timeout():
+	# Stop eagle alert
+	$HUD.hide_eagle_alert()
+	# Create eagle
+	var eagle_platform = eagle_scene.instantiate()
+	# Choose random x location, along the path
+	var eagle_spawn_location = $EaglePassingBySpawnPath/EagleFollowLocation
+	var size = get_tree().get_root().size
+	eagle_spawn_location.progress_ratio = 1 - ($Player.get_x()/Max_Screen_Size)
+	eagle_platform.position = eagle_spawn_location.position
+	# This is a RigidBody, it can move by itself if given an initial velocity
+	eagle_platform.linear_velocity = Vector2(0, scrolling_velocity)
+	add_child(eagle_platform)
 
 func _on_spawn_rock_platform_timer_timeout():
 	var rock_platform = mob_scene.instantiate()
