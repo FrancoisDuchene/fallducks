@@ -24,7 +24,6 @@ func _process(delta):
 	else:
 		global_position = lerp(global_position, parent.global_position, delta*10)
 		parent.posVector = Vector2(0, 0)
-	print("global_position:", global_position, "\tangle:", angle, "\tget_global_mouse_position()", get_global_mouse_position())
 
 
 func calculateVector():

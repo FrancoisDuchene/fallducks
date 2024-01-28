@@ -10,15 +10,20 @@ signal stop_game
 @onready var joystick = $joystick
 
 
-const BASE_VELOCITY = 1.0 # m/s
-var current_speed = BASE_VELOCITY * DUCK_SPEED.THIS_IS_FINE # m/s
+const EAGLE_BASE_COOLDOWN: float = 2 # seconds
+const ROCK_BASE_COOLDOWN: float = 1.5 # seconds
+var event_timer_timeout_id = 0
+
+const BASE_VELOCITY: float = 1 # m/seconds
+var current_speed = BASE_VELOCITY * DUCK_SPEED.THIS_IS_FINE # m/seconds
 var current_duck_speed_state = DUCK_SPEED.THIS_IS_FINE
 const Max_Screen_Size = 720 # TODO Déterminer de manière dynamique
 
 var score: float # m
 var scrolling_velocity: float = 180
 var stats = Stats.new()
-var score_timer_steps = 0 # s
+var score_timer_steps = 0 # seconds
+var current_difficulty = 1
 
 func _on_hud_start_game():
 	new_game()
@@ -31,16 +36,32 @@ func _on_player_dead():
 
 func _on_score_timer_timeout():
 	score += score_timer_steps * current_speed # m
+	update_current_difficulty(score)
 	$HUD.update_score(score)
 	
+	
 func _on_game_event_timer_timeout():
-	var eagle_lotto = randi_range(0,3)
-	if eagle_lotto == 0:
-		# display eagle alert in HUD
-		$HUD.display_eagle_alert()
-		# Eagle will spawn after timeout
-		$EagleSpawnTimer.start()
-		
+	# Adapt spawn rate wrt. speed
+	var rock_cooldown = ROCK_BASE_COOLDOWN / (current_duck_speed_state as float / DUCK_SPEED.THIS_IS_FINE)
+	# Adapt spawn rate wrt. difficulty
+	rock_cooldown = rock_cooldown / current_difficulty
+	var game_event_timer_step = $GameEventTimer.wait_time # seconds
+	var required_eagle_cooldown_steps = (EAGLE_BASE_COOLDOWN / game_event_timer_step) as int
+	var required_rock_cooldown_steps = (rock_cooldown / game_event_timer_step) as int
+	# Spawn eagles
+	if event_timer_timeout_id % required_eagle_cooldown_steps == 0:
+		var eagle_lotto = randi_range(0,3)
+		if eagle_lotto == 0:
+			# display eagle alert in HUD
+			$HUD.display_eagle_alert()
+			# Eagle will spawn after timeout
+			$EagleSpawnTimer.start()
+	# Spawn rocks
+	if event_timer_timeout_id % required_rock_cooldown_steps == 0:
+		spawn_rock()
+	
+	event_timer_timeout_id += 1
+	
 func _on_eagle_spawn_timer_timeout():
 	# Stop eagle alert
 	$HUD.hide_eagle_alert()
@@ -55,7 +76,7 @@ func _on_eagle_spawn_timer_timeout():
 	eagle_platform.linear_velocity = Vector2(0, scrolling_velocity)
 	add_child(eagle_platform)
 
-func _on_spawn_rock_platform_timer_timeout():
+func spawn_rock():
 	var rock_platform = mob_scene.instantiate()
 
 	# Use a random length for the platform, within bounds, 2-5
@@ -74,6 +95,11 @@ func _on_spawn_rock_platform_timer_timeout():
 
 	# Listen to speed changes	
 	$Player.speed_changed.connect(rock_platform._on_player_speed_changed)
+
+# Lowest difficult = 1, 2 = twice the difficulty, etc.
+func update_current_difficulty(score: float):
+	current_difficulty = (score / 500) + 1
+	current_difficulty = min(1, current_difficulty)
 
 func _on_start_delay_timer_timeout():
 	if GlobalProperties.audio_on:
