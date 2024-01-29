@@ -1,4 +1,13 @@
-[gd_scene format=3 uid="uid://bn2f7uujhj5p0"]
+[gd_scene load_steps=6 format=3 uid="uid://bn2f7uujhj5p0"]
+
+[ext_resource type="Script" path="res://scripts/screens/credits.gd" id="1_8ruiv"]
+[ext_resource type="Shader" path="res://shaders/options_background.gdshader" id="2_cg805"]
+[ext_resource type="Texture2D" uid="uid://21hgsa3orbpt" path="res://art/fond_blanc.png" id="3_27xtc"]
+[ext_resource type="FontFile" uid="uid://bgt0uecru401d" path="res://fonts/BluebirdLi.otf" id="4_waqjv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1tjak"]
+shader = ExtResource("2_cg805")
+shader_parameter/blue = 0.9
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -7,3 +16,89 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8ruiv")
+
+[node name="Background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_1tjak")
+position = Vector2(360, 540)
+texture = ExtResource("3_27xtc")
+
+[node name="Credits" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -223.0
+offset_top = 20.0
+offset_right = 223.0
+offset_bottom = 149.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_waqjv")
+theme_override_font_sizes/font_size = 128
+text = "Credits"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -204.0
+offset_top = -96.0
+offset_right = 204.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_waqjv")
+theme_override_font_sizes/font_size = 64
+text = "Back to menu
+"
+
+[node name="ControlText" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Youtube" type="RichTextLabel" parent="ControlText"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -243.5
+offset_right = 243.5
+offset_bottom = 41.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("4_waqjv")
+theme_override_font_sizes/normal_font_size = 32
+text = "https://youtu.be/rxGuNJ-nEYg"
+
+[node name="Music" type="RichTextLabel" parent="ControlText"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -273.0
+offset_top = -241.0
+offset_right = 273.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("4_waqjv")
+theme_override_font_sizes/normal_font_size = 32
+text = "Music 
+\"Zazie\" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
