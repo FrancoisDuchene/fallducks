@@ -88,7 +88,7 @@ func _on_eagle_spawn_timer_timeout():
 func spawn_tree():
 	var tree_spawn_location = $TreeSpawn/TreeFollow
 	# First flip a coin to see if we generate a tree on left side
-	if (randi_range(0,2) >= 1):
+	if (randf() >= 0.5):
 		var tree_platform = left_tree_scene.instantiate()
 		tree_spawn_location.progress_ratio = 1.0
 		tree_platform.position = tree_spawn_location.position
@@ -96,7 +96,7 @@ func spawn_tree():
 		tree_platform.linear_velocity = Vector2(0, -4*scrolling_velocity)
 		add_child(tree_platform)
 	# Second flip a coin to see if we generate a tree on right side
-	if (randi_range(0,2) >= 1):
+	if (randf() >= 0.5):
 		var tree_platform = right_tree_scene.instantiate()
 		tree_spawn_location.progress_ratio = 0.0
 		tree_platform.position = tree_spawn_location.position
