@@ -89,7 +89,7 @@ func _on_body_entered(body):
 func _on_player_hit():
 	health -= 1
 	health_update.emit()
-	if GlobalProperties.audio_on:
+	if GlobalProperties.sound_on:
 		$TouchedSound.play()
 	$CollisionPolygon2D.set_deferred("disabled", true) # Disable to avoid receiving lots of hit signals
 	if health < 1:

@@ -1,4 +1,42 @@
-[gd_scene format=3 uid="uid://bnvcwtpw00072"]
+[gd_scene load_steps=12 format=3 uid="uid://bnvcwtpw00072"]
+
+[ext_resource type="Shader" path="res://shaders/options_background.gdshader" id="1_3mhth"]
+[ext_resource type="Script" path="res://scripts/screens/options.gd" id="1_3r8jv"]
+[ext_resource type="Texture2D" uid="uid://21hgsa3orbpt" path="res://art/fond_blanc.png" id="2_0guql"]
+[ext_resource type="FontFile" uid="uid://bgt0uecru401d" path="res://fonts/BluebirdLi.otf" id="4_3c5sc"]
+[ext_resource type="Shader" path="res://shaders/you_spin_me_round.gdshader" id="5_4suf6"]
+[ext_resource type="Texture2D" uid="uid://bigs78rcpiuux" path="res://art/sprites/ui/icone_son_plein.svg" id="5_tluc7"]
+[ext_resource type="Texture2D" uid="uid://dsxrrs3ki2y45" path="res://art/sprites/character/eagle2.svg" id="6_ain1t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ne402"]
+shader = ExtResource("1_3mhth")
+shader_parameter/blue = 0.9
+
+[sub_resource type="Animation" id="Animation_bottt"]
+resource_name = "spin_me_round_round"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Aigle:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q43yw"]
+_data = {
+"spin_me_round_round": SubResource("Animation_bottt")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fbnfn"]
+shader = ExtResource("5_4suf6")
+shader_parameter/rotation = 0.0
+shader_parameter/rotation_offset = Vector2(0.5, 0.5)
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -7,3 +45,104 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_3r8jv")
+
+[node name="Background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ne402")
+position = Vector2(360, 540)
+texture = ExtResource("2_0guql")
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -154.5
+offset_top = -80.0
+offset_right = 154.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_3c5sc")
+theme_override_font_sizes/font_size = 64
+text = "Back to menu"
+
+[node name="OptionsContainer" type="Control" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -273.5
+offset_top = -255.0
+offset_right = 273.5
+offset_bottom = 255.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SoundOptLabel" type="Label" parent="OptionsContainer"]
+layout_mode = 2
+offset_top = 137.0
+offset_right = 283.0
+offset_bottom = 202.0
+theme_override_fonts/font = ExtResource("4_3c5sc")
+theme_override_font_sizes/font_size = 64
+text = "Sound On"
+vertical_alignment = 1
+
+[node name="SoundButton" type="TextureButton" parent="OptionsContainer"]
+layout_mode = 2
+anchor_left = 0.0235629
+anchor_top = -0.954829
+anchor_right = 0.0235629
+anchor_bottom = -0.954829
+offset_left = 362.111
+offset_top = 588.963
+offset_right = 1123.11
+offset_bottom = 1225.96
+scale = Vector2(0.2, 0.2)
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("5_tluc7")
+metadata/_edit_use_anchors_ = true
+
+[node name="MusicOptLabel" type="Label" parent="OptionsContainer"]
+layout_mode = 2
+offset_top = 389.0
+offset_right = 263.0
+offset_bottom = 454.0
+theme_override_fonts/font = ExtResource("4_3c5sc")
+theme_override_font_sizes/font_size = 64
+text = "Music On"
+vertical_alignment = 1
+
+[node name="MusicButton" type="TextureButton" parent="OptionsContainer"]
+layout_mode = 2
+anchor_left = 0.516667
+anchor_top = 0.260185
+anchor_right = 0.516667
+anchor_bottom = 0.260185
+offset_left = 92.3833
+offset_top = 224.306
+offset_right = 853.383
+offset_bottom = 861.306
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("5_tluc7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_q43yw")
+}
+
+[node name="Aigle" type="Sprite2D" parent="AnimationPlayer"]
+material = SubResource("ShaderMaterial_fbnfn")
+position = Vector2(367, 553)
+texture = ExtResource("6_ain1t")
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="OptionsContainer/SoundButton" to="." method="_on_sound_button_pressed"]
+[connection signal="pressed" from="OptionsContainer/MusicButton" to="." method="_on_music_button_pressed"]

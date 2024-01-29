@@ -29,8 +29,9 @@ var is_goose_shown = false
 
 func _on_hud_start_game():
 	new_game()
-	$StartSound.pitch_scale = randf_range(0.3, 2.0)
-	$StartSound.play()
+	if GlobalProperties.sound_on:
+		$StartSound.pitch_scale = randf_range(0.3, 2.0)
+		$StartSound.play()
 
 func _on_player_dead():
 	game_over()
@@ -99,7 +100,7 @@ func update_current_difficulty(score: float):
 	current_difficulty = log(score/400+1)+1
 
 func _on_start_delay_timer_timeout():
-	if GlobalProperties.audio_on:
+	if GlobalProperties.music_on:
 		$Music.play()
 	$SpawnRockPlatformTimer.start()
 	$GameEventTimer.start()
@@ -117,7 +118,7 @@ func _ready():
 	$HUD.start_the_game()
 	
 func game_over():
-	if GlobalProperties.audio_on:
+	if GlobalProperties.music_on:
 		$Music.stop()
 	$ScoreTimer.stop()
 	$SpawnRockPlatformTimer.stop()
@@ -154,7 +155,7 @@ func handle_hearts():
 		
 
 func _on_music_finished():
-	if GlobalProperties.audio_on:
+	if GlobalProperties.music_on:
 		$Music.play()
 		
 func make_judging_goose_appears():
