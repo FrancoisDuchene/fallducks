@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/screens/credits.gd" id="1_8ruiv"]
 [ext_resource type="Shader" path="res://shaders/options_background.gdshader" id="2_cg805"]
 [ext_resource type="Texture2D" uid="uid://21hgsa3orbpt" path="res://art/fond_blanc.png" id="3_27xtc"]
-[ext_resource type="FontFile" uid="uid://bgt0uecru401d" path="res://fonts/BluebirdLi.otf" id="4_waqjv"]
+[ext_resource type="FontFile" uid="uid://ca744fnf8qt4u" path="res://fonts/BluebirdLi.otf" id="4_waqjv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1tjak"]
 shader = ExtResource("2_cg805")

@@ -1,6 +1,4 @@
-
-[gd_scene load_steps=21 format=3 uid="uid://syl0u6sf72n"]
-
+[gd_scene load_steps=24 format=3 uid="uid://syl0u6sf72n"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_hellx"]
 [ext_resource type="PackedScene" uid="uid://wf8whefloxwv" path="res://scenes/rock_platform.tscn" id="2_ovxpo"]
@@ -8,16 +6,16 @@
 [ext_resource type="Script" path="res://scripts/parallax_background.gd" id="3_6etvc"]
 [ext_resource type="PackedScene" uid="uid://dy0lef1kom6ie" path="res://scenes/hud.tscn" id="3_a325v"]
 [ext_resource type="PackedScene" uid="uid://bihsuf8tbrvrk" path="res://scenes/eddy.tscn" id="3_ku2fx"]
-[ext_resource type="Texture2D" uid="uid://bjjybratv2h86" path="res://art/sprites/background/background-stones.jpg" id="3_rao3p"]
+[ext_resource type="Texture2D" uid="uid://dyvosnar4d1fj" path="res://art/sprites/background/background-stones.jpg" id="3_rao3p"]
 [ext_resource type="PackedScene" uid="uid://c0kbpb4k1v7be" path="res://scenes/tree.tscn" id="4_wvigj"]
 [ext_resource type="PackedScene" uid="uid://clc7g1sml7c7f" path="res://scenes/treeright.tscn" id="5_gbptb"]
 [ext_resource type="Script" path="res://scripts/music.gd" id="7_7g6hg"]
-[ext_resource type="AudioStream" uid="uid://w5xnsfkcq1q3" path="res://art/audio/music/Zazie.mp3" id="7_pexf5"]
-[ext_resource type="AudioStream" uid="uid://b1bbqlixdxmln" path="res://art/audio/sound/perfect_launch.wav" id="8_ljamj"]
+[ext_resource type="AudioStream" uid="uid://c6ykybjy38mgt" path="res://art/audio/music/Zazie.mp3" id="7_pexf5"]
+[ext_resource type="AudioStream" uid="uid://dr11uysxirjms" path="res://art/audio/sound/perfect_launch.wav" id="8_ljamj"]
 [ext_resource type="PackedScene" path="res://scenes/joystick.tscn" id="11_w8bmd"]
-[ext_resource type="Texture2D" uid="uid://b0w6a3mf67804" path="res://art/sprites/ui/heart-filled.svg" id="12_mrdme"]
-[ext_resource type="Texture2D" uid="uid://bcomupb8v8k6s" path="res://art/sprites/other/oie_qui_te_juge.png" id="12_upwb6"]
-[ext_resource type="Texture2D" uid="uid://ver2ebe2oipl" path="res://art/sprites/ui/heart-empty.svg" id="13_fg8xt"]
+[ext_resource type="Texture2D" uid="uid://d2e0tur4atvmq" path="res://art/sprites/ui/heart-filled.svg" id="12_mrdme"]
+[ext_resource type="Texture2D" uid="uid://cjmwhitsm11x8" path="res://art/sprites/other/oie_qui_te_juge.png" id="12_upwb6"]
+[ext_resource type="Texture2D" uid="uid://c6rynd1vdqb8s" path="res://art/sprites/ui/heart-empty.svg" id="13_fg8xt"]
 
 [sub_resource type="GDScript" id="GDScript_4m0e4"]
 script/source = "extends ParallaxLayer
@@ -42,12 +40,6 @@ point_count = 2
 [sub_resource type="Curve2D" id="Curve2D_hcd0y"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 720, 0, 0, 0, 0, 0, 0, 0)
-}
-point_count = 2
-
-[sub_resource type="Curve2D" id="Curve2D_xghna"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 720, 1080, 0, 0, 0, 0, 0, 1080)
 }
 point_count = 2
 
@@ -176,6 +168,12 @@ _data = {
 "goose_appear": SubResource("Animation_nfdk7"),
 "goose_dissapear": SubResource("Animation_lv052")
 }
+
+[sub_resource type="Curve2D" id="Curve2D_xghna"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 720, 1080, 0, 0, 0, 0, 0, 1080)
+}
+point_count = 2
 
 [node name="Main" type="Node"]
 script = ExtResource("1_hellx")

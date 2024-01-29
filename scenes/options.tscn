@@ -3,10 +3,10 @@
 [ext_resource type="Shader" path="res://shaders/options_background.gdshader" id="1_3mhth"]
 [ext_resource type="Script" path="res://scripts/screens/options.gd" id="1_3r8jv"]
 [ext_resource type="Texture2D" uid="uid://21hgsa3orbpt" path="res://art/fond_blanc.png" id="2_0guql"]
-[ext_resource type="FontFile" uid="uid://bgt0uecru401d" path="res://fonts/BluebirdLi.otf" id="4_3c5sc"]
+[ext_resource type="FontFile" uid="uid://ca744fnf8qt4u" path="res://fonts/BluebirdLi.otf" id="4_3c5sc"]
 [ext_resource type="Shader" path="res://shaders/you_spin_me_round.gdshader" id="5_4suf6"]
-[ext_resource type="Texture2D" uid="uid://bigs78rcpiuux" path="res://art/sprites/ui/icone_son_plein.svg" id="5_tluc7"]
-[ext_resource type="Texture2D" uid="uid://dsxrrs3ki2y45" path="res://art/sprites/character/eagle2.svg" id="6_ain1t"]
+[ext_resource type="Texture2D" uid="uid://c6pd3lqfysc2t" path="res://art/sprites/ui/icone_son_plein.svg" id="5_tluc7"]
+[ext_resource type="Texture2D" uid="uid://dmx0vo7i5nl0b" path="res://art/sprites/character/eagle2.svg" id="6_ain1t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ne402"]
 shader = ExtResource("1_3mhth")

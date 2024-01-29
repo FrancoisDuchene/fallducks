@@ -43,7 +43,7 @@ func _process(delta):
 	var velocity_x = process_inputs()
 	var moving = abs(velocity_x) > 0
 
-	if not $CollisionPolygon2D.call_deferred("disabled"):
+	if not $CollisionPolygon2D.call_deferred("is_disabled"):
 		if tempo < 0:
 			$CollisionPolygon2D.set_deferred("disabled", false)
 			tempo = MAX_TEMPO
@@ -91,7 +91,8 @@ func _on_player_hit():
 	health_update.emit()
 	if GlobalProperties.sound_on:
 		$TouchedSound.play()
-	$CollisionPolygon2D.set_deferred("disabled", true) # Disable to avoid receiving lots of hit signals
+	#$CollisionPolygon2D.set_deferred("disabled", true) # Disable to avoid receiving lots of hit signals
+	$CollisionPolygon2D.disabled = true
 	if health < 1:
 		hide()
 		dead.emit()
