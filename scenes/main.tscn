@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=21 format=3 uid="uid://syl0u6sf72n"]
+
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_hellx"]
 [ext_resource type="PackedScene" uid="uid://wf8whefloxwv" path="res://scenes/rock_platform.tscn" id="2_ovxpo"]
@@ -8,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bihsuf8tbrvrk" path="res://scenes/eddy.tscn" id="3_ku2fx"]
 [ext_resource type="Texture2D" uid="uid://bjjybratv2h86" path="res://art/sprites/background/background-stones.jpg" id="3_rao3p"]
 [ext_resource type="PackedScene" uid="uid://c0kbpb4k1v7be" path="res://scenes/tree.tscn" id="4_wvigj"]
+[ext_resource type="PackedScene" uid="uid://clc7g1sml7c7f" path="res://scenes/treeright.tscn" id="5_gbptb"]
 [ext_resource type="Script" path="res://scripts/music.gd" id="7_7g6hg"]
 [ext_resource type="AudioStream" uid="uid://w5xnsfkcq1q3" path="res://art/audio/music/Zazie.mp3" id="7_pexf5"]
 [ext_resource type="AudioStream" uid="uid://b1bbqlixdxmln" path="res://art/audio/sound/perfect_launch.wav" id="8_ljamj"]
@@ -178,7 +181,8 @@ _data = {
 script = ExtResource("1_hellx")
 mob_scene = ExtResource("2_ovxpo")
 eagle_scene = ExtResource("3_ku2fx")
-tree_scene = ExtResource("4_wvigj")
+left_tree_scene = ExtResource("4_wvigj")
+right_tree_scene = ExtResource("5_gbptb")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("3_6etvc")
