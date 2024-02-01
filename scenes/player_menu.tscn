@@ -1,0 +1,270 @@
+[gd_scene load_steps=19 format=3 uid="uid://r7td14jr1dub"]
+
+[ext_resource type="Texture2D" uid="uid://mbsy0jc8fhis" path="res://art/sprites/character/idle1.svg" id="2_l2gp8"]
+[ext_resource type="Texture2D" uid="uid://crhkt03re01aa" path="res://art/sprites/character/wounded11.svg" id="3_3ppqd"]
+[ext_resource type="Texture2D" uid="uid://dvg32upal7sja" path="res://art/sprites/character/wounded21.svg" id="4_13f75"]
+[ext_resource type="Texture2D" uid="uid://b44pqdd3g4wcc" path="res://art/sprites/character/wounded31.svg" id="5_x8bho"]
+[ext_resource type="Texture2D" uid="uid://cjqssx1c8s4r1" path="res://art/sprites/character/idle2.svg" id="6_ub4mk"]
+[ext_resource type="Texture2D" uid="uid://xkxhf6p6iw07" path="res://art/sprites/character/wounded12.svg" id="7_t8vc0"]
+[ext_resource type="Texture2D" uid="uid://bunsmq0fisx88" path="res://art/sprites/character/wounded22.svg" id="8_ga2ta"]
+[ext_resource type="Texture2D" uid="uid://xml7wnvevsb1" path="res://art/sprites/character/wounded32.svg" id="9_4pdah"]
+[ext_resource type="Texture2D" uid="uid://coqd2o6214ocq" path="res://art/sprites/character/idle3.svg" id="10_iqakm"]
+[ext_resource type="Texture2D" uid="uid://bsgw4emfvmu2l" path="res://art/sprites/character/wounded13.svg" id="11_2hg5h"]
+[ext_resource type="Texture2D" uid="uid://be4fkmmifum5a" path="res://art/sprites/character/wounded23.svg" id="12_yxby6"]
+[ext_resource type="Texture2D" uid="uid://c4w8j20kbav5v" path="res://art/sprites/character/wounded33.svg" id="13_n7tba"]
+[ext_resource type="Texture2D" uid="uid://ci6tq2i776guv" path="res://art/sprites/character/idle4.svg" id="14_5gma7"]
+[ext_resource type="Texture2D" uid="uid://b0wievtwkowc3" path="res://art/sprites/character/wounded14.svg" id="15_1ixhl"]
+[ext_resource type="Texture2D" uid="uid://dcgvg138uwgh0" path="res://art/sprites/character/wounded24.svg" id="16_xlxmo"]
+[ext_resource type="Texture2D" uid="uid://pgkkwcwinonh" path="res://art/sprites/character/wounded34.svg" id="17_hjxeb"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mq5kk"]
+bounce = 0.5
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ngsmw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_l2gp8")
+}],
+"loop": true,
+"name": &"IdleFastHurt0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3ppqd")
+}],
+"loop": true,
+"name": &"IdleFastHurt1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_13f75")
+}],
+"loop": true,
+"name": &"IdleFastHurt2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_x8bho")
+}],
+"loop": true,
+"name": &"IdleFastHurt3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ub4mk")
+}],
+"loop": true,
+"name": &"IdleNormalHurt0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_t8vc0")
+}],
+"loop": true,
+"name": &"IdleNormalHurt1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ga2ta")
+}],
+"loop": true,
+"name": &"IdleNormalHurt2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_4pdah")
+}],
+"loop": true,
+"name": &"IdleNormalHurt3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_iqakm")
+}],
+"loop": true,
+"name": &"IdleSlowHurt0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_2hg5h")
+}],
+"loop": true,
+"name": &"IdleSlowHurt1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_yxby6")
+}],
+"loop": true,
+"name": &"IdleSlowHurt2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_n7tba")
+}],
+"loop": true,
+"name": &"IdleSlowHurt3",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"TurnFast",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_l2gp8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ub4mk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_iqakm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5gma7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_iqakm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ub4mk")
+}],
+"loop": true,
+"name": &"TurnNormalHurt0",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3ppqd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_t8vc0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2hg5h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_1ixhl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2hg5h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_t8vc0")
+}],
+"loop": true,
+"name": &"TurnNormalHurt1",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_13f75")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ga2ta")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_yxby6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_xlxmo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_yxby6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ga2ta")
+}],
+"loop": true,
+"name": &"TurnNormalHurt2",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_x8bho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4pdah")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_n7tba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_hjxeb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_n7tba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4pdah")
+}],
+"loop": true,
+"name": &"TurnNormalHurt3",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_5gma7")
+}],
+"loop": true,
+"name": &"TurnSlowHurt0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_1ixhl")
+}],
+"loop": true,
+"name": &"TurnSlowHurt1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_xlxmo")
+}],
+"loop": true,
+"name": &"TurnSlowHurt2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_hjxeb")
+}],
+"loop": true,
+"name": &"TurnSlowHurt3",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MenuPlayer" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_mq5kk")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 14)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_ngsmw")
+animation = &"IdleFastHurt0"
+speed_scale = 2.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-16, 92, 15, 92, 15, 70, 31, 55, 35, 38, 53, -8, 41, -38, 27, -55, 0, -62, -29, -56, -42, -37, -52, -10, -38, 37, -32, 56, -16, 70)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

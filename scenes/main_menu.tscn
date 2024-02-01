@@ -1,19 +1,34 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfuxruit6j00y"]
+[gd_scene load_steps=12 format=3 uid="uid://bfuxruit6j00y"]
 
 [ext_resource type="Script" path="res://scripts/screens/main_menu.gd" id="1_tu54w"]
+[ext_resource type="PackedScene" uid="uid://r7td14jr1dub" path="res://scenes/player_menu.tscn" id="2_78vy3"]
 [ext_resource type="PackedScene" uid="uid://78r8aayx75rh" path="res://scenes/ui/main_menu_button.tscn" id="2_ve7e8"]
 [ext_resource type="Shader" path="res://shaders/options_background.gdshader" id="2_xfwm7"]
-[ext_resource type="FontFile" uid="uid://ca744fnf8qt4u" path="res://fonts/BluebirdLi.otf" id="3_qqr8d"]
+[ext_resource type="FontFile" uid="uid://cdv0ic1x3tfk6" path="res://fonts/BluebirdLi.otf" id="3_qqr8d"]
 [ext_resource type="Texture2D" uid="uid://21hgsa3orbpt" path="res://art/fond_blanc.png" id="3_t2u86"]
+[ext_resource type="PackedScene" uid="uid://g7lyjn81onop" path="res://scenes/components/RectangularBorder.tscn" id="6_k0okb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1dhqd"]
 shader = ExtResource("2_xfwm7")
 shader_parameter/blue = 0.9
 
+[sub_resource type="Curve2D" id="Curve2D_5777h"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -64, -184, 0, 0, 0, 0, 792, -192)
+}
+point_count = 2
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jvods"]
+bounce = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqc2b"]
+size = Vector2(445.5, 388)
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_tu54w")
+MenuPlayer = ExtResource("2_78vy3")
 
 [node name="Background" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_1dhqd")
@@ -70,7 +85,41 @@ theme_override_fonts/font = ExtResource("3_qqr8d")
 theme_override_font_sizes/font_size = 128
 text = "Fall Ducks"
 
+[node name="Border bottom" parent="." instance=ExtResource("6_k0okb")]
+position = Vector2(360, 1500)
+scale = Vector2(3, 3)
+
+[node name="Border left" parent="." instance=ExtResource("6_k0okb")]
+position = Vector2(-430, 600)
+rotation = 1.5708
+scale = Vector2(4, 4)
+
+[node name="Border right" parent="." instance=ExtResource("6_k0okb")]
+position = Vector2(1150, 600)
+rotation = 1.5708
+scale = Vector2(4, 4)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="DuckSpawnPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_5777h")
+
+[node name="DuckSpawnFollow" type="PathFollow2D" parent="DuckSpawnPath"]
+position = Vector2(-64, -184)
+rotation = -0.00934552
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(143, 378)
+physics_material_override = SubResource("PhysicsMaterial_jvods")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(226.25, 196)
+shape = SubResource("RectangleShape2D_hqc2b")
+
 [connection signal="pressed" from="VBoxContainer/SinglePlayerButton" to="." method="_on_single_player_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/CreditButton" to="." method="_on_credit_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_duck"]

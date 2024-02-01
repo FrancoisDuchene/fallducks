@@ -1,5 +1,15 @@
 extends Control
 
+@export var MenuPlayer: PackedScene
+
+func _on_spawn_duck():
+	var new_duck = MenuPlayer.instantiate()
+	var duck_spawn_location = $DuckSpawnPath/DuckSpawnFollow
+	duck_spawn_location.progress_ratio = randf()
+	new_duck.position = duck_spawn_location.position
+	new_duck.rotation = randf() * 2 * PI
+	print("Spawned duck at ", new_duck.position, ", ", new_duck.rotation)
+	add_child(new_duck)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
