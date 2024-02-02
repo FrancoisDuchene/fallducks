@@ -260,7 +260,7 @@ metadata/_edit_group_ = true
 position = Vector2(0, 14)
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_ngsmw")
-animation = &"TurnSlowHurt3"
+animation = &"IdleFastHurt0"
 speed_scale = 2.0
 
 [node name="TouchedSound" type="AudioStreamPlayer" parent="."]

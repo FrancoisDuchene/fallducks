@@ -91,8 +91,8 @@ func _on_player_hit():
 	health_update.emit()
 	if GlobalProperties.sound_on:
 		$TouchedSound.play()
-	#$CollisionPolygon2D.set_deferred("disabled", true) # Disable to avoid receiving lots of hit signals
-	$CollisionPolygon2D.disabled = true
+	$CollisionPolygon2D.set_deferred("disabled", true) # Disable to avoid receiving lots of hit signals
+	#$CollisionPolygon2D.disabled = true
 	if health < 1:
 		hide()
 		dead.emit()
@@ -181,25 +181,13 @@ func choose_sprite(speed, turn, health):
 					else:
 						$AnimatedSprite2D.play("IdleNormalHurt3")
 		"fast":
-			match health:
+			match health: # no animation when the duck turn on fast mode
 				4:
-					if turn:
-						$AnimatedSprite2D.play("TurnFastHurt0")
-					else:
-						$AnimatedSprite2D.play("IdleFastHurt0")
+					$AnimatedSprite2D.play("IdleFastHurt0")
 				3:
-					if turn:
-						$AnimatedSprite2D.play("TurnFastHurt1")
-					else:
-						$AnimatedSprite2D.play("IdleFastHurt1")
+					$AnimatedSprite2D.play("IdleFastHurt1")
 				2:
-					if turn:
-						$AnimatedSprite2D.play("TurnFastHurt2")
-					else:
-						$AnimatedSprite2D.play("IdleFastHurt2")
+					$AnimatedSprite2D.play("IdleFastHurt2")
 				1:
-					if turn:
-						$AnimatedSprite2D.play("TurnFastHurt3")
-					else:
-						$AnimatedSprite2D.play("IdleFastHurt3")
+					$AnimatedSprite2D.play("IdleFastHurt3")
 	
