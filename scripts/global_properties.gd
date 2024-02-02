@@ -1,7 +1,8 @@
 extends Node
 
 
-var audio_on: bool = true
+var sound_on: bool = true
+var music_on: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

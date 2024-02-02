@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://syl0u6sf72n"]
+[gd_scene load_steps=26 format=3 uid="uid://syl0u6sf72n"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_hellx"]
 [ext_resource type="PackedScene" uid="uid://wf8whefloxwv" path="res://scenes/rock_platform.tscn" id="2_ovxpo"]
@@ -6,14 +6,17 @@
 [ext_resource type="Script" path="res://scripts/parallax_background.gd" id="3_6etvc"]
 [ext_resource type="PackedScene" uid="uid://dy0lef1kom6ie" path="res://scenes/hud.tscn" id="3_a325v"]
 [ext_resource type="PackedScene" uid="uid://bihsuf8tbrvrk" path="res://scenes/eddy.tscn" id="3_ku2fx"]
-[ext_resource type="Texture2D" uid="uid://bjjybratv2h86" path="res://art/sprites/background/background-stones.jpg" id="3_rao3p"]
+[ext_resource type="Texture2D" uid="uid://dyvosnar4d1fj" path="res://art/sprites/background/background-stones.jpg" id="3_rao3p"]
+[ext_resource type="PackedScene" uid="uid://c0kbpb4k1v7be" path="res://scenes/tree.tscn" id="4_wvigj"]
+[ext_resource type="PackedScene" uid="uid://clc7g1sml7c7f" path="res://scenes/treeright.tscn" id="5_gbptb"]
 [ext_resource type="Script" path="res://scripts/music.gd" id="7_7g6hg"]
-[ext_resource type="AudioStream" uid="uid://w5xnsfkcq1q3" path="res://art/audio/music/Zazie.mp3" id="7_pexf5"]
-[ext_resource type="AudioStream" uid="uid://b1bbqlixdxmln" path="res://art/audio/sound/perfect_launch.wav" id="8_ljamj"]
-[ext_resource type="PackedScene" uid="uid://t0r5d21tf6g8" path="res://scenes/joystick.tscn" id="11_w8bmd"]
-[ext_resource type="Texture2D" uid="uid://b0w6a3mf67804" path="res://art/sprites/ui/heart-filled.svg" id="12_mrdme"]
-[ext_resource type="Texture2D" uid="uid://ver2ebe2oipl" path="res://art/sprites/ui/heart-empty.svg" id="13_fg8xt"]
-[ext_resource type="Texture2D" uid="uid://bcomupb8v8k6s" path="res://art/sprites/other/oie_qui_te_juge.png" id="12_upwb6"]
+[ext_resource type="AudioStream" uid="uid://c6ykybjy38mgt" path="res://art/audio/music/Zazie.mp3" id="7_pexf5"]
+[ext_resource type="AudioStream" uid="uid://dr11uysxirjms" path="res://art/audio/sound/perfect_launch.wav" id="8_ljamj"]
+[ext_resource type="AudioStream" uid="uid://woo0h1f3j6nq" path="res://art/audio/music/DarxieLand.mp3" id="11_m8pug"]
+[ext_resource type="PackedScene" path="res://scenes/joystick.tscn" id="11_w8bmd"]
+[ext_resource type="Texture2D" uid="uid://d2e0tur4atvmq" path="res://art/sprites/ui/heart-filled.svg" id="12_mrdme"]
+[ext_resource type="Texture2D" uid="uid://cjmwhitsm11x8" path="res://art/sprites/other/oie_qui_te_juge.png" id="12_upwb6"]
+[ext_resource type="Texture2D" uid="uid://c6rynd1vdqb8s" path="res://art/sprites/ui/heart-empty.svg" id="13_fg8xt"]
 
 [sub_resource type="GDScript" id="GDScript_4m0e4"]
 script/source = "extends ParallaxLayer
@@ -35,9 +38,16 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3i3ul"]
+streams_count = 2
+stream_0/stream = ExtResource("7_pexf5")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("11_m8pug")
+stream_1/weight = 1.0
+
 [sub_resource type="Curve2D" id="Curve2D_hcd0y"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 720, 3, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 720, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 2
 
@@ -86,8 +96,8 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(8.6, 9.9)
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(9.5, 9.9)
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
@@ -97,8 +107,8 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(8.6, 9.9)
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(9.5, 9.9)
 }
 
 [sub_resource type="Animation" id="Animation_lv052"]
@@ -146,7 +156,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(5, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(1.5, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.4)
 }
 tracks/4/type = "bezier"
@@ -157,7 +167,7 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(5, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(1.5, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.4)
 }
 
@@ -167,10 +177,18 @@ _data = {
 "goose_dissapear": SubResource("Animation_lv052")
 }
 
+[sub_resource type="Curve2D" id="Curve2D_xghna"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 720, 1080, 0, 0, 0, 0, 0, 1080)
+}
+point_count = 2
+
 [node name="Main" type="Node"]
 script = ExtResource("1_hellx")
 mob_scene = ExtResource("2_ovxpo")
 eagle_scene = ExtResource("3_ku2fx")
+left_tree_scene = ExtResource("4_wvigj")
+right_tree_scene = ExtResource("5_gbptb")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("3_6etvc")
@@ -213,7 +231,7 @@ position = Vector2(640, 1080)
 rotation = 3.14159
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_pexf5")
+stream = SubResource("AudioStreamRandomizer_3i3ul")
 script = ExtResource("7_7g6hg")
 
 [node name="StartSound" type="AudioStreamPlayer" parent="."]
@@ -227,8 +245,8 @@ scale = Vector2(1, 0.00142665)
 curve = SubResource("Curve2D_hcd0y")
 
 [node name="EagleFollowLocation" type="PathFollow2D" parent="EaglePassingBySpawnPath"]
-position = Vector2(720, 3)
-rotation = -3.13743
+position = Vector2(720, 0)
+rotation = 3.14159
 
 [node name="GameEventTimer" type="Timer" parent="."]
 wait_time = 0.01
@@ -246,7 +264,6 @@ libraries = {
 }
 
 [node name="judgingGoose" type="Sprite2D" parent="AnimationPlayerGoose"]
-visible = false
 position = Vector2(339, 1422)
 texture = ExtResource("12_upwb6")
 
@@ -290,6 +307,16 @@ position = Vector2(680, 180)
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("13_fg8xt")
 
+[node name="TreeSpawn" type="Path2D" parent="."]
+curve = SubResource("Curve2D_xghna")
+
+[node name="TreeFollow" type="PathFollow2D" parent="TreeSpawn"]
+position = Vector2(720, 1080)
+rotation = 3.14159
+
+[node name="TreeSpawnTimer" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="launch_game" from="." to="ParallaxBackground" method="_on_main_launch_game"]
 [connection signal="stop_game" from="." to="ParallaxBackground" method="_on__main_stop_game"]
 [connection signal="dead" from="Player" to="." method="_on_player_dead"]
@@ -302,3 +329,4 @@ texture = ExtResource("13_fg8xt")
 [connection signal="finished" from="Music" to="." method="_on_music_finished"]
 [connection signal="timeout" from="GameEventTimer" to="." method="_on_game_event_timer_timeout"]
 [connection signal="timeout" from="EagleSpawnTimer" to="." method="_on_eagle_spawn_timer_timeout"]
+[connection signal="timeout" from="TreeSpawnTimer" to="." method="spawn_tree"]

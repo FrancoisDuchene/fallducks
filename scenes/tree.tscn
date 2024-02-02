@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0kbpb4k1v7be"]
+
+[ext_resource type="Script" path="res://scripts/tree.gd" id="1_23rn3"]
+[ext_resource type="Texture2D" uid="uid://qagdrxal4id7" path="res://art/sprites/other/leftTree.svg" id="1_qevq2"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6yhb4"]
+rough = true
+
+[node name="Tree" type="RigidBody2D"]
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_6yhb4")
+script = ExtResource("1_23rn3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(135, 141)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_qevq2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-16.2641, 575.001)
+scale = Vector2(0.808596, 0.795456)
+polygon = PackedVector2Array(20, -367, 118, -407, 208, -459, 246, -497, 290, -489, 328, -503, 338, -529, 326, -559, 336, -581, 328, -601, 354, -627, 342, -655, 344, -683, 330, -699, 296, -721, 268, -715, 256, -695, 264, -679, 246, -669, 229.847, -654.066, 212, -619, 186, -629, 154, -617, 140, -571, 168, -529, 200, -527, 160, -489, 90, -465, 20, -471)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(135.25, 140.25)
+scale = Vector2(13.575, 14.325)

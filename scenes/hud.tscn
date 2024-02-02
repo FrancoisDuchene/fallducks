@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dy0lef1kom6ie"]
 
 [ext_resource type="Script" path="res://scripts/ui/HUD.gd" id="1_6kagt"]
-[ext_resource type="FontFile" uid="uid://csrjvx1qph86r" path="res://fonts/xolonium/Xolonium-Regular.ttf" id="2_3nsej"]
-[ext_resource type="Texture2D" uid="uid://bk5qvq6agm3my" path="res://art/sprites/character/eagle1.svg" id="3_ktay7"]
+[ext_resource type="FontFile" uid="uid://ca744fnf8qt4u" path="res://fonts/BluebirdLi.otf" id="2_u0384"]
+[ext_resource type="Texture2D" uid="uid://fdwakvwlkf2r" path="res://art/sprites/character/eagle1.svg" id="3_ktay7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bgp1q"]
 animations = [{
@@ -25,15 +25,17 @@ script = ExtResource("1_6kagt")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -45.5
-offset_right = 45.5
-offset_bottom = 155.0
+offset_left = -45.0
+offset_right = 46.0
+offset_bottom = 129.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("2_3nsej")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_u0384")
 theme_override_font_sizes/font_size = 128
 text = "0"
+horizontal_alignment = 2
 
 [node name="Message" type="Label" parent="."]
 anchors_preset = 8
@@ -47,9 +49,12 @@ offset_right = 175.5
 offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_3nsej")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_u0384")
 theme_override_font_sizes/font_size = 64
 text = "FLY BABY"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="StartButton" type="Button" parent="."]
 anchors_preset = 7
@@ -57,12 +62,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -126.0
-offset_top = -119.0
-offset_right = 126.0
+offset_left = -140.0
+offset_top = -150.0
+offset_right = 140.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_3nsej")
+theme_override_fonts/font = ExtResource("2_u0384")
 theme_override_font_sizes/font_size = 92
 text = "Retry"
 
