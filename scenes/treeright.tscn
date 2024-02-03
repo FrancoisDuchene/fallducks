@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://clc7g1sml7c7f"]
 
 [ext_resource type="Script" path="res://scripts/treeright.gd" id="1_csfpl"]
-[ext_resource type="Texture2D" uid="uid://cbhf0m7nj4ny0" path="res://art/sprites/other/rightTree.svg" id="2_jrx8m"]
+[ext_resource type="Texture2D" uid="uid://cgysph86auo3l" path="res://art/sprites/other/rightTree.svg" id="2_jrx8m"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6yhb4"]
 rough = true
@@ -12,16 +12,17 @@ physics_material_override = SubResource("PhysicsMaterial_6yhb4")
 script = ExtResource("1_csfpl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-133, 143)
+position = Vector2(-106, 114)
 rotation = 6.28319
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.32, 0.32)
 texture = ExtResource("2_jrx8m")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-17, 579)
-scale = Vector2(0.808596, 0.795456)
+position = Vector2(-14, 461)
+scale = Vector2(0.642137, 0.631702)
 polygon = PackedVector2Array(20, -367, -143.459, -445.028, -200.347, -501.599, -253.526, -492.799, -288.154, -509.142, -291.864, -540.571, -278.26, -563.199, -290.627, -584.57, -285.68, -607.199, -305.468, -623.542, -306.704, -649.942, -296.811, -658.742, -302.994, -686.399, -284.444, -702.742, -267.13, -725.37, -225.081, -725.37, -210.241, -702.742, -220.135, -681.37, -196.637, -670.056, -189.217, -656.227, -174.376, -639.885, -169.429, -623.542, -148.405, -631.085, -117.488, -621.028, -101.41, -588.342, -108.831, -548.113, -136.038, -527.999, -164.483, -534.285, -85.3331, -473.942, 20, -471)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+visible = false
 position = Vector2(-133, 144)
 scale = Vector2(13.2375, 14.325)

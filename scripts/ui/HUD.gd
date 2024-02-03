@@ -44,7 +44,7 @@ func start_the_game():
 		start_game.emit()
 
 func update_score(score):
-	$ScoreLabel.text = "%.1f m" % score
+	$ScoreLabel.text = "%d m" % score
 	
 func display_eagle_alert():
 	$EagleAlert.play("default")
@@ -52,5 +52,5 @@ func display_eagle_alert():
 func hide_eagle_alert():
 	$EagleAlert.stop()
 	
-
-
+func _on_pause_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
