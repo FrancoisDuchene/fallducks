@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://78r8aayx75rh"]
 
-[ext_resource type="FontFile" uid="uid://bgt0uecru401d" path="res://fonts/BluebirdLi.otf" id="1_gpplm"]
+[ext_resource type="FontFile" uid="uid://cy7eh44sngtks" path="res://fonts/BluebirdLi.otf" id="1_gpplm"]
 
 [node name="MainMenuButton" type="Button"]
 custom_minimum_size = Vector2(450, 90)
