@@ -11,10 +11,11 @@ collision_mask = 0
 physics_material_override = SubResource("PhysicsMaterial_6yhb4")
 script = ExtResource("1_23rn3")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(106.5, 113.827)
+[node name="TreeSprite" type="Sprite2D" parent="."]
+position = Vector2(7.62939e-06, 7.62939e-06)
 scale = Vector2(0.320301, 0.320301)
 texture = ExtResource("1_qevq2")
+offset = Vector2(332.5, 355.375)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(-13, 461)

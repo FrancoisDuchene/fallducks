@@ -18,16 +18,27 @@ func _process(delta):
 	pass
 
 func _ready():
-	# Typically could animate the platform, but it's a rock so what's the point?
-	# Let's leave to the caller of this object the role of changing its horizontal scale
+	# TODO need to change this so that the tree is anchored on the side of the screen
 	gravity_scale = 0
 	constant_force = Vector2.ZERO
 
-func init(initial_duck_speed):
+func init(initial_duck_speed, flip: bool = false):
 	process_speed_update(initial_duck_speed)
+	if flip:
+		flip_scene()
 
 func process_speed_update(duck_speed):
 	var velocity_y = BASE_SCROLLING_VELOCITY * duck_speed
 	self.velocity = Vector2(0, -velocity_y)
 	self.linear_velocity = self.velocity
 
+func flip_scene():
+	var sprite: Sprite2D = $TreeSprite
+	var collision_box: CollisionPolygon2D = $CollisionPolygon2D
+	var collision_polygon: PackedVector2Array = collision_box.polygon
+	var scaler = Vector2(-1, 1)
+	sprite.scale *= scaler
+	for i in collision_polygon.size():
+		collision_polygon.set(i, collision_polygon[i] * scaler)
+	collision_box.polygon = collision_polygon
+	$VisibleOnScreenNotifier2D.scale *= scaler

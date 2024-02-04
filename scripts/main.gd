@@ -8,7 +8,6 @@ signal stop_game
 @export var mob_scene: PackedScene
 @export var eagle_scene: PackedScene
 @export var left_tree_scene: PackedScene
-@export var right_tree_scene: PackedScene
 
 @onready var joystick = $joystick
 
@@ -96,9 +95,9 @@ func spawn_tree():
 		$Player.speed_changed.connect(tree_platform._on_player_speed_changed)
 	# Second flip a coin to see if we generate a tree on right side
 	if randi() % 2 == 0:
-		var tree_platform = right_tree_scene.instantiate()
+		var tree_platform = left_tree_scene.instantiate()
 		tree_platform.position = $RightTreeSpawnLocation.position
-		tree_platform.init(current_duck_speed_state)
+		tree_platform.init(current_duck_speed_state, true)
 		add_child(tree_platform)
 		$Player.speed_changed.connect(tree_platform._on_player_speed_changed)
 
