@@ -87,19 +87,17 @@ func _on_eagle_spawn_timer_timeout():
 func spawn_tree():
 	# First flip a coin to see if we generate a tree on left side
 	if randi() % 2 == 0:
-		var tree_platform = left_tree_scene.instantiate()
-		tree_platform.position = $LeftTreeSpawnLocation.position
-		# base speed was -4*180=-720
-		tree_platform.init(current_duck_speed_state)
-		add_child(tree_platform)
-		$Player.speed_changed.connect(tree_platform._on_player_speed_changed)
+		spawn_individual_tree(false, $LeftTreeSpawnLocation.position)
 	# Second flip a coin to see if we generate a tree on right side
 	if randi() % 2 == 0:
-		var tree_platform = left_tree_scene.instantiate()
-		tree_platform.position = $RightTreeSpawnLocation.position
-		tree_platform.init(current_duck_speed_state, true)
-		add_child(tree_platform)
-		$Player.speed_changed.connect(tree_platform._on_player_speed_changed)
+		spawn_individual_tree(true, $RightTreeSpawnLocation.position)
+
+func spawn_individual_tree(flip: bool, position: Vector2):
+	var tree_platform = left_tree_scene.instantiate()
+	tree_platform.position = position
+	tree_platform.init(current_duck_speed_state, flip)
+	add_child(tree_platform)
+	$Player.speed_changed.connect(tree_platform._on_player_speed_changed)
 
 func spawn_rock():
 	var rock_platform = mob_scene.instantiate()
