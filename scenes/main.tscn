@@ -177,12 +177,6 @@ _data = {
 "goose_dissapear": SubResource("Animation_lv052")
 }
 
-[sub_resource type="Curve2D" id="Curve2D_xghna"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 720, 1080, 0, 0, 0, 0, 0, 1080)
-}
-point_count = 2
-
 [node name="Main" type="Node"]
 script = ExtResource("1_hellx")
 mob_scene = ExtResource("2_ovxpo")
@@ -307,15 +301,14 @@ position = Vector2(680, 180)
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("13_fg8xt")
 
-[node name="TreeSpawn" type="Path2D" parent="."]
-curve = SubResource("Curve2D_xghna")
-
-[node name="TreeFollow" type="PathFollow2D" parent="TreeSpawn"]
-position = Vector2(720, 1080)
-rotation = 3.14159
-
 [node name="TreeSpawnTimer" type="Timer" parent="."]
 wait_time = 4.0
+
+[node name="LeftTreeSpawnLocation" type="Marker2D" parent="."]
+position = Vector2(0, 1088)
+
+[node name="RightTreeSpawnLocation" type="Marker2D" parent="."]
+position = Vector2(720, 1088)
 
 [connection signal="launch_game" from="." to="ParallaxBackground" method="_on_main_launch_game"]
 [connection signal="stop_game" from="." to="ParallaxBackground" method="_on__main_stop_game"]

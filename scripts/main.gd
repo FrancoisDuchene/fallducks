@@ -86,13 +86,10 @@ func _on_eagle_spawn_timer_timeout():
 	add_child(eagle_platform)
 
 func spawn_tree():
-	var tree_spawn_location = $TreeSpawn/TreeFollow
 	# First flip a coin to see if we generate a tree on left side
 	if randi() % 2 == 0:
 		var tree_platform = left_tree_scene.instantiate()
-		tree_spawn_location.progress_ratio = 1.0
-		tree_platform.position = tree_spawn_location.position
-		# This is a RigidBody, it can move by itself if given an initial velocity
+		tree_platform.position = $LeftTreeSpawnLocation.position
 		# base speed was -4*180=-720
 		tree_platform.init(current_duck_speed_state)
 		add_child(tree_platform)
@@ -100,9 +97,7 @@ func spawn_tree():
 	# Second flip a coin to see if we generate a tree on right side
 	if randi() % 2 == 0:
 		var tree_platform = right_tree_scene.instantiate()
-		tree_spawn_location.progress_ratio = 0.0
-		tree_platform.position = tree_spawn_location.position
-		# This is a RigidBody, it can move by itself if given an initial velocity
+		tree_platform.position = $RightTreeSpawnLocation.position
 		tree_platform.init(current_duck_speed_state)
 		add_child(tree_platform)
 		$Player.speed_changed.connect(tree_platform._on_player_speed_changed)
