@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="FallDucks"
-config/version="0.1"
+config/description="A duck that falls"
+config/version="0.2"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.png"
@@ -25,6 +26,7 @@ GlobalProperties="*res://scripts/global_properties.gd"
 window/size/viewport_width=720
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
 window/handheld/orientation=1
 
 [editor]

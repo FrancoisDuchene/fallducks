@@ -16,7 +16,7 @@ func _ready():
 	$Background.material.set_shader_parameter("blue",blue_lotto)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func _on_single_player_button_pressed():

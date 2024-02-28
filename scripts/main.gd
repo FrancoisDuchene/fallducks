@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 const DUCK_SPEED = preload("res://scripts/enums/duck_speed.gd")
 
@@ -21,6 +21,7 @@ const BASE_VELOCITY: float = 1 # m/seconds
 var current_speed = BASE_VELOCITY * DUCK_SPEED.THIS_IS_FINE # m/seconds
 var current_duck_speed_state = DUCK_SPEED.THIS_IS_FINE
 const Max_Screen_Size = 720 # TODO Déterminer de manière dynamique
+var screen_size : Vector2
 
 var nbr_of_death_count = 0
 var score: float # m
@@ -29,6 +30,23 @@ var stats = Stats.new()
 var score_timer_steps = 0 # seconds
 var current_difficulty = 1
 var is_goose_shown = false
+
+func _process(delta):
+	pass
+
+func _ready():
+	# first, reorganize components depending on screen size
+	screen_size = get_viewport_rect().size
+	$AnimationPlayerGoose.fit_goose_to_screen(screen_size)
+	$LeftTreeSpawnLocation.position.y = screen_size.y
+	$RightTreeSpawnLocation.position.y = screen_size.y
+	$BottomRockSpawnPath.fit_to_screen(screen_size)
+	joystick.fit_to_screen(screen_size)
+	
+	# then setup timer
+	score_timer_steps = $ScoreTimer.wait_time
+	# finally start the game
+	$HUD.start_the_game()
 
 func _on_hud_start_game():
 	new_game()
@@ -131,13 +149,6 @@ func _on_start_delay_timer_timeout():
 func _on_player_speed_changed(duck_speed):
 	current_speed = BASE_VELOCITY * duck_speed
 	current_duck_speed_state = duck_speed
-
-func _process(delta):
-	pass
-
-func _ready():
-	score_timer_steps = $ScoreTimer.wait_time
-	$HUD.start_the_game()
 	
 func game_over():
 	if GlobalProperties.music_on:

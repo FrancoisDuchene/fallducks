@@ -20,7 +20,8 @@ script = ExtResource("1_8ruiv")
 
 [node name="Background" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_1tjak")
-position = Vector2(360, 540)
+position = Vector2(360, 1000)
+scale = Vector2(1, 1.852)
 texture = ExtResource("3_27xtc")
 
 [node name="Credits" type="Label" parent="."]
@@ -29,9 +30,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -223.0
-offset_top = 20.0
+offset_top = 30.0
 offset_right = 223.0
-offset_bottom = 149.0
+offset_bottom = 159.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("4_waqjv")
 theme_override_font_sizes/font_size = 128
@@ -45,9 +46,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -204.0
-offset_top = -96.0
+offset_top = -110.0
 offset_right = 204.0
-offset_bottom = -23.0
+offset_bottom = -36.9985
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("4_waqjv")
@@ -62,9 +63,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
+offset_left = -260.0
 offset_top = -250.0
-offset_right = 250.0
+offset_right = 270.0
 offset_bottom = 350.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -83,10 +84,29 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/normal_font = ExtResource("4_waqjv")
 theme_override_font_sizes/normal_font_size = 16
-text = "Music 
+text = "Musics
 \"Zazie\", \"Darxieland\" Kevin MacLeod (incompetech.com)
 Licensed under Creative Commons: By Attribution 4.0 License
 http://creativecommons.org/licenses/by/4.0/"
+
+[node name="madewithlove" type="Label" parent="ControlText"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -187.5
+offset_top = -147.0
+offset_right = 187.5
+offset_bottom = -93.9999
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_waqjv")
+theme_override_font_sizes/font_size = 24
+text = "Made with in love in one weekend
+By "
+horizontal_alignment = 1
 
 [node name="noms" type="Label" parent="ControlText"]
 layout_mode = 1
@@ -108,25 +128,6 @@ Docteur Soubri
 Inspecteur Charo
 Maitre Septante
 Scientiste Osmose"
-horizontal_alignment = 1
-
-[node name="madewithlove" type="Label" parent="ControlText"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -131.5
-offset_top = -145.0
-offset_right = 131.5
-offset_bottom = -95.9999
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_waqjv")
-theme_override_font_sizes/font_size = 24
-text = "Made with in love in one weekend
-By "
 horizontal_alignment = 1
 
 [node name="Youtube" type="LinkButton" parent="ControlText"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://syl0u6sf72n"]
+[gd_scene load_steps=26 format=3 uid="uid://syl0u6sf72n"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_hellx"]
 [ext_resource type="PackedScene" uid="uid://wf8whefloxwv" path="res://scenes/rock_platform.tscn" id="2_ovxpo"]
@@ -11,11 +11,13 @@
 [ext_resource type="Script" path="res://scripts/music.gd" id="7_7g6hg"]
 [ext_resource type="AudioStream" uid="uid://w5xnsfkcq1q3" path="res://art/audio/music/Zazie.mp3" id="7_pexf5"]
 [ext_resource type="AudioStream" uid="uid://b1bbqlixdxmln" path="res://art/audio/sound/perfect_launch.wav" id="8_ljamj"]
+[ext_resource type="Script" path="res://scripts/BottomRockSpawnPath.gd" id="9_hpbi3"]
 [ext_resource type="AudioStream" uid="uid://bhaf6uxs5lg0f" path="res://art/audio/music/DarxieLand.mp3" id="11_m8pug"]
-[ext_resource type="PackedScene" path="res://scenes/joystick.tscn" id="11_w8bmd"]
+[ext_resource type="PackedScene" uid="uid://dhrl78ugdwu2i" path="res://scenes/joystick.tscn" id="11_w8bmd"]
 [ext_resource type="Texture2D" uid="uid://b0w6a3mf67804" path="res://art/sprites/ui/heart-filled.svg" id="12_mrdme"]
 [ext_resource type="Texture2D" uid="uid://bcomupb8v8k6s" path="res://art/sprites/other/oie_qui_te_juge.png" id="12_upwb6"]
 [ext_resource type="Texture2D" uid="uid://ver2ebe2oipl" path="res://art/sprites/ui/heart-empty.svg" id="13_fg8xt"]
+[ext_resource type="Script" path="res://scripts/AnimationPlayerGoose.gd" id="14_5kq0c"]
 
 [sub_resource type="GDScript" id="GDScript_4m0e4"]
 script/source = "extends ParallaxLayer
@@ -176,7 +178,7 @@ _data = {
 "goose_dissapear": SubResource("Animation_lv052")
 }
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node2D"]
 script = ExtResource("1_hellx")
 mob_scene = ExtResource("2_ovxpo")
 eagle_scene = ExtResource("3_ku2fx")
@@ -193,7 +195,7 @@ script = SubResource("GDScript_4m0e4")
 
 [node name="Background-stones" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture_repeat = 2
-position = Vector2(360, 1084)
+position = Vector2(360, 1077)
 scale = Vector2(0.3125, 0.352865)
 texture = ExtResource("3_rao3p")
 
@@ -217,6 +219,7 @@ position = Vector2(360, 303)
 
 [node name="BottomRockSpawnPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_blw52")
+script = ExtResource("9_hpbi3")
 
 [node name="RockFollowLocation" type="PathFollow2D" parent="BottomRockSpawnPath"]
 position = Vector2(640, 1080)
@@ -254,6 +257,7 @@ position = Vector2(366, 886)
 libraries = {
 "": SubResource("AnimationLibrary_eefdh")
 }
+script = ExtResource("14_5kq0c")
 
 [node name="judgingGoose" type="Sprite2D" parent="AnimationPlayerGoose"]
 position = Vector2(339, 1422)
@@ -315,7 +319,6 @@ position = Vector2(720, 1088)
 [connection signal="hit" from="Player" to="Player" method="_on_player_hit"]
 [connection signal="start_game" from="HUD" to="." method="_on_hud_start_game"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
-[connection signal="timeout" from="SpawnRockPlatformTimer" to="." method="_on_spawn_rock_platform_timer_timeout"]
 [connection signal="timeout" from="StartDelayTimer" to="." method="_on_start_delay_timer_timeout"]
 [connection signal="finished" from="Music" to="." method="_on_music_finished"]
 [connection signal="timeout" from="GameEventTimer" to="." method="_on_game_event_timer_timeout"]

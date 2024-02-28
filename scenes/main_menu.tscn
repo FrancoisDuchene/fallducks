@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://r7td14jr1dub" path="res://scenes/player_menu.tscn" id="2_78vy3"]
 [ext_resource type="PackedScene" uid="uid://78r8aayx75rh" path="res://scenes/ui/main_menu_button.tscn" id="2_ve7e8"]
 [ext_resource type="Shader" path="res://shaders/options_background.gdshader" id="2_xfwm7"]
-[ext_resource type="FontFile" uid="uid://cy7eh44sngtks" path="res://fonts/BluebirdLi.otf" id="3_qqr8d"]
+[ext_resource type="FontFile" uid="uid://ca744fnf8qt4u" path="res://fonts/BluebirdLi.otf" id="3_qqr8d"]
 [ext_resource type="Texture2D" uid="uid://21hgsa3orbpt" path="res://art/fond_blanc.png" id="3_t2u86"]
 [ext_resource type="PackedScene" uid="uid://g7lyjn81onop" path="res://scenes/components/RectangularBorder.tscn" id="6_k0okb"]
 
@@ -32,7 +32,8 @@ MenuPlayer = ExtResource("2_78vy3")
 
 [node name="Background" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_1dhqd")
-position = Vector2(360, 540)
+position = Vector2(360, 1000)
+scale = Vector2(1, 1.85185)
 texture = ExtResource("3_t2u86")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -75,9 +76,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 85.0
-offset_top = 1.0
+offset_top = 30.0
 offset_right = 686.0
-offset_bottom = 152.0
+offset_bottom = 181.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -86,18 +87,18 @@ theme_override_font_sizes/font_size = 128
 text = "Fall Ducks"
 
 [node name="Border bottom" parent="." instance=ExtResource("6_k0okb")]
-position = Vector2(360, 1500)
+position = Vector2(360, 1900)
 scale = Vector2(3, 3)
 
 [node name="Border left" parent="." instance=ExtResource("6_k0okb")]
-position = Vector2(-430, 600)
+position = Vector2(-430, 670)
 rotation = 1.5708
-scale = Vector2(4, 4)
+scale = Vector2(5.4, 4)
 
 [node name="Border right" parent="." instance=ExtResource("6_k0okb")]
-position = Vector2(1150, 600)
+position = Vector2(1150, 670)
 rotation = 1.5708
-scale = Vector2(4, 4)
+scale = Vector2(5.4, 4)
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 3.0
