@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://syl0u6sf72n"]
+[gd_scene load_steps=24 format=3 uid="uid://syl0u6sf72n"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_hellx"]
 [ext_resource type="PackedScene" uid="uid://wf8whefloxwv" path="res://scenes/rock_platform.tscn" id="2_ovxpo"]
@@ -14,9 +14,7 @@
 [ext_resource type="Script" path="res://scripts/BottomRockSpawnPath.gd" id="9_hpbi3"]
 [ext_resource type="AudioStream" uid="uid://bhaf6uxs5lg0f" path="res://art/audio/music/DarxieLand.mp3" id="11_m8pug"]
 [ext_resource type="PackedScene" uid="uid://dhrl78ugdwu2i" path="res://scenes/joystick.tscn" id="11_w8bmd"]
-[ext_resource type="Texture2D" uid="uid://b0w6a3mf67804" path="res://art/sprites/ui/heart-filled.svg" id="12_mrdme"]
 [ext_resource type="Texture2D" uid="uid://bcomupb8v8k6s" path="res://art/sprites/other/oie_qui_te_juge.png" id="12_upwb6"]
-[ext_resource type="Texture2D" uid="uid://ver2ebe2oipl" path="res://art/sprites/ui/heart-empty.svg" id="13_fg8xt"]
 [ext_resource type="Script" path="res://scripts/AnimationPlayerGoose.gd" id="14_5kq0c"]
 
 [sub_resource type="GDScript" id="GDScript_4m0e4"]
@@ -262,46 +260,6 @@ script = ExtResource("14_5kq0c")
 [node name="judgingGoose" type="Sprite2D" parent="AnimationPlayerGoose"]
 position = Vector2(339, 1422)
 texture = ExtResource("12_upwb6")
-
-[node name="Heartfilled" type="Sprite2D" parent="."]
-position = Vector2(680, 45)
-scale = Vector2(0.08, 0.08)
-texture = ExtResource("12_mrdme")
-
-[node name="Heartfilled2" type="Sprite2D" parent="."]
-position = Vector2(680, 90)
-scale = Vector2(0.08, 0.08)
-texture = ExtResource("12_mrdme")
-
-[node name="Heartfilled3" type="Sprite2D" parent="."]
-position = Vector2(680, 135)
-scale = Vector2(0.08, 0.08)
-texture = ExtResource("12_mrdme")
-
-[node name="Heartfilled4" type="Sprite2D" parent="."]
-position = Vector2(680, 180)
-scale = Vector2(0.08, 0.08)
-texture = ExtResource("12_mrdme")
-
-[node name="Heart-empty" type="Sprite2D" parent="."]
-position = Vector2(680, 45)
-scale = Vector2(0.08, 0.08)
-texture = ExtResource("13_fg8xt")
-
-[node name="Heart-empty2" type="Sprite2D" parent="."]
-position = Vector2(680, 90)
-scale = Vector2(0.08, 0.08)
-texture = ExtResource("13_fg8xt")
-
-[node name="Heart-empty3" type="Sprite2D" parent="."]
-position = Vector2(680, 135)
-scale = Vector2(0.08, 0.08)
-texture = ExtResource("13_fg8xt")
-
-[node name="Heart-empty4" type="Sprite2D" parent="."]
-position = Vector2(680, 180)
-scale = Vector2(0.08, 0.08)
-texture = ExtResource("13_fg8xt")
 
 [node name="TreeSpawnTimer" type="Timer" parent="."]
 wait_time = 4.0

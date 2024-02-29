@@ -22,6 +22,7 @@ var current_speed = BASE_VELOCITY * DUCK_SPEED.THIS_IS_FINE # m/seconds
 var current_duck_speed_state = DUCK_SPEED.THIS_IS_FINE
 const Max_Screen_Size = 720 # TODO Déterminer de manière dynamique
 var screen_size : Vector2
+const max_health = 4
 
 var nbr_of_death_count = 0
 var score: float # m
@@ -31,7 +32,7 @@ var score_timer_steps = 0 # seconds
 var current_difficulty = 1
 var is_goose_shown = false
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 func _ready():
@@ -182,10 +183,7 @@ func _on_player_health_update():
 	handle_hearts()
 
 func handle_hearts():
-	$Heartfilled.visible = $Player.health >= 1
-	$Heartfilled2.visible = $Player.health >= 2
-	$Heartfilled3.visible = $Player.health >= 3
-	$Heartfilled4.visible = $Player.health >= 4
+	$HUD.handle_hearts($Player.health, $Player.MAX_HEALTH)
 		
 
 func _on_music_finished():

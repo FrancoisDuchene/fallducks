@@ -83,7 +83,7 @@ func _process(delta):
 	position = position.clamp(Vector2.ZERO, screen_size)
 	pos_x = position2.x
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	hit.emit()
 
 func _on_player_hit():

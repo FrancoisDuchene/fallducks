@@ -3,6 +3,7 @@ extends CanvasLayer
 # Notifies 'Main' node that the button has been pressed
 signal start_game
 
+var state_machine_hearts : AnimationNodeStateMachinePlayback
 var game_is_active: bool = false
 
 func _input(event):
@@ -13,10 +14,31 @@ func _on_message_timer_timeout():
 	$Message.hide()
 
 func _on_start_button_pressed():
+	state_machine_hearts.travel("reset_life")
 	start_the_game()
+	
+func _ready():
+	state_machine_hearts = $AnimationTreeHearts["parameters/playback"]
+	state_machine_hearts.start("Full_health", true)
 
-func _process(_delta):
-	pass
+func start_the_game():
+	if !game_is_active:
+		state_machine_hearts.travel("reset_life")
+		$StartButton.hide()
+		game_is_active = true
+		start_game.emit()
+
+func handle_hearts(health: int, max_health: int):
+	if (health >= max_health):
+		state_machine_hearts.travel("reset_life", false)
+	elif (health >= 3):
+		state_machine_hearts.travel("four_2_three")
+	elif (health >= 2):
+		state_machine_hearts.travel("three_2_two")
+	elif (health >= 1):
+		state_machine_hearts.travel("two_2_one")
+	else:
+		state_machine_hearts.travel("one_2_zero")
 
 func show_game_over():
 	show_message("Game Over", true)
@@ -36,12 +58,6 @@ func show_message(text, use_message_timer: bool):
 	$Message.show()
 	if use_message_timer:
 		$MessageTimer.start()
-
-func start_the_game():
-	if !game_is_active:
-		$StartButton.hide()
-		game_is_active = true
-		start_game.emit()
 
 func update_score(score):
 	$ScoreLabel.text = "%d m" % score

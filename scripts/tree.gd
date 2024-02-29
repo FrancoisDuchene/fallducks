@@ -14,7 +14,7 @@ func _on_player_speed_changed(duck_speed):
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 func _ready():
