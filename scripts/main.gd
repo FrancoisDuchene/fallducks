@@ -20,7 +20,7 @@ var event_timer_timeout_id = 0
 const BASE_VELOCITY: float = 1 # m/seconds
 var current_speed = BASE_VELOCITY * DUCK_SPEED.THIS_IS_FINE # m/seconds
 var current_duck_speed_state = DUCK_SPEED.THIS_IS_FINE
-const Max_Screen_Size = 720 # TODO Déterminer de manière dynamique
+var Max_Screen_Size_width : int
 var screen_size : Vector2
 const max_health = 4
 
@@ -38,6 +38,7 @@ func _process(_delta):
 func _ready():
 	# first, reorganize components depending on screen size
 	screen_size = get_viewport_rect().size
+	Max_Screen_Size_width = screen_size.x
 	$AnimationPlayerGoose.fit_goose_to_screen(screen_size)
 	$LeftTreeSpawnLocation.position.y = screen_size.y
 	$RightTreeSpawnLocation.position.y = screen_size.y
@@ -48,6 +49,35 @@ func _ready():
 	score_timer_steps = $ScoreTimer.wait_time
 	# finally start the game
 	$HUD.start_the_game()
+	
+func game_over():
+	#print(str(event_timer_timeout_id))
+	if GlobalProperties.music_on:
+		$Music.stop()
+	$ScoreTimer.stop()
+	$SpawnRockPlatformTimer.stop()
+	$GameEventTimer.stop()
+	$TreeSpawnTimer.stop()
+	$HUD.show_game_over()
+	nbr_of_death_count += 1
+	if (nbr_of_death_count > 5 or score <= 100) and randi_range(0,2) == 0:
+		make_judging_goose_appears()
+	if stats.update_high_score(score):
+		print("New high score of %d !!" % score)
+	stop_game.emit()
+
+func new_game():
+	score = 0
+	get_tree().call_group("mobs", "queue_free")
+	$Player.start($DuckStartPosition.position)
+	$StartDelayTimer.start()
+	$HUD.update_score(score)
+	$HUD.show_message("Get Ready", true)
+	if is_goose_shown:
+		$AnimationPlayerGoose.play("goose_dissapear")
+		is_goose_shown = false
+	launch_game.emit()
+	handle_hearts()
 
 func _on_hud_start_game():
 	new_game()
@@ -97,7 +127,8 @@ func _on_eagle_spawn_timer_timeout():
 	# Choose random x location, along the path
 	var eagle_spawn_location = $EaglePassingBySpawnPath/EagleFollowLocation
 	var size = get_tree().get_root().size
-	eagle_spawn_location.progress_ratio = 1 - ($Player.pos_x/Max_Screen_Size)
+	eagle_spawn_location.progress_ratio = 1 - (clamp($Player.pos_x,0,Max_Screen_Size_width)/Max_Screen_Size_width)
+	#print("player posx " + str($Player.pos_x) + " | mss " + str(Max_Screen_Size_width) + " | " + str(eagle_spawn_location.position) + " | " + str(eagle_spawn_location.progress_ratio))
 	eagle_platform.position = eagle_spawn_location.position
 	# This is a RigidBody, it can move by itself if given an initial velocity
 	eagle_platform.linear_velocity = Vector2(0, scrolling_velocity)
@@ -150,41 +181,12 @@ func _on_start_delay_timer_timeout():
 func _on_player_speed_changed(duck_speed):
 	current_speed = BASE_VELOCITY * duck_speed
 	current_duck_speed_state = duck_speed
-	
-func game_over():
-	if GlobalProperties.music_on:
-		$Music.stop()
-	$ScoreTimer.stop()
-	$SpawnRockPlatformTimer.stop()
-	$GameEventTimer.stop()
-	$TreeSpawnTimer.stop()
-	$HUD.show_game_over()
-	nbr_of_death_count += 1
-	if (nbr_of_death_count > 5 or score <= 100) and randi_range(0,2) == 0:
-		make_judging_goose_appears()
-	if stats.update_high_score(score):
-		print("New high score of %d !!" % score)
-	stop_game.emit()
-
-func new_game():
-	score = 0
-	get_tree().call_group("mobs", "queue_free")
-	$Player.start($DuckStartPosition.position)
-	$StartDelayTimer.start()
-	$HUD.update_score(score)
-	$HUD.show_message("Get Ready", true)
-	if is_goose_shown:
-		$AnimationPlayerGoose.play("goose_dissapear")
-		is_goose_shown = false
-	launch_game.emit()
-	handle_hearts()
 
 func _on_player_health_update():
 	handle_hearts()
 
 func handle_hearts():
 	$HUD.handle_hearts($Player.health, $Player.MAX_HEALTH)
-		
 
 func _on_music_finished():
 	if GlobalProperties.music_on:

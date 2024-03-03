@@ -87,12 +87,12 @@ func _on_body_entered(_body):
 	hit.emit()
 
 func _on_player_hit():
+	#print("HIT bh " + str(health))
 	health -= 1
+	$CollisionPolygon2D.set_deferred("disabled", true) # Disable to avoid receiving lots of hit signals
 	health_update.emit()
 	if GlobalProperties.sound_on:
 		$TouchedSound.play()
-	$CollisionPolygon2D.set_deferred("disabled", true) # Disable to avoid receiving lots of hit signals
-	#$CollisionPolygon2D.disabled = true
 	if health < 1:
 		hide()
 		dead.emit()
