@@ -1,0 +1,5 @@
+PRIVACY POLICY
+---------------
+
+Our privacy policy is pretty simple: we don't collect or store any of your data, or track your usage in any way.
+This is a strictly local application that does not use any online services.
