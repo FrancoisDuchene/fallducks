@@ -199,6 +199,7 @@ texture = ExtResource("3_rao3p")
 
 [node name="Player" parent="." instance=ExtResource("2_whd6n")]
 position = Vector2(355, 250)
+scale = Vector2(0.8, 0.8)
 
 [node name="HUD" parent="." instance=ExtResource("3_a325v")]
 
